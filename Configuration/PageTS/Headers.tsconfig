@@ -1,0 +1,15 @@
+TCEFORM.tt_content.header_layout {
+    altLabels {
+        0 = Default
+        1 = Header 1 (H1)
+        2 = Header 2 (H2)
+        3 = Header 3 (H3)
+        4 = Header 4 (H4)
+        5 = Header 5 (H5)
+        6 = Header 6 (H6)
+    }
+    addItems {
+        6 = Header 6 (H6)
+    }
+    removeItems = 
+}
