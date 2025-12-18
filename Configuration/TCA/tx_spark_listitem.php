@@ -20,6 +20,9 @@ return [
         'searchFields' => 'header,bodytext',
         'type' => 'item_type',
         'sortby' => 'sorting',
+        'security' => [
+            'ignorePageTypeRestriction' => true,
+        ],
     ],
     'types' => [
         'default' => [
