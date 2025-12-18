@@ -1,28 +1,37 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:variable name="positionClass">
+    <f:switch expression="{data.header_position}">
+        <f:case value="center">text-center</f:case>
+        <f:case value="right">text-end</f:case>
+        <f:case value="left">text-start</f:case>
+        <f:defaultCase></f:defaultCase>
+    </f:switch>
+</f:variable>
+
 <f:switch expression="{data.header_layout}">
     <f:case value="1">
-        <h1 class="{data.header_position}">{data.header}</h1>
+        <h1 class="{positionClass} {data.header_class}">{data.header}</h1>
     </f:case>
     <f:case value="2">
-        <h2 class="{data.header_position}">{data.header}</h2>
+        <h2 class="{positionClass} {data.header_class}">{data.header}</h2>
     </f:case>
     <f:case value="3">
-        <h3 class="{data.header_position}">{data.header}</h3>
+        <h3 class="{positionClass} {data.header_class}">{data.header}</h3>
     </f:case>
     <f:case value="4">
-        <h4 class="{data.header_position}">{data.header}</h4>
+        <h4 class="{positionClass} {data.header_class}">{data.header}</h4>
     </f:case>
     <f:case value="5">
-        <h5 class="{data.header_position}">{data.header}</h5>
+        <h5 class="{positionClass} {data.header_class}">{data.header}</h5>
     </f:case>
     <f:case value="6">
-        <h6 class="{data.header_position}">{data.header}</h6>
+        <h6 class="{positionClass} {data.header_class}">{data.header}</h6>
     </f:case>
     <f:case value="100">
         <f:comment>Hidden</f:comment>
     </f:case>
     <f:defaultCase>
-        <h2 class="{data.header_position}">{data.header}</h2>
+        <h2 class="{positionClass} {data.header_class}">{data.header}</h2>
     </f:defaultCase>
 </f:switch>
 

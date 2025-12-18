@@ -1,6 +1,15 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:variable name="positionClass">
+    <f:switch expression="{data.header_position}">
+        <f:case value="center">text-center</f:case>
+        <f:case value="right">text-end</f:case>
+        <f:case value="left">text-start</f:case>
+        <f:defaultCase></f:defaultCase>
+    </f:switch>
+</f:variable>
+
 <f:if condition="{data.subheader}">
-    <div class="subheader {data.header_position}">
+    <div class="subheader {positionClass} {data.subheader_class}">
         {data.subheader}
     </div>
 </f:if>
