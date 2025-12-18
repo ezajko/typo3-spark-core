@@ -1,0 +1,16 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:variable name="content">
+    <div class="flex-shrink-0">
+        <f:if condition="{item.files}">
+            <f:image image="{item.files.0}" class="rounded" width="48c" height="48c"
+                style="width: 48px; height: 48px; object-fit: cover;" />
+        </f:if>
+    </div>
+    <div class="flex-grow-1 ms-3">
+        <div class="fw-bold">{item.data.header}</div>
+        <div class="small text-muted">{item.data.bodytext}</div>
+    </div>
+</f:variable>
+<f:render partial="ListGroup/LinkWrapper" arguments="{item: item, content: content}" />
+
+</html>
