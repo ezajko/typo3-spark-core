@@ -10,7 +10,9 @@
                 <f:switch expression="{item.data.item_type}">
                     <f:comment>Simple List Item</f:comment>
                     <f:case value="default">
-                        <f:render section="ListItemLink" arguments="{item: item, content: item.data.header}" />
+                        <f:render section="ListItemLink" arguments="{item: item}">
+                            {item.data.header}
+                        </f:render>
                     </f:case>
 
                     <f:comment>Icon Item</f:comment>
@@ -88,18 +90,12 @@
         <f:then>
             <f:link.typolink parameter="{item.data.link}"
                 class="list-group-item list-group-item-action d-flex align-items-center {activeClass} {extraClass}">
-                <f:if condition="{content}">
-                    <f:then>{content}</f:then>
-                    <f:else>{contentAsArgument -> f:format.raw()}</f:else>
-                </f:if>
+                {content -> f:format.raw()}
             </f:link.typolink>
         </f:then>
         <f:else>
             <div class="list-group-item list-group-item-action d-flex align-items-center {activeClass} {extraClass}">
-                <f:if condition="{content}">
-                    <f:then>{content}</f:then>
-                    <f:else>{contentAsArgument -> f:format.raw()}</f:else>
-                </f:if>
+                {content -> f:format.raw()}
             </div>
         </f:else>
     </f:if>

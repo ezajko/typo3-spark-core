@@ -11,6 +11,20 @@ tt_content.listgroup {
             where.dataWrap = tt_content=|
             orderBy = sorting
             as = items
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = image
+                    as = files
+                }
+                20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                20 {
+                    references.fieldName = file_reference
+                    # Merge with files to use same variable in template easily, or use distinct if needed. 
+                    # Template uses item.files.0 for both.
+                    as = files
+                }
+            }
         }
     }
 }
