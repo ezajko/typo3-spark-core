@@ -32,13 +32,15 @@ page {
         }
 
         templateRootPaths {
-            0 = EXT:spark_core/Resources/Private/Templates/Page/
+            10 = EXT:spark_core/Resources/Private/Templates/Page/
         }
         partialRootPaths {
-            0 = EXT:spark_core/Resources/Private/Partials/
+            10 = EXT:spark_core/Resources/Private/Partials/
+            20 = {$styles.templates.partialRootPath}
         }
         layoutRootPaths {
-            0 = EXT:spark_core/Resources/Private/Layouts/
+            10 = EXT:spark_core/Resources/Private/Layouts/
+            20 = {$styles.templates.layoutRootPath}
         }
 
         # Data Processing

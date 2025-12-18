@@ -6,9 +6,11 @@
 
 lib.contentElement {
     templateRootPaths {
+        10 = EXT:spark_core/Resources/Private/Templates/ContentElements/
         20 = {$styles.templates.templateRootPath}
     }
     partialRootPaths {
+        10 = EXT:spark_core/Resources/Private/Partials/
         20 = {$styles.templates.partialRootPath}
     }
     includeJSFooter {
