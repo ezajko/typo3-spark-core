@@ -2,7 +2,7 @@
 
 defined('TYPO3') or die();
 
-// Add frame_layout and debug field
+// Add frame_layout, debug field, header_class, subheader_class
 $temporaryColumns = [
     'frame_layout' => [
         'exclude' => true,
@@ -36,11 +36,59 @@ $temporaryColumns = [
             ],
         ],
     ],
+    'header_class' => [
+        'exclude' => true,
+        'label' => 'Header Class (Visual Level)',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['label' => 'Default', 'value' => ''],
+                ['label' => 'Header 1 (h1)', 'value' => 'h1'],
+                ['label' => 'Header 2 (h2)', 'value' => 'h2'],
+                ['label' => 'Header 3 (h3)', 'value' => 'h3'],
+                ['label' => 'Header 4 (h4)', 'value' => 'h4'],
+                ['label' => 'Header 5 (h5)', 'value' => 'h5'],
+            ],
+        ],
+    ],
+    'subheader_class' => [
+        'exclude' => true,
+        'label' => 'Subheader Class (Visual Level)',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['label' => 'Default', 'value' => ''],
+                ['label' => 'Header 1 (h1)', 'value' => 'h1'],
+                ['label' => 'Header 2 (h2)', 'value' => 'h2'],
+                ['label' => 'Header 3 (h3)', 'value' => 'h3'],
+                ['label' => 'Header 4 (h4)', 'value' => 'h4'],
+                ['label' => 'Header 5 (h5)', 'value' => 'h5'],
+                ['label' => 'Lead (lead)', 'value' => 'lead'],
+            ],
+        ],
+    ],
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumns);
 
-// Add fields to appearance palette
+// Update Palette: Headers
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    'tt_content',
+    'headers',
+    'header_class',
+    'after:header_layout'
+);
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
+    'tt_content',
+    'headers',
+    'subheader_class',
+    'after:subheader'
+);
+
+// Update Palette: Frames
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'tt_content',
     'frames',
