@@ -4,6 +4,9 @@
 # Import Setup Modules
 @import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
 
+# Content Elements
+@import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/ListGroup.typoscript'
+
 lib.contentElement {
     templateRootPaths {
         50 = EXT:spark_core/Resources/Private/Templates/ContentElements/

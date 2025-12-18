@@ -1,0 +1,16 @@
+tt_content.listgroup >
+tt_content.listgroup =< lib.contentElement
+tt_content.listgroup {
+    templateName = ListGroup
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        10 {
+            table = tx_spark_listitem
+            pidInList = this
+            where.field = uid
+            where.dataWrap = tt_content=|
+            orderBy = sorting
+            as = items
+        }
+    }
+}
