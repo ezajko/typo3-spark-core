@@ -7,97 +7,10 @@
     <f:if condition="{items}">
         <div class="list-group">
             <f:for each="{items}" as="item">
-                <f:switch expression="{item.data.item_type}">
-                    <f:comment>Simple List Item</f:comment>
-                    <f:case value="default">
-                        <f:render section="ListItemLink" arguments="{item: item}">
-                            {item.data.header}
-                        </f:render>
-                    </f:case>
-
-                    <f:comment>Icon Item</f:comment>
-                    <f:case value="icon">
-                        <f:render section="ListItemLink" arguments="{item: item}">
-                            <i class="{item.data.icon} me-3 fs-5"></i>
-                            <div>{item.data.header}</div>
-                        </f:render>
-                    </f:case>
-
-                    <f:comment>Image Item</f:comment>
-                    <f:case value="image">
-                        <f:render section="ListItemLink" arguments="{item: item}">
-                            <div class="flex-shrink-0">
-                                <f:if condition="{item.files}">
-                                    <f:image image="{item.files.0}" class="rounded" width="48c" height="48c"
-                                        style="width: 48px; height: 48px; object-fit: cover;" />
-                                </f:if>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <div class="fw-bold">{item.data.header}</div>
-                                <div class="small text-muted">{item.data.bodytext}</div>
-                            </div>
-                        </f:render>
-                    </f:case>
-
-                    <f:comment>Contact Item</f:comment>
-                    <f:case value="contact">
-                        <f:variable name="iconClass" value="bi-envelope" />
-                        <f:if condition="{item.data.contact_type} == 'phone'">
-                            <f:variable name="iconClass" value="bi-telephone" />
-                        </f:if>
-                        <f:if condition="{item.data.contact_type} == 'address'">
-                            <f:variable name="iconClass" value="bi-geo-alt" />
-                        </f:if>
-                        <f:if condition="{item.data.contact_type} == 'website'">
-                            <f:variable name="iconClass" value="bi-globe" />
-                        </f:if>
-
-                        <f:render section="ListItemLink" arguments="{item: item, extraClass: 'contact-list-item'}">
-                            <div class="flex-shrink-0 bg-light rounded-circle d-flex align-items-center justify-content-center me-3"
-                                style="width: 40px; height: 40px;">
-                                <i class="bi {iconClass} text-primary"></i>
-                            </div>
-                            <div class="flex-grow-1 text-break">{item.data.bodytext}</div>
-                        </f:render>
-                    </f:case>
-
-                    <f:comment>File Item</f:comment>
-                    <f:case value="file">
-                        <f:render section="ListItemLink" arguments="{item: item, extraClass: 'file-list-item'}">
-                            <div class="d-flex align-items-center w-100">
-                                <i class="bi bi-file-earmark-text text-primary me-3 fs-3"></i>
-                                <div class="flex-grow-1">
-                                    <div class="fw-medium text-dark">{item.data.header}</div>
-                                    <f:if condition="{item.files.0}">
-                                        <small class="text-muted text-uppercase">{item.files.0.extension} •
-                                            <f:format.bytes value="{item.files.0.originalFile.size}" />
-                                        </small>
-                                    </f:if>
-                                </div>
-                                <i class="bi bi-download text-muted ms-3"></i>
-                            </div>
-                        </f:render>
-                    </f:case>
-                </f:switch>
+                <f:render partial="ListGroup/Item/{item.data.item_type -> f:format.case(mode: 'capital')}"
+                    arguments="{item: item}" />
             </f:for>
         </div>
-    </f:if>
-</f:section>
-
-<f:section name="ListItemLink">
-    <f:variable name="activeClass">{f:if(condition: item.current, then: 'active')}</f:variable>
-    <f:if condition="{item.data.link}">
-        <f:then>
-            <f:link.typolink parameter="{item.data.link}"
-                class="list-group-item list-group-item-action d-flex align-items-center {activeClass} {extraClass}">
-                {content -> f:format.raw()}
-            </f:link.typolink>
-        </f:then>
-        <f:else>
-            <div class="list-group-item list-group-item-action d-flex align-items-center {activeClass} {extraClass}">
-                {content -> f:format.raw()}
-            </div>
-        </f:else>
     </f:if>
 </f:section>
 
