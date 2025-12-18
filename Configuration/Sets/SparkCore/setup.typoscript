@@ -10,7 +10,7 @@ lib.contentElement {
         20 = {$styles.templates.templateRootPath}
     }
     partialRootPaths {
-        10 = EXT:spark_core/Resources/Private/Partials/
+        10 = EXT:spark_core/Resources/Private/Partials/ContentElements/
         20 = {$styles.templates.partialRootPath}
     }
     includeJSFooter {
