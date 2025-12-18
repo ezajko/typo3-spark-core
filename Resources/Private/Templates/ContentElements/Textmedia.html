@@ -1,0 +1,64 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Header">
+    <f:render partial="Header/All" arguments="{_all}" />
+</f:section>
+<f:section name="Main">
+    <f:if condition="{files}">
+        <f:then>
+            <f:variable name="imageOrient">{data.imageorient}</f:variable>
+
+            <f:comment>Define Position Logic</f:comment>
+            <f:variable name="isBeside" value="0" />
+            <f:if condition="{imageOrient} == 17 || {imageOrient} == 18 || {imageOrient} == 25 || {imageOrient} == 26">
+                <f:variable name="isBeside" value="1" />
+            </f:if>
+
+            <f:if condition="{isBeside}">
+                <f:then>
+                    <div class="row align-items-start">
+                        <f:comment>Image Left (18, 26)</f:comment>
+                        <f:if condition="{imageOrient} == 18 || {imageOrient} == 26">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <f:render partial="Media/Gallery" arguments="{_all}" />
+                            </div>
+                        </f:if>
+
+                        <div class="col-md-6">
+                            <f:format.html>{data.bodytext}</f:format.html>
+                        </div>
+
+                        <f:comment>Image Right (17, 25)</f:comment>
+                        <f:if condition="{imageOrient} == 17 || {imageOrient} == 25">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <f:render partial="Media/Gallery" arguments="{_all}" />
+                            </div>
+                        </f:if>
+                    </div>
+                </f:then>
+                <f:else>
+                    <f:comment>Above (0, 1, 2)</f:comment>
+                    <f:if condition="{imageOrient} < 8">
+                        <div class="mb-3">
+                            <f:render partial="Media/Gallery" arguments="{_all}" />
+                        </div>
+                        <f:format.html>{data.bodytext}</f:format.html>
+                    </f:if>
+
+                    <f:comment>Below (8, 9, 10)</f:comment>
+                    <f:if condition="{imageOrient} >= 8">
+                        <f:format.html>{data.bodytext}</f:format.html>
+                        <div class="mt-3">
+                            <f:render partial="Media/Gallery" arguments="{_all}" />
+                        </div>
+                    </f:if>
+                </f:else>
+            </f:if>
+        </f:then>
+        <f:else>
+            <f:format.html>{data.bodytext}</f:format.html>
+        </f:else>
+    </f:if>
+</f:section>
+
+</html>

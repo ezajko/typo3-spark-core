@@ -1,0 +1,22 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:switch expression="{file.type}">
+    <f:comment>Image</f:comment>
+    <f:case value="2">
+        <f:render partial="Media/Type/Image" arguments="{file: file, data: data, settings: settings}" />
+    </f:case>
+    <f:comment>Audio</f:comment>
+    <f:case value="3">
+        <f:comment>Not implemented yet, fallback to generic or ignore</f:comment>
+    </f:case>
+    <f:comment>Video</f:comment>
+    <f:case value="4">
+        <f:comment>Using Image partial for now as f:media often handles video, or just placeholder.
+            Ideally implement Video partial later if needed.</f:comment>
+        <f:render partial="Media/Type/Image" arguments="{file: file, data: data, settings: settings}" />
+    </f:case>
+    <f:defaultCase>
+        <f:comment>Fallback</f:comment>
+    </f:defaultCase>
+</f:switch>
+
+</html>
