@@ -2,7 +2,7 @@
 
 defined('TYPO3') or die();
 
-// Add frame_layout field
+// Add frame_layout and debug field
 $temporaryColumns = [
     'frame_layout' => [
         'exclude' => true,
@@ -23,17 +23,27 @@ $temporaryColumns = [
             'default' => 'default',
         ],
     ],
+    'tx_spark_debug' => [
+        'exclude' => true,
+        'label' => 'Debug Frame Content',
+        'config' => [
+            'type' => 'check',
+            'renderType' => 'checkboxToggle',
+            'items' => [
+                [
+                    'label' => 'Enable Debug Output',
+                ],
+            ],
+        ],
+    ],
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumns);
 
-// Add frame_layout to appearance palette
+// Add fields to appearance palette
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'tt_content',
     'frames',
-    'frame_layout',
+    'frame_layout, --linebreak--, tx_spark_debug',
     'after:frame_class'
 );
-
-// Customize space_before_class and space_after_class items if needed via PageTS
-// but we ensure they are in the palette
