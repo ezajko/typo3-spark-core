@@ -1,5 +1,6 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
-<f:variable name="frameClass">{f:if(condition: data.frame_class, then: 'frame-background-{data.frame_class}', else: 'frame-background-none')}</f:variable>
+<f:variable name="frameClass">{f:if(condition: data.frame_class, then: 'frame-background-{data.frame_class}', else:
+    'frame-background-none')}</f:variable>
 <f:variable name="containerClass">
     <f:switch expression="{data.frame_layout}">
         <f:case value="default">container</f:case>
@@ -10,11 +11,12 @@
         <f:case value="xxl">container-xxl</f:case>
         <f:case value="fluid">container-fluid</f:case>
         <f:case value="none"></f:case>
-        <f:case default="true">container</f:case>
+        <f:defaultCase>container</f:defaultCase>
     </f:switch>
 </f:variable>
 
-<section id="c{data.uid}" class="frame {frameClass} frame-space-before-{data.space_before_class -> f:or(alternative: 'none')} frame-space-after-{data.space_after_class -> f:or(alternative: 'none')}">
+<section id="c{data.uid}"
+    class="frame {frameClass} frame-space-before-{data.space_before_class -> f:or(alternative: 'none')} frame-space-after-{data.space_after_class -> f:or(alternative: 'none')}">
     <div class="{containerClass}">
         <div class="frame-inner">
             <f:render section="Header" optional="true" />
@@ -23,4 +25,5 @@
         </div>
     </div>
 </section>
+
 </html>
