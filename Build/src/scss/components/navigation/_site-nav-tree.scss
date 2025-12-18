@@ -1,0 +1,49 @@
+// ETF UNSA - Tree Navigation (Sidebar)
+// Migrated from _ez-sidebar.scss
+
+/* Custom styles for nested navigation */
+.site-nav-tree .nav-link {
+    color: var(--bs-body-color);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+}
+
+.site-nav-tree .nav-link:hover {
+    color: var(--bs-primary);
+    background-color: rgba(var(--bs-primary-rgb), 0.05);
+}
+
+.site-nav-tree .nav-link.active {
+    color: var(--bs-primary);
+    font-weight: 600;
+}
+
+/* Indentation for nested levels */
+.site-nav-tree .nav-item .nav {
+    padding-left: 0.5rem;
+    /* Reduced from 1rem */
+    border-left: 1px solid #e9ecef;
+    margin-left: 0.25rem;
+    /* Reduced from 0.5rem */
+}
+
+.site-nav-tree .nav-link[data-bs-toggle="collapse"] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-nav-tree .nav-link .bi-chevron-right {
+    font-size: 0.8em;
+    transition: transform 0.2s;
+}
+
+.site-nav-tree .nav-link[data-bs-toggle="collapse"][aria-expanded="true"] .bi-chevron-right {
+    transform: rotate(90deg);
+}
+
+/* Parent active state */
+.site-nav-tree .nav-link.parent-active {
+    color: var(--bs-primary);
+    font-weight: 600;
+}

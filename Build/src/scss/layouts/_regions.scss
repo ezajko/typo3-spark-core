@@ -1,0 +1,23 @@
+// ETF UNSA - Page Content Regions
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+.page-content-before {
+    margin-bottom: 1rem;
+
+    &:empty {
+        display: none;
+    }
+}
+
+.page-content {
+    width: 100%;
+}
+
+.page-content-after {
+    margin-top: 1rem;
+
+    &:empty {
+        display: none;
+    }
+}

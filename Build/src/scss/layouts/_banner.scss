@@ -1,0 +1,99 @@
+// ETF UNSA - Banner Layout Component
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+:root {
+    // Banner Heights Scale
+    --banner-height-xs: 7.5rem; // 120px - Strip / Header
+    --banner-height-sm: 15rem; // 240px - Standard Page
+    --banner-height-md: 24rem; // 384px - Feature / Blog
+    --banner-height-lg: 30rem; // 480px - Desktop Hero
+    // XL is viewport dependent
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    color: white; // Default text color
+    border-radius: 0; // Ensure flat design
+
+    // Dark Overlay
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1;
+    }
+
+    // High Contrast Overlay Override
+    [data-site-theme="high-contrast"] &::before {
+        background: rgba(0, 0, 0, 0.7); // Darker overlay for better contrast
+    }
+
+    // Content
+    .banner-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: $site-theme-spacing-md;
+        width: 100%;
+        max-width: 1200px; // Standard container width
+        margin: 0 auto;
+    }
+
+    // --- Sizes ---
+
+    // XS - 7.5rem (120px)
+    &.banner-xs {
+        height: var(--banner-height-xs);
+
+        .banner-title,
+        h1,
+        h2 {
+            font-size: 1.5rem;
+            margin: 0;
+            line-height: 1.2;
+        }
+    }
+
+    // SM - 15rem (240px)
+    &.banner-sm {
+        height: var(--banner-height-sm);
+    }
+
+    // MD - 24rem (384px)
+    &.banner-md {
+        height: var(--banner-height-md);
+    }
+
+    // LG - 30rem (480px)
+    &.banner-lg {
+        height: var(--banner-height-lg);
+    }
+
+    // XL - Full Screen
+    &.banner-xl {
+        min-height: 100vh;
+        min-height: 100dvh;
+        flex-direction: column;
+    }
+
+    // --- Variants ---
+
+    // No Overlay
+    &.banner-no-overlay {
+        &::before {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+<f:if condition="{slimnavigation}">
+    <f:for each="{slimnavigation}" as="item">
+        <span class="text-white-50 mx-2">|</span>
+
+        <!-- Dropdown Menu Item -->
+        <div class="dropdown d-inline-block">
+            <a class="text-white text-decoration-none dropdown-toggle small" href="{item.link}" role="button"
+                id="dropdown-{item.data.uid}" data-bs-toggle="dropdown" aria-expanded="false">
+                {item.title}
+            </a>
+            <f:if condition="{item.children}">
+                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end small shadow"
+                    aria-labelledby="dropdown-{item.data.uid}">
+                    <f:for each="{item.children}" as="child">
+                        <li><a class="dropdown-item {f:if(condition: child.active, then: 'active')}"
+                                href="{child.link}">{child.title}</a></li>
+                    </f:for>
+                </ul>
+            </f:if>
+        </div>
+    </f:for>
+</f:if>

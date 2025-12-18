@@ -1,0 +1,150 @@
+// ETF UNSA - Pagination Overrides
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+.pagination {
+    --bs-pagination-border-radius: 0; // Square pages
+    --bs-pagination-font-size: 0.95rem;
+    --bs-pagination-focus-box-shadow: 0 0 0 0.25rem rgba(var(--site-theme-color-rgb), 0.25);
+
+    // Spacing
+    gap: 0.25rem; // Small gap between items for modern look, unlike connected BS default
+
+    .page-item {
+        margin: 0 0.125rem; // 2px equivalentReset
+
+        // Link Styling
+        .page-link {
+            border-radius: 0 !important;
+            margin-left: 0; // Since we use gap
+            border: 1px solid var(--bs-border-color);
+            color: var(--bs-body-color);
+            font-weight: 500;
+            padding: 0.5rem 0.85rem;
+
+            &:hover {
+                background-color: rgba(var(--site-theme-color-rgb), 0.1);
+                color: var(--site-theme-color);
+                border-color: var(--site-theme-color);
+                z-index: 2;
+            }
+
+            &:focus {
+                z-index: 3;
+                background-color: var(--bs-body-bg);
+                color: var(--site-theme-color);
+            }
+        }
+
+        // Active State
+        &.active .page-link {
+            z-index: 3;
+            color: #fff;
+            background-color: var(--site-theme-color);
+            border-color: var(--site-theme-color);
+        }
+
+        // Disabled State
+        &.disabled .page-link {
+            color: var(--site-theme-text-muted);
+            pointer-events: none;
+            background-color: var(--bs-secondary-bg);
+            border-color: var(--bs-border-color);
+            opacity: 0.7;
+        }
+    }
+}
+
+// Dark Mode Support
+[data-bs-theme="dark"] .pagination {
+
+    .page-item {
+        .page-link {
+            background-color: var(--site-theme-bg-dark-secondary);
+            border-color: var(--site-theme-border-dark);
+            color: var(--site-theme-text-dark);
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.1);
+                color: #fff;
+                border-color: #fff;
+            }
+        }
+
+        &.active .page-link {
+            background-color: var(--site-theme-color);
+            border-color: var(--site-theme-color);
+            color: #fff;
+        }
+
+        &.disabled .page-link {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+    }
+}
+
+// High Contrast Support
+[data-site-theme="high-contrast"] .pagination {
+    gap: 0.5rem; // Bigger gap
+
+    .page-item {
+
+        .page-link {
+            border: 0.125rem solid #000;
+            color: #000;
+            font-weight: 700;
+            background-color: #fff;
+
+            &:hover,
+            &:focus {
+                background-color: #000;
+                color: #fff;
+                border-color: #000;
+                text-decoration: underline;
+            }
+        }
+
+        &.active .page-link {
+            background-color: #000;
+            color: #fff;
+            border-color: #000;
+            text-decoration: underline;
+        }
+
+        &.disabled .page-link {
+            border-color: #000;
+            color: #000;
+            opacity: 0.4;
+            background-color: #eee;
+        }
+    }
+}
+
+// Dark + HC
+[data-site-theme="high-contrast"][data-bs-theme="dark"] .pagination {
+
+    .page-item {
+        .page-link {
+            border-color: #ffd700;
+            color: #ffd700;
+            background-color: #000;
+
+            &:hover,
+            &:focus {
+                background-color: #ffd700;
+                color: #000;
+            }
+        }
+
+        &.active .page-link {
+            background-color: #ffd700;
+            color: #000;
+            border-color: #ffd700;
+        }
+
+        &.disabled .page-link {
+            opacity: 0.5;
+        }
+    }
+}

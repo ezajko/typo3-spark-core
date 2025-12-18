@@ -1,0 +1,8 @@
+50 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+50 {
+    special = directory
+    special.value = 11
+    levels = 3
+    includeNotInMenu = 1
+    as = slimnavigation
+}

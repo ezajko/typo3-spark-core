@@ -1,0 +1,4 @@
+name: spark-design-system/spark-core
+label: 'Spark Core Design System'
+dependencies:
+  - typo3/fluid-styled-content

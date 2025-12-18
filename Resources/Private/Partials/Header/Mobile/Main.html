@@ -1,0 +1,45 @@
+<div id="mobile-menu-overlay" class="mobile-menu-overlay d-lg-none" role="dialog" aria-modal="true"
+    aria-label="Mobile Menu">
+    <div class="mobile-menu-container">
+        <div class="mobile-menu-header">
+            <h5 class="m-0 text-white">Izbornik</h5>
+            <button id="mobile-menu-close" class="btn-close btn-close-white" aria-label="Close Menu"></button>
+        </div>
+        <div class="mobile-menu-viewport">
+            <f:render section="MobileMenuLevel" arguments="{menu: mobilenavigation, level: 1, active: 1}" />
+
+            <f:section name="MobileMenuLevel">
+                <ul class="mobile-menu-level {f:if(condition: active, then: 'active')}" data-level="{level}">
+                    <f:if condition="{level} > 1">
+                        <li class="back-item">
+                            <a href="#" class="d-flex align-items-center"><span class="arrow me-2">&lt;</span> Nazad</a>
+                        </li>
+                    </f:if>
+
+                    <f:for each="{menu}" as="item">
+                        <f:if condition="{item.children}">
+                            <f:then>
+                                <li class="has-children">
+                                    <a href="#" class="d-flex justify-content-between align-items-center">
+                                        {item.title} <span class="arrow">&gt;</span>
+                                    </a>
+                                    <!-- Calculate next level -->
+                                    <f:variable name="nextLevel" value="{level + 1}" />
+                                    <f:render section="MobileMenuLevel"
+                                        arguments="{menu: item.children, level: nextLevel, active: 0}" />
+                                </li>
+                            </f:then>
+                            <f:else>
+                                <li>
+                                    <a href="{item.link}"
+                                        class="{f:if(condition: item.active, then: 'active')}">{item.title}</a>
+                                </li>
+                            </f:else>
+                        </f:if>
+                    </f:for>
+                </ul>
+            </f:section>
+
+        </div>
+    </div>
+</div>

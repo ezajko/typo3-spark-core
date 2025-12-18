@@ -1,0 +1,105 @@
+// ETF UNSA - Popovers & Tooltips Overrides
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+// POPOVERS
+.popover {
+    border-radius: 0;
+    border: 1px solid var(--bs-border-color);
+    box-shadow: var(--site-theme-shadow);
+    font-family: var(--bs-font-sans-serif);
+
+    .popover-header {
+        border-radius: 0;
+        background-color: var(--bs-tertiary-bg);
+        border-bottom: 1px solid var(--bs-border-color);
+        font-weight: 700;
+        font-size: 0.9rem;
+    }
+
+    .popover-body {
+        color: var(--bs-body-color);
+        font-size: 0.875rem;
+    }
+
+    // Arrow reset (if needed, usually bs handles position, we consider shape)
+    // .popover-arrow::after { ... }
+}
+
+// TOOLTIPS
+.tooltip {
+
+    // Bootstrap tooltips use opacity for fade, but structure:
+    .tooltip-inner {
+        border-radius: 0; // Square tooltips
+        padding: 0.4rem 0.8rem;
+        background-color: var(--bs-body-color); // Usually dark/black by default
+        font-size: 0.8rem;
+    }
+}
+
+// Dark Mode Support
+[data-bs-theme="dark"] {
+    .popover {
+        background-color: var(--site-theme-bg-dark-secondary);
+        border-color: var(--site-theme-border-dark);
+
+        .popover-header {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-bottom-color: var(--site-theme-border-dark);
+            color: var(--site-theme-text-dark);
+        }
+
+        .popover-body {
+            color: var(--site-theme-text-dark);
+        }
+    }
+}
+
+// High Contrast Support
+[data-site-theme="high-contrast"] {
+    .popover {
+        border: 0.125rem solid #000;
+        background-color: #fff;
+
+        .popover-header {
+            background-color: #000;
+            color: #fff;
+            border-bottom: 0.125rem solid #000;
+        }
+
+        .popover-body {
+            color: #000;
+        }
+    }
+
+    .tooltip .tooltip-inner {
+        background-color: #000;
+        color: #fff;
+        border: 1px solid #fff; // Contrast border for tooltip
+    }
+}
+
+// Dark + HC
+[data-site-theme="high-contrast"][data-bs-theme="dark"] {
+    .popover {
+        border-color: #ffd700;
+        background-color: #000;
+
+        .popover-header {
+            background-color: #000;
+            color: #ffd700;
+            border-bottom-color: #ffd700;
+        }
+
+        .popover-body {
+            color: #ffd700;
+        }
+    }
+
+    .tooltip .tooltip-inner {
+        background-color: #ffd700;
+        color: #000;
+        border-color: #000;
+    }
+}

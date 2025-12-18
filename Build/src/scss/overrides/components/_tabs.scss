@@ -1,0 +1,180 @@
+// ETF UNSA - Tabs Overrides (`.tabs`)
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+.tabs {
+    display: flex;
+    flex-direction: column;
+
+    // 1. Tab Header (Navigation Container)
+    .tab-header {
+        display: flex;
+        flex-wrap: wrap;
+        border-bottom: 0.125rem solid var(--bs-border-color); // 1. Base border
+        margin-bottom: $site-theme-spacing-lg;
+
+        // Individual Tab Buttons
+        .nav-link {
+            border: none;
+            border-bottom: 0.125rem solid transparent;
+            color: var(--bs-secondary-color);
+            font-weight: $site-theme-font-weight-bold;
+            padding: $site-theme-spacing-sm $site-theme-spacing-md;
+            margin-bottom: -0.125rem; // overlap the border
+            background: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+
+            &:hover {
+                color: var(--bs-primary);
+                isolation: isolate;
+            }
+
+            &.active {
+                color: var(--bs-primary);
+                border-bottom-color: var(--bs-primary);
+            }
+        }
+    }
+
+    // 2. Tab Content Container
+    // .tab-content {
+    //    // Bootstrap `tab-pane` will be inside here.
+    // }
+
+    // 3. Tab Footer
+    .tab-footer {
+        background-color: var(--bs-gray-200);
+        color: var(--bs-secondary);
+        border-top: none;
+        padding: $site-theme-spacing-md;
+        border-radius: 0 0 $site-theme-border-radius $site-theme-border-radius;
+        display: flex;
+        align-items: center;
+
+        a {
+            color: var(--bs-secondary);
+            text-decoration: none;
+            font-weight: 500;
+
+            &:hover {
+                text-decoration: underline;
+                color: var(--bs-primary);
+            }
+        }
+    }
+
+    // 3. Vertical Tabs Modifier
+    &.tabs-vertical {
+        flex-direction: row;
+        gap: $site-theme-spacing-lg;
+
+        @include media-breakpoint-down(md) {
+            flex-direction: column;
+        }
+
+        .tab-header {
+            flex-direction: column;
+            border-bottom: none;
+            border-right: 0.125rem solid var(--bs-border-color);
+            min-width: 200px;
+            margin-bottom: 0;
+            margin-right: 0;
+
+            .nav-link {
+                border-bottom: none;
+                border-right: 0.125rem solid transparent;
+                margin-bottom: 0;
+                margin-right: -0.125rem; // overlap right border
+                text-align: left;
+                width: 100%;
+
+                &.active {
+                    border-right-color: var(--bs-primary);
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                flex-direction: row;
+                border-right: none;
+                border-bottom: 0.125rem solid var(--bs-border-color);
+                width: 100%;
+                overflow-x: auto;
+
+                .nav-link {
+                    width: auto;
+                    border-right: none;
+                    border-bottom: 0.125rem solid transparent;
+                    margin-right: 0;
+                    margin-bottom: -0.125rem;
+
+                    &.active {
+                        border-bottom-color: var(--bs-primary);
+                    }
+                }
+            }
+        }
+
+        .tab-content {
+            flex: 1;
+            // Optional: add border/bg for vertical content area
+            // border: 1px solid var(--bs-border-color);
+            // border-radius: $site-theme-border-radius;
+            // padding: $site-theme-spacing-lg;
+        }
+    }
+}
+
+// --- Theme Overrides ---
+
+// High Contrast Theme
+[data-site-theme="high-contrast"] {
+    .tabs {
+        .tab-header {
+            border-bottom-width: 2px;
+
+            .nav-link {
+                color: black;
+                border: 2px solid transparent;
+                margin-bottom: -2px;
+
+                &:hover {
+                    text-decoration: underline;
+                    background-color: #f0f0f0;
+                }
+
+                &.active {
+                    background-color: black;
+                    color: white;
+                    border-color: black;
+                }
+            }
+        }
+
+        .tab-footer {
+            border-top: 1px solid currentColor;
+            background-color: transparent;
+            color: currentColor;
+        }
+
+        &.tabs-vertical {
+            .tab-header {
+                border-right-color: currentColor;
+                border-right-width: 2px;
+                border-bottom: none;
+
+                .nav-link {
+                    border-right: 2px solid transparent;
+                    margin-right: -2px;
+                    margin-bottom: 0;
+
+                    &.active {
+                        border-right-color: black;
+                        background-color: black;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

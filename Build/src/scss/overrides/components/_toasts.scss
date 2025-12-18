@@ -1,0 +1,83 @@
+// ETF UNSA - Toasts Overrides
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+.toast {
+    border-radius: 0; // Square corners
+    border: 0;
+    box-shadow: var(--site-theme-shadow-lg);
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+
+    .toast-header {
+        border-bottom: 1px solid var(--bs-border-color);
+        background-color: var(--bs-body-bg);
+        color: var(--bs-heading-color);
+        font-weight: 700;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+
+        .btn-close {
+            margin-right: -0.375rem;
+        }
+    }
+
+    .toast-body {
+        padding: 0.75rem;
+    }
+}
+
+// Dark Mode Support
+[data-bs-theme="dark"] .toast {
+    background-color: var(--site-theme-bg-dark-secondary);
+    border: 1px solid var(--site-theme-border-dark);
+
+    .toast-header {
+        background-color: var(--site-theme-bg-dark-secondary);
+        border-bottom-color: var(--site-theme-border-dark);
+        color: var(--site-theme-text-dark);
+
+        .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+    }
+}
+
+// High Contrast Support
+[data-site-theme="high-contrast"] .toast {
+    border: 0.125rem solid #000;
+    background-color: #fff;
+    box-shadow: none;
+
+    .toast-header {
+        background-color: #000;
+        color: #fff;
+        border-bottom: 0.125rem solid #fff;
+
+        .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+            opacity: 1;
+        }
+    }
+
+    .toast-body {
+        color: #000;
+        font-weight: 500;
+    }
+}
+
+// Dark + HC
+[data-site-theme="high-contrast"][data-bs-theme="dark"] .toast {
+    border-color: #ffd700;
+    background-color: #000;
+
+    .toast-header {
+        background-color: #000;
+        color: #ffd700;
+        border-bottom-color: #ffd700;
+    }
+
+    .toast-body {
+        color: #ffd700;
+    }
+}

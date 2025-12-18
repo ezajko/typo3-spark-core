@@ -1,0 +1,11 @@
+<!-- 1. SLIM HEADER -->
+<f:render partial="Header/Slim" arguments="{_all}" />
+
+<!-- 2. MAIN HEADER WRAPPER (Brand + Menu) - Sticky -->
+<div class="site-header-wrapper sticky-top">
+    <f:render partial="Header/Brand" arguments="{_all}" />
+    <f:render partial="Header/Navbar" arguments="{_all}" />
+</div>
+
+<!-- 3. MOBILE MENU (Main Tree) -->
+<f:render partial="Header/Mobile/Main" arguments="{_all}" />

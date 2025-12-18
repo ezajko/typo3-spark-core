@@ -1,0 +1,18 @@
+# General Configuration
+config {
+    absRefPrefix = auto
+    no_cache = 1
+    uniqueLinkVars = 1
+    pageTitleFirst = 1
+    linkVars = L
+
+    # Cache (Disabled for Local Dev)
+    cache_period = 0
+    sendCacheHeaders = 0
+
+    # Language
+    sys_language_uid = 0
+    language = en
+    locale_all = en_US.UTF-8
+    htmlTag_setParams = lang="en"
+}

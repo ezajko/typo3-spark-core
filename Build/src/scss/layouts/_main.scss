@@ -1,0 +1,33 @@
+// ETF UNSA - Page Layout Base
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+
+// Skip Link (Accessibility)
+.skip-link {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1050; // Above bootstrap navbar
+    background: var(--bs-primary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: $site-theme-border-radius;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:focus {
+        color: white;
+        outline: 2px solid white;
+    }
+}
+
+// Main Content Wrapper
+.main-content {
+    flex: 1 0 auto;
+    width: 100%;
+    padding-top: $site-theme-spacing-lg;
+    padding-bottom: $site-theme-spacing-lg;
+    display: flex;
+    flex-direction: column;
+}

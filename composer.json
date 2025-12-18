@@ -1,0 +1,25 @@
+{
+    "name": "etf-unsa/spark-core",
+    "type": "typo3-cms-extension",
+    "description": "Spark Design System integration for TYPO3",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Ernedin Zajko",
+            "email": "ezajko@root.ba"
+        }
+    ],
+    "require": {
+        "typo3/cms-core": "^13.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "EtfUnsa\\SparkCore\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "spark_core"
+        }
+    }
+}

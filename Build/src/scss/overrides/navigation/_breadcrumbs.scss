@@ -1,0 +1,118 @@
+// ETF UNSA - Breadcrumbs
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+.breadcrumb {
+    margin-bottom: 0;
+    padding: 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+
+    // Item
+    .breadcrumb-item {
+        display: flex;
+        align-items: center;
+
+        // Link
+        a {
+            color: var(--bs-secondary-color);
+            text-decoration: none;
+            transition: color 0.15s ease;
+
+            &:hover {
+                color: var(--bs-primary);
+                text-decoration: underline;
+            }
+        }
+
+        // Active item
+        &.active {
+            color: var(--bs-body-color);
+            font-weight: 600;
+        }
+
+        // Separator
+        // Bootstrap uses ::before on the next item for separator
+        +.breadcrumb-item {
+            padding-left: 0.5rem;
+
+            &::before {
+                float: none; // Flexbox fix
+                padding-right: 0.5rem;
+                color: var(--bs-tertiary-color);
+                content: var(--bs-breadcrumb-divider, "/");
+            }
+        }
+    }
+}
+
+// Dark Mode Support
+[data-bs-theme="dark"] .breadcrumb {
+    .breadcrumb-item {
+        a {
+            color: var(--site-theme-text-muted);
+
+            &:hover {
+                color: var(--site-theme-color);
+            }
+        }
+
+        &.active {
+            color: #fff;
+        }
+
+        +.breadcrumb-item::before {
+            color: rgba(255, 255, 255, 0.3);
+        }
+    }
+}
+
+// High Contrast Support
+[data-site-theme="high-contrast"] .breadcrumb {
+    .breadcrumb-item {
+        a {
+            color: #000;
+            text-decoration: underline;
+
+            &:hover,
+            &:focus {
+                background-color: #000;
+                color: #fff;
+            }
+        }
+
+        &.active {
+            color: #000;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        +.breadcrumb-item::before {
+            color: #000;
+            font-weight: 800;
+        }
+    }
+}
+
+// Dark + HC
+[data-site-theme="high-contrast"][data-bs-theme="dark"] .breadcrumb {
+    .breadcrumb-item {
+        a {
+            color: #ffd700;
+
+            &:hover,
+            &:focus {
+                background-color: #ffd700;
+                color: #000;
+            }
+        }
+
+        &.active {
+            color: #fff;
+        }
+
+        +.breadcrumb-item::before {
+            color: #ffd700;
+        }
+    }
+}

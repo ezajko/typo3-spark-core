@@ -1,0 +1,76 @@
+// ETF UNSA Custom Styles
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+// 1. Core Configuration & Fonts
+@import 'base/fonts';
+@import 'themes/default'; // Color Theme
+@import "bootstrap/scss/functions"; // Required early for color manipulation
+@import 'base/variables'; // Structural variables
+
+// 2. Variable Mappings (Link Custom -> Bootstrap)
+@import 'base/bootstrap-mappings';
+
+// 1.5 Icons
+@import 'base/icons';
+
+// 3. Vendor / Bootstrap Core
+@import "bootstrap/scss/variables"; // Standard Bootstrap variables (will use our overrides)
+@import "bootstrap/scss/mixins";
+@import 'base/bootstrap-overrides'; // CSS Variables & Runtime overrides
+@import "bootstrap/scss/bootstrap"; // Import all Bootstrap styles
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+@import 'base/mixins'; // Custom mixins
+
+// 3. Base Styles
+@import 'base/global';
+
+// 4. Native Bootstrap Overrides (Theming)
+// These files extend standard Bootstrap classes (.btn, .card, etc.)
+@import 'overrides/components/buttons';
+@import 'overrides/components/card';
+@import 'overrides/components/carousel';
+@import 'overrides/components/cta';
+@import 'overrides/components/hero';
+@import 'overrides/components/tabs';
+@import 'overrides/components/tables';
+@import 'overrides/forms/forms';
+@import 'overrides/components/accordion';
+@import 'overrides/components/alerts';
+@import 'overrides/components/modals';
+@import 'overrides/components/dropdowns';
+@import 'overrides/navigation/pagination';
+@import 'overrides/components/list-group';
+@import 'overrides/layout/offcanvas';
+
+// 5. Custom Components ("ez-" Prefixed - Legacy/Specific)
+// Moved to base
+// 6. Navigation System
+@import 'components/navigation/site-nav-main';
+@import 'components/navigation/site-nav-slim';
+@import 'components/navigation/site-nav-tree';
+@import 'components/navigation/site-nav-section';
+@import 'components/navigation/site-nav-pagination';
+@import 'overrides/navigation/breadcrumbs';
+
+// 6. Custom/Extended Components (New)
+@import 'overrides/components/timeline';
+
+// 7. Feedback & Utilities Overrides
+@import 'overrides/components/progress';
+@import 'overrides/components/toasts';
+@import 'overrides/components/popovers';
+
+// 7. Layouts
+@import 'layouts/header';
+@import 'layouts/banner';
+@import 'layouts/footer';
+@import 'layouts/breadcrumbs';
+@import 'layouts/main';
+@import 'layouts/regions';
+@import 'layouts/frame';
+
+// 8. Utilities
+@import 'overrides/avatars';
+@import 'utilities/typography';

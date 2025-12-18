@@ -1,0 +1,298 @@
+// ETF UNSA - Header Component SCSS  
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+// Heights: 48px (slim) + 96px (center) + 48px (navbar) = 192px total
+
+// ======================
+// 1. SLIM HEADER (Top Bar) - 48px
+// ======================
+.site-header-slim-wrapper {
+    background-color: $site-theme-footer-bg; // #000
+    color: white;
+    min-height: 48px;
+    padding: 12px 0;
+    font-size: 1rem; // Standard size as requested
+    position: relative;
+    z-index: 1030; // Above sticky header (1020)
+
+    // Layout only - styles moved to _ez-nav-utility.scss
+    background-color: $site-theme-footer-bg; // #000
+    color: white;
+    min-height: 48px;
+    padding: 12px 0;
+    font-size: 1rem;
+    position: relative;
+    z-index: 1030;
+}
+
+// ======================
+// 2. MAIN HEADER WRAPPER (Sticky Container)
+// ======================
+.site-header-wrapper {
+    background-color: var(--bs-body-bg);
+    box-shadow: $site-theme-shadow-sm;
+
+    &.sticky-top {
+        position: sticky;
+        top: 0;
+        z-index: $zindex-sticky;
+    }
+}
+
+// ======================
+// 2A. CENTER HEADER (Brand Bar) - 96px
+// ======================
+.site-header-center-wrapper {
+    background-color: var(--bs-body-bg);
+    min-height: 96px;
+    padding: $site-theme-spacing-lg 0;
+    border-bottom: 1px solid var(--bs-border-color);
+
+    .site-header-center-content {
+        min-height: 64px; // Logo height + padding
+    }
+
+    .site-brand {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--bs-body-color);
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .site-brand-logos {
+        .site-brand-logo-icon {
+            svg {
+                width: 48px;
+                height: 48px;
+            }
+        }
+    }
+
+    .site-brand-text {
+        line-height: 1.2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .site-brand-sup {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        color: $site-theme-text-muted;
+        font-weight: $site-theme-font-weight-medium;
+
+        margin-bottom: 2px;
+    }
+
+    .site-brand-main {
+        font-size: 1.25rem;
+        font-weight: $site-theme-font-weight-bold;
+        color: var(--bs-primary);
+        text-transform: uppercase;
+        margin-bottom: 2px;
+    }
+
+    .site-brand-sub {
+        font-size: 0.9rem;
+        color: var(--bs-body-color);
+        font-weight: $site-theme-font-weight-medium;
+    }
+
+    .navbar-toggler {
+        border: none;
+        padding: $site-theme-spacing-sm;
+
+        &:focus {
+            box-shadow: none;
+        }
+    }
+}
+
+// ======================
+// 2B. NAVBAR HEADER (Menu Bar) - 48px
+// ======================
+.site-header-navbar-wrapper {
+    background-color: var(--bs-body-bg);
+    min-height: 48px;
+
+    // Layout only - styles moved to _site-nav-main.scss
+    background-color: var(--bs-body-bg);
+    min-height: 48px;
+}
+
+// ======================
+// 3. MOBILE MENU (Offcanvas)
+// ======================
+// ======================
+// 3. MOBILE MENU (Sliding)
+// ======================
+.mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    display: none;
+
+    &.active {
+        display: block;
+    }
+
+    .mobile-menu-container {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 85%;
+        max-width: 400px;
+        height: 100%;
+        background-color: var(--bs-body-bg);
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    &.active .mobile-menu-container {
+        transform: translateX(0);
+    }
+
+    .mobile-menu-header {
+        padding: $site-theme-spacing-md;
+        background-color: var(--bs-primary);
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h5 {
+            font-weight: $site-theme-font-weight-bold;
+        }
+
+        .btn-close {
+            filter: invert(1);
+        }
+    }
+
+    .mobile-menu-viewport {
+        position: relative;
+        flex-grow: 1;
+        overflow: hidden;
+        background-color: var(--bs-tertiary-bg);
+    }
+
+    .mobile-menu-level {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        background-color: var(--bs-body-bg);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+        overflow-y: auto;
+        z-index: 1;
+
+        &.active {
+            transform: translateX(0);
+            z-index: 2;
+        }
+
+        &[data-level="1"] {
+            transform: translateX(0);
+            z-index: 1;
+        }
+
+        li {
+            border-bottom: 1px solid var(--bs-border-color);
+
+            a {
+                display: block;
+                padding: $site-theme-spacing-md;
+                color: var(--bs-body-color);
+                text-decoration: none;
+                font-weight: $site-theme-font-weight-medium;
+
+                &:hover {
+                    background-color: var(--bs-tertiary-bg);
+                    color: $site-theme-color-primary;
+                }
+            }
+        }
+
+        .arrow {
+            font-weight: bold;
+            color: #999;
+        }
+
+        .back-item {
+            background-color: var(--bs-tertiary-bg);
+
+            a {
+                color: $site-theme-text-muted;
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+// ======================
+// 4. SKIP LINK (Accessibility)
+// ======================
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: $site-theme-spacing-sm $site-theme-spacing-md;
+    background-color: var(--bs-primary);
+    color: white;
+    text-decoration: none;
+
+    &:focus {
+        left: 50%;
+        transform: translateX(-50%);
+        top: $site-theme-spacing-sm;
+    }
+}
+
+// ======================
+// 5. RESPONSIVE BEHAVIOR
+// ======================
+@media (max-width: 991px) {
+    .site-header-center-wrapper {
+        min-height: 64px; // Reduced height
+        padding: $site-theme-spacing-sm 0;
+
+        .site-brand-logos {
+            .site-brand-logo-icon svg {
+                width: 32px; // Smaller logo
+                height: 32px;
+            }
+        }
+
+        .site-brand-main {
+            font-size: 0.95rem; // Smaller text
+            margin-bottom: 0;
+        }
+    }
+
+    .site-header-navbar-wrapper {
+        display: none; // Hidden on mobile, use offcanvas instead
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: none;
+    }
+}

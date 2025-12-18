@@ -1,0 +1,134 @@
+// ETF UNSA - Dropdown Overrides
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+.dropdown-menu {
+    border-radius: 0; // Square corners
+    border: 1px solid var(--bs-border-color);
+    box-shadow: var(--site-theme-shadow);
+    padding: 0.5rem 0;
+    margin-top: 0.125rem; // Slight offset
+    font-size: 0.95rem;
+
+    // Item Styling
+    .dropdown-item {
+        padding: 0.5rem 1.25rem;
+        font-weight: 400;
+        color: var(--bs-body-color);
+        transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+
+        &:hover,
+        &:focus {
+            background-color: rgba(var(--site-theme-color-rgb), 0.1);
+            color: var(--site-theme-color);
+        }
+
+        &.active,
+        &:active {
+            background-color: var(--site-theme-color);
+            color: #fff;
+        }
+
+        i,
+        .bi {
+            margin-right: 0.5rem;
+            opacity: 0.75;
+        }
+    }
+
+    // Header & Text
+    .dropdown-header {
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        color: var(--site-theme-text-muted);
+        padding: 0.5rem 1.25rem;
+    }
+
+    .dropdown-divider {
+        border-top-color: var(--bs-border-color);
+        opacity: 0.5;
+        margin: 0.5rem 0;
+    }
+}
+
+// Dark Mode Support
+[data-bs-theme="dark"] .dropdown-menu {
+    background-color: var(--site-theme-bg-dark-secondary);
+    border-color: var(--site-theme-border-dark);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+
+    .dropdown-item {
+        color: var(--site-theme-text-dark);
+
+        &:hover,
+        &:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        &.active,
+        &:active {
+            background-color: var(--site-theme-color);
+            color: #fff;
+        }
+    }
+
+    .dropdown-divider {
+        border-top-color: var(--site-theme-border-dark);
+    }
+}
+
+// High Contrast Support
+[data-site-theme="high-contrast"] .dropdown-menu {
+    border: 0.125rem solid #000;
+    background-color: #fff;
+
+    .dropdown-item {
+        color: #000;
+        border-bottom: 1px solid #ccc;
+
+        &:last-child {
+            border-bottom: 0;
+        }
+
+        &:hover,
+        &:focus {
+            background-color: #000;
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        &.active,
+        &:active {
+            background-color: #000;
+            color: #fff;
+            font-weight: 700;
+            text-decoration: underline;
+        }
+    }
+}
+
+// Dark + HC
+[data-site-theme="high-contrast"][data-bs-theme="dark"] .dropdown-menu {
+    border-color: #ffd700;
+    background-color: #000;
+
+    .dropdown-item {
+        color: #ffd700;
+        border-bottom-color: #ffd700;
+
+        &:hover,
+        &:focus {
+            background-color: #ffd700;
+            color: #000;
+        }
+
+        &.active,
+        &:active {
+            background-color: #ffd700;
+            color: #000;
+        }
+    }
+}

@@ -1,0 +1,57 @@
+<div class="dropdown d-inline-block">
+    <button class="btn btn-link text-white-50 p-2 text-decoration-none dropdown-toggle" type="button" id="themeDropdown"
+        data-bs-toggle="dropdown" aria-expanded="false" title="Appearance">
+        <i class="bi bi-circle-half"></i>
+    </button>
+    <ul class="dropdown-menu dropdown-menu-end p-2" aria-labelledby="themeDropdown" style="min-width: 220px;">
+        <!-- Mode Toggle -->
+        <li>
+            <h6 class="dropdown-header">Način rada</h6>
+        </li>
+        <li class="mb-3 px-2">
+            <div class="btn-group w-100" role="group">
+                <button type="button" class="btn btn-sm btn-outline-secondary mode-btn active" data-mode="light">
+                    <i class="bi bi-sun-fill"></i> Light
+                </button>
+                <button type="button" class="btn btn-sm btn-outline-secondary mode-btn" data-mode="dark">
+                    <i class="bi bi-moon-stars-fill"></i> Dark
+                </button>
+            </div>
+        </li>
+    </ul>
+</div>
+
+<f:asset.script identifier="themeSwitcher">
+    document.addEventListener('DOMContentLoaded', function() {
+    const storedTheme = localStorage.getItem('ez-theme') || 'blue';
+    const storedMode = localStorage.getItem('ez-mode') || 'light';
+
+    document.documentElement.setAttribute('data-site-theme', storedTheme);
+    document.documentElement.setAttribute('data-bs-theme', storedMode);
+
+    const updateModeButtons = (mode) => {
+    document.querySelectorAll('.mode-btn').forEach((btn) => {
+    if (btn.getAttribute('data-mode') === mode) {
+    btn.classList.add('active', 'btn-secondary');
+    btn.classList.remove('btn-outline-secondary');
+    } else {
+    btn.classList.remove('active', 'btn-secondary');
+    btn.classList.add('btn-outline-secondary');
+    }
+    });
+    };
+
+    updateModeButtons(storedMode);
+
+    document.querySelectorAll('.mode-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+    const mode = btn.getAttribute('data-mode');
+    if (mode) {
+    document.documentElement.setAttribute('data-bs-theme', mode);
+    localStorage.setItem('ez-mode', mode);
+    updateModeButtons(mode);
+    }
+    });
+    });
+    });
+</f:asset.script>

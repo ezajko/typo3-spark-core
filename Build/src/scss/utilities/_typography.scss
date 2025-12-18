@@ -1,0 +1,16 @@
+// ETF UNSA Design System - Typography Utilities
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+// Font Family Utilities
+.font-sans {
+    font-family: var(--bs-font-sans-serif) !important;
+}
+
+.font-serif {
+    font-family: var(--bs-font-serif) !important;
+}
+
+.font-mono {
+    font-family: var(--bs-font-monospace) !important;
+}

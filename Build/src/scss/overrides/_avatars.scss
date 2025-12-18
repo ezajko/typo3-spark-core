@@ -1,0 +1,53 @@
+// ETF UNSA - Avatar Component
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+.avatar {
+    --avatar-size: 3.125rem; // Default to md (50px)
+    --avatar-font-size: 1.25rem;
+    --avatar-bg: var(--bs-tertiary-bg);
+    --avatar-color: var(--bs-secondary-color);
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    font-size: var(--avatar-font-size);
+    border-radius: 50%;
+    background-color: var(--avatar-bg);
+    color: var(--avatar-color);
+    flex-shrink: 0;
+    overflow: hidden; // Ensure images don't overflow
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.avatar-sm {
+    --avatar-size: 2.5rem; // 40px
+    --avatar-font-size: 1rem;
+}
+
+.avatar-md {
+    --avatar-size: 3.125rem; // 50px
+    --avatar-font-size: 1.25rem;
+}
+
+.avatar-lg {
+    --avatar-size: 3.75rem; // 60px
+    --avatar-font-size: 1.5rem;
+}
+
+.avatar-xl {
+    --avatar-size: 6.25rem; // 100px
+    --avatar-font-size: 2.5rem;
+}
+
+.avatar-xxl {
+    --avatar-size: 9.375rem; // 150px
+    --avatar-font-size: 3rem;
+}

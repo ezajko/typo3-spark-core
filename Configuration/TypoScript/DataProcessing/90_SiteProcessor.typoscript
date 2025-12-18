@@ -1,0 +1,4 @@
+90 = TYPO3\CMS\Frontend\DataProcessing\SiteProcessor
+90 {
+    as = site
+}

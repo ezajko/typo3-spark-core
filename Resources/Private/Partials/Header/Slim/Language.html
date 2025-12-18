@@ -1,0 +1,11 @@
+<div class="d-inline-block small">
+    <f:for each="{languageMenu}" as="item" iteration="iter">
+        <f:if condition="{iter.isFirst}">
+            <f:else><span class="text-secondary">/</span></f:else>
+        </f:if>
+        <a href="{item.link}"
+            class="text-decoration-none {f:if(condition: item.active, then: 'text-white fw-bold', else: 'text-white-50')}">
+            {item.navigationTitle}
+        </a>
+    </f:for>
+</div>

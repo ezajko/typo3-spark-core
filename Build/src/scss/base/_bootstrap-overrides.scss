@@ -1,0 +1,506 @@
+// ETF UNSA - Bootstrap Overrides
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+// Override Bootstrap CSS variables to match our design system
+// 1. Base Variables & Logic
+:root {
+    // Default (Blue)
+    --site-theme-color: #{$site-theme-brand-blue};
+    --site-theme-hover: #{$blue-800};
+    --site-theme-active: #{$blue-900};
+
+    --site-theme-color-rgb: #{red($site-theme-brand-blue)},
+    #{green($site-theme-brand-blue)},
+    #{blue($site-theme-brand-blue)};
+
+    // Mappings
+    --bs-primary: var(--site-theme-color);
+    --bs-primary-rgb: var(--site-theme-color-rgb);
+
+    // ... (Radius, Standard Colors Unchanged) ...
+    // Disable Rounded Corners
+    --bs-border-radius: 0;
+    --bs-border-radius-sm: 0;
+    --bs-border-radius-lg: 0;
+    --bs-border-radius-xl: 0;
+    --bs-border-radius-2xl: 0;
+    --bs-border-radius-pill: 0;
+
+    // Secondary Color
+    --bs-secondary: #{$secondary-600};
+    --bs-secondary-hover: #{$secondary-700};
+    --bs-secondary-active: #{$secondary-800};
+    --bs-secondary-rgb: #{$site-theme-color-secondary-rgb};
+
+    // Success Color
+    --bs-success: #{$site-theme-status-success};
+    --bs-success-rgb: #{red($site-theme-status-success)},
+    #{green($site-theme-status-success)},
+    #{blue($site-theme-status-success)};
+
+    // Danger Color
+    --bs-danger: #{$site-theme-status-danger};
+    --bs-danger-rgb: #{red($site-theme-status-danger)},
+    #{green($site-theme-status-danger)},
+    #{blue($site-theme-status-danger)};
+
+    // Warning Color
+    --bs-warning: #{$site-theme-status-warning};
+    --bs-warning-rgb: #{red($site-theme-status-warning)},
+    #{green($site-theme-status-warning)},
+    #{blue($site-theme-status-warning)};
+
+    // Info Color
+    --bs-info: #{$site-theme-status-info};
+    --bs-info-rgb: #{red($site-theme-status-info)},
+    #{green($site-theme-status-info)},
+    #{blue($site-theme-status-info)};
+
+    // Body Colors
+    --bs-body-color: #{$site-theme-text-body};
+    --bs-body-bg: #{$site-theme-bg-body};
+
+    // Tertiary Background (Light Mode Default)
+    --bs-tertiary-bg: #{$secondary-100};
+
+    // Font Family
+    --bs-font-sans-serif: #{$site-theme-font-family-sans};
+    --bs-font-serif: #{$site-theme-font-family-serif};
+    --bs-font-monospace: #{$site-theme-font-family-mono};
+    --bs-body-font-family: #{$site-theme-font-family-base};
+}
+
+// ... (Rest of file unchanged until end) ...
+
+.btn-secondary {
+    --bs-btn-bg: var(--bs-secondary);
+    --bs-btn-border-color: var(--bs-secondary);
+
+    --bs-btn-hover-bg: var(--bs-secondary-hover);
+    --bs-btn-hover-border-color: var(--bs-secondary-hover);
+
+    --bs-btn-active-bg: var(--bs-secondary-active);
+    --bs-btn-active-border-color: var(--bs-secondary-active);
+
+    --bs-btn-disabled-bg: var(--bs-secondary);
+    --bs-btn-disabled-border-color: var(--bs-secondary);
+
+    &:hover {
+        filter: none;
+    }
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--site-theme-color);
+    // ...
+
+    // 2. Dynamic Theme Overrides
+    [data-site-theme="teal"] {
+        --site-theme-color: #{$teal-700};
+        --site-theme-hover: #{$teal-800};
+        --site-theme-active: #{$teal-900};
+
+        --site-theme-color-rgb: #{red($teal-700)},
+        #{green($teal-700)},
+        #{blue($teal-700)};
+
+        --bs-secondary: #{$secondary-600};
+        --bs-secondary-rgb: #{red($secondary-600)},
+        #{green($secondary-600)},
+        #{blue($secondary-600)};
+
+        &[data-bs-theme="dark"] {
+            --site-theme-color: #{$teal-300};
+            --site-theme-hover: #{$teal-200}; // Lighter for glow
+            --site-theme-active: #{$teal-100};
+
+            --site-theme-color-rgb: #{red($teal-300)},
+            #{green($teal-300)},
+            #{blue($teal-300)};
+        }
+    }
+
+    [data-site-theme="green"] {
+        --site-theme-color: #{$green-700};
+        --site-theme-hover: #{$green-800};
+        --site-theme-active: #{$green-900};
+
+        --site-theme-color-rgb: #{red($green-700)},
+        #{green($green-700)},
+        #{blue($green-700)};
+
+        --bs-secondary: #{$secondary-600};
+        --bs-secondary-rgb: #{red($secondary-600)},
+        #{green($secondary-600)},
+        #{blue($secondary-600)};
+
+        &[data-bs-theme="dark"] {
+            --site-theme-color: #{$green-300};
+            --site-theme-hover: #{$green-200};
+            --site-theme-active: #{$green-100};
+
+            --site-theme-color-rgb: #{red($green-300)},
+            #{green($green-300)},
+            #{blue($green-300)};
+        }
+    }
+
+    [data-site-theme="purple"] {
+        --site-theme-color: #{$purple-700};
+        --site-theme-hover: #{$purple-800};
+        --site-theme-active: #{$purple-900};
+
+        --site-theme-color-rgb: #{red($purple-700)},
+        #{green($purple-700)},
+        #{blue($purple-700)};
+
+        --bs-secondary: #{$secondary-600};
+        --bs-secondary-rgb: #{red($secondary-600)},
+        #{green($secondary-600)},
+        #{blue($secondary-600)};
+
+        &[data-bs-theme="dark"] {
+            --site-theme-color: #{$purple-300};
+            --site-theme-hover: #{$purple-200};
+            --site-theme-active: #{$purple-100};
+
+            --site-theme-color-rgb: #{red($purple-300)},
+            #{green($purple-300)},
+            #{blue($purple-300)};
+        }
+    }
+
+    [data-site-theme="orange"] {
+        --site-theme-color: #{$orange-600};
+        --site-theme-hover: #{$orange-700};
+        --site-theme-active: #{$orange-800};
+
+        --site-theme-color-rgb: #{red($orange-600)},
+        #{green($orange-600)},
+        #{blue($orange-600)};
+
+        --bs-secondary: #{$secondary-600};
+        --bs-secondary-rgb: #{red($secondary-600)},
+        #{green($secondary-600)},
+        #{blue($secondary-600)};
+
+        &[data-bs-theme="dark"] {
+            --site-theme-color: #{$orange-300};
+            --site-theme-hover: #{$orange-200};
+            --site-theme-active: #{$orange-100};
+
+            --site-theme-color-rgb: #{red($orange-300)},
+            #{green($orange-300)},
+            #{blue($orange-300)};
+        }
+    }
+
+    [data-site-theme="red"] {
+        --site-theme-color: #{$red-700};
+        --site-theme-hover: #{$red-800};
+        --site-theme-active: #{$red-900};
+
+        --site-theme-color-rgb: #{red($red-700)},
+        #{green($red-700)},
+        #{blue($red-700)};
+
+        --bs-secondary: #{$secondary-600};
+        --bs-secondary-rgb: #{red($secondary-600)},
+        #{green($secondary-600)},
+        #{blue($secondary-600)};
+
+        &[data-bs-theme="dark"] {
+            --site-theme-color: #{$red-300};
+            --site-theme-hover: #{$red-200};
+            --site-theme-active: #{$red-100};
+
+            --site-theme-color-rgb: #{red($red-300)},
+            #{green($red-300)},
+            #{blue($red-300)};
+        }
+    }
+
+    [data-site-theme="blue"] {
+        --site-theme-color: #{$blue-700};
+        --site-theme-hover: #{$blue-800};
+        --site-theme-active: #{$blue-900};
+
+        --site-theme-color-rgb: #{red($blue-700)},
+        #{green($blue-700)},
+        #{blue($blue-700)};
+
+        --bs-secondary: #{$secondary-600};
+        --bs-secondary-rgb: #{red($secondary-600)},
+        #{green($secondary-600)},
+        #{blue($secondary-600)};
+
+        &[data-bs-theme="dark"] {
+            --site-theme-color: #{$blue-300};
+            --site-theme-hover: #{$blue-200};
+            --site-theme-active: #{$blue-100};
+
+            --site-theme-color-rgb: #{red($blue-300)},
+            #{green($blue-300)},
+            #{blue($blue-300)};
+        }
+    }
+
+    [data-site-theme="high-contrast"] {
+        // High Contrast Yellow/Black
+        // Use the new scales
+        $ez-hc-yellow: $yellow-1000; // Gold
+        $ez-hc-black: $black-1000; // Pure Black
+        $ez-hc-white: $white-1000; // Pure White
+
+        // Theme Variables
+        --site-theme-color: #{$ez-hc-black};
+        --site-theme-hover: #{$black-800};
+        --site-theme-active: #{$black-800};
+        --site-theme-color-rgb: 0, 0, 0;
+
+        --bs-secondary: #000000;
+        --bs-secondary-rgb: 0, 0, 0;
+
+        // Force high contrast borders
+        --bs-border-width: 2px;
+        --bs-border-color: #000000;
+
+        // Enforce link underlining for WCAG compliance
+        a {
+            text-decoration: underline !important;
+            text-decoration-thickness: 2px !important;
+        }
+
+        // In Dark Mode, switch to Yellow on Black
+        &[data-bs-theme="dark"] {
+            --site-theme-color: #{$ez-hc-yellow};
+            --site-theme-hover: #{$yellow-600}; // Darker yellow on hover
+            --site-theme-active: #{$yellow-500};
+            --site-theme-color-rgb: 255, 215, 0;
+
+            --bs-secondary: #{$ez-hc-yellow};
+
+            --bs-body-color: #{$ez-hc-yellow};
+            --bs-body-bg: #000000;
+            --bs-border-color: #{$ez-hc-yellow};
+
+            --bs-link-color: #{$ez-hc-yellow};
+            --bs-link-hover-color: #FFFFFF;
+
+            a {
+                color: #{$ez-hc-yellow} !important;
+
+                &:hover,
+                &:focus {
+                    color: #000000 !important;
+                    background-color: #{$ez-hc-yellow} !important;
+                }
+            }
+
+            .text-muted {
+                color: #{$ez-hc-yellow} !important;
+            }
+        }
+
+        // Explicit Button Overrides for High Contrast
+        .btn {
+            border-width: 2px !important;
+            font-weight: 700 !important;
+        }
+
+        &[data-bs-theme="light"] {
+            // Force ALL text to be black for maximum contrast
+            --bs-body-color: #000000;
+            --bs-heading-color: #000000;
+            color: #000000;
+
+            p,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6,
+            span,
+            li,
+            td,
+            th {
+                color: #000000 !important;
+            }
+
+            // Override text utilities
+            .text-primary,
+            .text-secondary,
+            .text-success,
+            .text-danger,
+            .text-warning,
+            .text-info,
+            .text-light,
+            .text-muted,
+            .text-white {
+                color: #000000 !important;
+            }
+
+            // Links: Black & Underlined -> Hover: Black BG & Yellow Text
+            a {
+                color: #000000 !important;
+                text-decoration: underline !important;
+                font-weight: 700;
+
+                &:hover,
+                &:focus {
+                    background-color: #000000 !important;
+                    color: #{$ez-hc-yellow} !important; // "linkovi zuto" -> Yellow text on Black
+                }
+            }
+
+            // Buttons: White/Black -> Hover: Black/White
+            .btn-primary,
+            .btn-secondary,
+            .btn-outline-primary,
+            .btn-success,
+            .btn-danger {
+                background-color: #FFFFFF !important;
+                border-color: #000000 !important;
+                color: #000000 !important;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: #000000 !important;
+                    color: #FFFFFF !important; // "hover crna pozadina, bijela slova"
+                    border-color: #000000 !important;
+                }
+            }
+        }
+
+        // Dark Mode HC Content
+        &[data-bs-theme="dark"] {
+
+            // Dark Mode HC Buttons (Yellow/Black)
+            .btn-primary {
+                background-color: #{$ez-hc-yellow} !important;
+                border-color: #{$ez-hc-yellow} !important;
+                color: #000000 !important;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: #000000 !important;
+                    color: #{$ez-hc-yellow} !important;
+                }
+            }
+
+            .btn-secondary,
+            .btn-outline-primary {
+                color: #{$ez-hc-yellow} !important;
+                border-color: #{$ez-hc-yellow} !important;
+                background-color: transparent !important;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    background-color: #{$ez-hc-yellow} !important;
+                    color: #000000 !important;
+                }
+            }
+        }
+    }
+
+    // Dark Mode Overrides
+    [data-bs-theme="dark"] {
+        --bs-body-color: #{$secondary-200};
+        --bs-body-bg: #{$secondary-900};
+        --bs-border-color: #{$secondary-700};
+        --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
+
+        // Utilities overrides
+        .text-muted {
+            color: #{$secondary-500} !important;
+        }
+
+        .bg-light {
+            background-color: #{$secondary-1000} !important;
+            color: #{$secondary-200} !important;
+        }
+
+        .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+
+        // Accessible Link Color for Dark Mode (Lighter Blue)
+        // Now dynamic based on theme if set, otherwise fallback
+        --bs-link-color: var(--site-theme-color);
+        --bs-link-hover-color: var(--site-theme-hover);
+
+        // Card Footer Background in Dark Mode
+        --bs-tertiary-bg: #{$secondary-1000};
+    }
+}
+
+// Override Button Colors (Explicit Tonal Logic)
+.btn-primary {
+    --bs-btn-bg: var(--site-theme-color);
+    --bs-btn-border-color: var(--site-theme-color);
+
+    // Explicit Hover Variables instead of filter
+    --bs-btn-hover-bg: var(--site-theme-hover);
+    --bs-btn-hover-border-color: var(--site-theme-hover);
+
+    --bs-btn-active-bg: var(--site-theme-active);
+    --bs-btn-active-border-color: var(--site-theme-active);
+
+    --bs-btn-disabled-bg: var(--site-theme-color);
+    --bs-btn-disabled-border-color: var(--site-theme-color);
+
+    // Remove filter override
+    &:hover {
+        filter: none;
+    }
+}
+
+.btn-secondary {
+    --bs-btn-bg: var(--bs-secondary);
+    --bs-btn-border-color: var(--bs-secondary);
+
+    --bs-btn-hover-bg: var(--bs-secondary-hover);
+    --bs-btn-hover-border-color: var(--bs-secondary-hover);
+
+    --bs-btn-active-bg: var(--bs-secondary-active);
+    --bs-btn-active-border-color: var(--bs-secondary-active);
+
+    --bs-btn-disabled-bg: var(--bs-secondary);
+    --bs-btn-disabled-border-color: var(--bs-secondary);
+
+    &:hover {
+        filter: none;
+    }
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--site-theme-color);
+    --bs-btn-border-color: var(--site-theme-color);
+    --bs-btn-hover-bg: var(--site-theme-color);
+    --bs-btn-hover-border-color: var(--site-theme-color);
+    --bs-btn-active-bg: var(--site-theme-color);
+    --bs-btn-active-border-color: var(--site-theme-color);
+}
+
+// Override Text Colors
+.text-primary {
+    color: var(--site-theme-color) !important;
+}
+
+.text-secondary {
+    color: #{$site-theme-color-secondary} !important;
+}
+
+// Override Background Colors
+.bg-primary {
+    background-color: var(--site-theme-color) !important;
+}
+
+.bg-secondary {
+    background-color: #{$site-theme-color-secondary} !important;
+}

@@ -1,0 +1,58 @@
+// ETF UNSA - Bootstrap Variable Mappings
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+// This file maps our custom design tokens ($site-theme-*) to Bootstrap's SCSS variables.
+// It must be imported AFTER _variables.scss and BEFORE bootstrap/variables.
+
+// 1. Color System
+$primary: $site-theme-color-primary;
+$secondary: $site-theme-color-secondary;
+$success: $site-theme-status-success;
+$info: $site-theme-status-info;
+$warning: $site-theme-status-warning;
+$danger: $site-theme-status-danger;
+
+$light: $site-theme-bg-light;
+$dark: $site-theme-bg-dark;
+
+$body-bg: $site-theme-bg-body;
+$body-color: $site-theme-text-body;
+
+// 2. Typography
+$font-family-sans-serif: $site-theme-font-family-sans;
+$font-family-serif: $site-theme-font-family-serif;
+$font-family-monospace: $site-theme-font-family-mono;
+$font-family-base: $site-theme-font-family-base;
+
+$font-size-base: $site-theme-font-size-base;
+$font-size-sm: $site-theme-font-size-sm;
+$font-size-lg: $site-theme-font-size-lg;
+
+$font-weight-light: $site-theme-font-weight-light;
+$font-weight-normal: $site-theme-font-weight-normal;
+$font-weight-bold: $site-theme-font-weight-bold;
+
+$line-height-base: $site-theme-line-height-base;
+
+// 3. Components
+$border-radius: $site-theme-border-radius;
+$border-radius-sm: $site-theme-border-radius-sm;
+$border-radius-lg: $site-theme-border-radius-lg;
+$border-radius-xl: $site-theme-border-radius-xl;
+$border-radius-2xl: 0;
+$border-radius-pill: 0;
+
+$border-color: $site-theme-border-color;
+
+// 4. Links
+@use "sass:color";
+
+$link-color: $site-theme-color-primary;
+$link-decoration: none;
+$link-hover-color: color.scale($site-theme-color-primary, $lightness: -15%);
+$link-hover-decoration: underline;
+
+// 5. High Contrast Support (Optional override points)
+// Note: High contrast is largely handled via CSS variables and the 'high-contrast' data attribute,
+// but we can set some defaults here if needed.

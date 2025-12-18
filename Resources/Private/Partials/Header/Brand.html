@@ -1,0 +1,36 @@
+<div class="site-header-center-wrapper">
+    <div class="container">
+        <div class="site-header-center-content d-flex justify-content-between align-items-center">
+            <!-- Brand -->
+            <a class="site-brand" href="/">
+                <div class="site-brand-logos d-flex align-items-center gap-3">
+                    <f:if condition="{site.configuration.logoMain}">
+                        <f:then>
+                            <f:image src="{site.configuration.logoMain}" alt="{site.configuration.institutionName}"
+                                class="site-logo-main" maxHeight="90" />
+                        </f:then>
+                        <f:else>
+                            <i class="bi bi-building fs-1 text-secondary d-none d-sm-block"></i>
+                            <div class="vr d-none d-sm-block" style="height: 40px; opacity: 0.2;"></div>
+                            <i class="bi bi-lightning-charge fs-1 text-primary"></i>
+                        </f:else>
+                    </f:if>
+                </div>
+                <div class="site-brand-text ms-3">
+                    <div class="site-brand-sup d-none d-sm-block">{site.configuration.parentInstitutionName ->
+                        f:or(alternative: 'Univerzitet u Sarajevu')}</div>
+                    <div class="site-brand-main">{site.configuration.institutionName -> f:or(alternative: 'Spark Design
+                        System')}</div>
+                    <div class="site-brand-sub d-none d-sm-block">{site.configuration.city -> f:or(alternative:
+                        'Sarajevo')}</div>
+                </div>
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <i class="bi bi-list fs-1"></i>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,171 @@
+// ETF UNSA - Hero Component (Native-like)
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    color: white;
+
+    // Overlay
+    .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(rgba(var(--bs-primary-rgb), 0.7),
+                rgba(var(--bs-primary-rgb), 0.4));
+        z-index: 1;
+    }
+
+    // Content
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: $site-theme-spacing-xxl;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        font-weight: $site-theme-font-weight-bold;
+        margin-bottom: $site-theme-spacing-lg;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+        @include media-breakpoint-up(md) {
+            font-size: 4rem;
+        }
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: $site-theme-spacing-xl;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+
+        @include media-breakpoint-up(md) {
+            font-size: 2rem;
+        }
+    }
+
+    .hero-cta {
+        margin-top: $site-theme-spacing-lg;
+
+        .btn {
+            margin: 0 $site-theme-spacing-sm;
+        }
+    }
+}
+
+// Sizing Variants (Matching Standard Banner Heights)
+// XS - 7.5rem (120px)
+.hero-xs {
+    min-height: 7.5rem;
+    padding: $site-theme-spacing-sm;
+
+    .hero-title {
+        font-size: 1.5rem;
+        margin-bottom: 0;
+    }
+
+    .hero-subtitle {
+        display: none; // Hide subtitle on very small banners
+    }
+}
+
+// SM - 15rem (240px)
+.hero-sm {
+    min-height: 15rem;
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+// MD - 24rem (384px)
+.hero-md {
+    min-height: 24rem;
+}
+
+// LG - 30rem (480px)
+.hero-lg {
+    min-height: 30rem;
+
+    .hero-title {
+        font-size: 3.5rem;
+
+        @include media-breakpoint-up(md) {
+            font-size: 4.5rem;
+        }
+    }
+}
+
+// XL - Full Screen
+.hero-xl {
+    min-height: 100vh;
+}
+
+// Legacy support (map 'full' to xl)
+.hero-full {
+    @extend .hero-xl;
+}
+
+// Overlay Variants
+.hero-overlay-dark {
+    .hero-overlay {
+        background: linear-gradient(rgba(0, 0, 0, 0.6),
+                rgba(0, 0, 0, 0.4));
+    }
+}
+
+// Hero carousel variant (Overrides for carousel inside hero usage possibly)
+// or just standard carousel overrides we made earlier handles it.
+// Keeping specific Hero Carousel stuff if it was unique in _ez-hero.scss
+// _ez-hero.scss had .ez-hero-carousel style.
+.hero-carousel {
+    .carousel-caption {
+        background: rgba(0, 0, 0, 0.5);
+        padding: $site-theme-spacing-lg;
+        border-radius: $site-theme-border-radius;
+        bottom: 2rem;
+        z-index: 10;
+    }
+
+    // Indicators/Controls managed by override/_carousel.scss global overrides usually
+}
+
+// --- Theme Overrides ---
+
+// High Contrast Theme
+[data-site-theme="high-contrast"] {
+    .hero {
+        .hero-overlay {
+            // Much darker overlay for high contrast
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
+        }
+
+        .hero-title,
+        .hero-subtitle {
+            text-shadow: 2px 2px 8px black; // Stronger shadow
+            color: #fff !important; // Force white
+        }
+
+        .hero-carousel {
+            .carousel-caption {
+                background: rgba(0, 0, 0, 0.9); // Nearly opaque background for captions
+                border: 2px solid white;
+            }
+        }
+    }
+}

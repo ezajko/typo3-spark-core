@@ -1,0 +1,106 @@
+// ETF UNSA - Alerts & Badges Overrides
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+// ======================
+// ALERTS
+// ======================
+.alert {
+    border-radius: 0; // Square alerts
+    border: 1px solid transparent; // Clean border
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+
+    // Icon integration (if user puts flex containers, this helps align)
+    .bi,
+    .svg-inline--fa {
+        margin-right: 0.75rem;
+        font-size: 1.25rem;
+        opacity: 0.9;
+    }
+
+    // Links inside alerts
+    .alert-link {
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    // Specific Variants (ensure they use our theme variables deeply if needed)
+    &.alert-primary {
+        --bs-alert-color: var(--site-theme-color);
+        --bs-alert-bg: rgba(var(--site-theme-color-rgb), 0.1);
+        --bs-alert-border-color: rgba(var(--site-theme-color-rgb), 0.2);
+    }
+}
+
+// ======================
+// BADGES
+// ======================
+.badge {
+    border-radius: 0; // Square badges
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    padding: 0.35em 0.65em;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    vertical-align: text-top;
+
+    // Pill variant override (if user wants rounded badges explicitly)
+    &.rounded-pill {
+        border-radius: 50rem !important;
+        padding-left: 0.75em;
+        padding-right: 0.75em;
+    }
+
+    // Variant overrides
+    &.bg-primary {
+        background-color: var(--site-theme-color) !important;
+        color: #fff;
+    }
+
+    &.bg-secondary {
+        background-color: var(--bs-secondary) !important;
+        color: #fff;
+    }
+}
+
+// High Contrast Support
+[data-site-theme="high-contrast"] {
+    .alert {
+        border: 2px solid #000;
+        background-color: #fff !important;
+        color: #000 !important;
+
+        .alert-link {
+            color: #000 !important;
+            text-decoration: underline;
+        }
+    }
+
+    .badge {
+        border: 2px solid #000;
+        color: #000 !important;
+        background-color: #fff !important;
+    }
+}
+
+[data-site-theme="high-contrast"][data-bs-theme="dark"] {
+    .alert {
+        border-color: #ffd700;
+        background-color: #000 !important;
+        color: #ffd700 !important;
+
+        .alert-link {
+            color: #ffd700 !important;
+        }
+    }
+
+    .badge {
+        border-color: #ffd700;
+        color: #ffd700 !important;
+        background-color: #000 !important;
+    }
+}

@@ -1,0 +1,124 @@
+// ETF UNSA - Modal Overrides
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+.modal-content {
+    border-radius: 0; // Square corners
+    border: 0; // Clean look, relying on shadow or specific borders
+    box-shadow: var(--site-theme-shadow-lg);
+
+    // Header Styling
+    .modal-header {
+        border-bottom: 0.125rem solid var(--site-theme-color);
+        border-radius: 0;
+        background-color: var(--bs-body-bg);
+        padding: 1.25rem 1.5rem;
+
+        .modal-title {
+            font-weight: 700;
+            color: var(--site-theme-color);
+            letter-spacing: -0.01em;
+        }
+
+        .btn-close {
+            // Ensure close button aligns well
+            margin: -0.5rem -0.5rem -0.5rem auto;
+        }
+    }
+
+    // Body Styling
+    .modal-body {
+        padding: 1.5rem;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--bs-body-color);
+    }
+
+    // Footer Styling
+    .modal-footer {
+        border-top: 1px solid var(--bs-border-color);
+        background-color: var(--bs-secondary-bg); // Light gray footer
+        border-radius: 0;
+        padding: 1rem 1.5rem;
+    }
+}
+
+// Dark Mode Support
+[data-bs-theme="dark"] .modal-content {
+    background-color: var(--site-theme-bg-dark);
+    border: 1px solid var(--site-theme-border-dark); // Add border in dark mode for definition
+
+    .modal-header {
+        border-bottom-color: var(--site-theme-color); // Keep brand color accent
+        background-color: var(--site-theme-bg-dark);
+
+        .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+        }
+    }
+
+    .modal-footer {
+        background-color: var(--site-theme-bg-dark-secondary);
+        border-top-color: var(--site-theme-border-dark);
+    }
+}
+
+// High Contrast Support
+[data-site-theme="high-contrast"] .modal-content {
+    border: 0.1875rem solid #000; // Very thick border
+
+    .modal-header {
+        background-color: #000;
+        color: #fff;
+        border-bottom: 0.1875rem solid #fff;
+
+        .modal-title {
+            color: #fff !important; // Force white on black
+        }
+
+        .btn-close {
+            filter: invert(1) grayscale(100%) brightness(200%);
+            opacity: 1;
+        }
+    }
+
+    .modal-body {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .modal-footer {
+        background-color: #000;
+        border-top: 0.1875rem solid #fff;
+
+        // Ensure buttons in footer pop out
+        .btn {
+            border-width: 0.125rem;
+        }
+    }
+}
+
+// Dark + High Contrast (Yellow on Black)
+[data-site-theme="high-contrast"][data-bs-theme="dark"] .modal-content {
+    border-color: #ffd700;
+    background-color: #000;
+
+    .modal-header {
+        border-bottom-color: #ffd700;
+        background-color: #000;
+
+        .modal-title {
+            color: #ffd700 !important;
+        }
+    }
+
+    .modal-body {
+        background-color: #000;
+        color: #ffd700;
+    }
+
+    .modal-footer {
+        background-color: #000;
+        border-top-color: #ffd700;
+    }
+}

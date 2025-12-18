@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2023-12-17T12:00:00Z" product-name="spark_core">
+        <header/>
+        <body>
+            <trans-unit id="footer.contact">
+                <source>Contact</source>
+            </trans-unit>
+            <trans-unit id="footer.quick_links">
+                <source>Quick Links</source>
+            </trans-unit>
+            <trans-unit id="footer.links">
+                <source>Links</source>
+            </trans-unit>
+            <trans-unit id="footer.pid_corruption">
+                <source>Corruption Report</source>
+            </trans-unit>
+            <trans-unit id="footer.pid_privacy">
+                <source>Privacy Policy</source>
+            </trans-unit>
+            <trans-unit id="footer.pid_accessibility">
+                <source>Accessibility Statement</source>
+            </trans-unit>
+            <trans-unit id="footer.pid_terms">
+                <source>Terms of Use</source>
+            </trans-unit>
+            <trans-unit id="footer.copyright_rights">
+                <source>All rights reserved.</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

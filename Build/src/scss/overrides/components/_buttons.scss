@@ -1,0 +1,61 @@
+// ETF UNSA - Button Overrides
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+// Standard overrides for Bootstrap buttons if needed
+.btn {
+    font-weight: $site-theme-font-weight-semibold;
+    border-radius: $site-theme-border-radius;
+    padding: $site-theme-spacing-sm $site-theme-spacing-md;
+
+    // Fix for focus outline if desired
+    &:focus {
+        box-shadow: 0 0 0 0.2rem rgba(var(--bs-primary-rgb), 0.25);
+    }
+}
+
+
+// --- Theme Overrides ---
+
+// High Contrast Theme
+[data-site-theme="high-contrast"] {
+    .btn-primary {
+        background-color: black;
+        border-color: white;
+        color: white !important;
+        border-width: 2px;
+
+        &:hover,
+        &:focus {
+            background-color: white;
+            color: black !important;
+            border-color: black;
+        }
+    }
+
+    .btn-outline-primary {
+        color: black !important;
+        border-color: black;
+        border-width: 2px;
+        background-color: white;
+
+        &:hover,
+        &:focus {
+            background-color: black;
+            color: white !important;
+            border-color: white;
+        }
+    }
+
+    .btn-secondary,
+    .btn-success,
+    .btn-danger {
+        border-width: 2px;
+        border-color: black;
+        color: white;
+
+        &:hover {
+            filter: invert(1);
+        }
+    }
+}

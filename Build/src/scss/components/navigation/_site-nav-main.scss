@@ -1,0 +1,165 @@
+// ETF UNSA - Main Navigation Component
+// Extracted from _site-header.scss in refactor
+
+.site-nav-main {
+    // Base container styles (from .site-header-navbar-wrapper .navbar)
+    padding: 0;
+    min-height: 3rem; // 48px
+
+    // Flex behavior for links
+    .navbar-collapse {
+        width: 100%;
+    }
+
+    .navbar-nav {
+        gap: 0;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    // Link styling
+    .nav-link {
+        color: var(--bs-body-color);
+        font-weight: $site-theme-font-weight-semibold;
+        font-size: 1rem;
+        padding: 0.75rem $site-theme-spacing-md; // 12px top/bottom -> Total height 24px(line-height) + 24px(padding) = 48px (3rem)
+        text-transform: uppercase;
+
+        transition: color 0.2s ease;
+        white-space: nowrap;
+
+        &:hover,
+        &.active {
+            color: var(--bs-primary);
+        }
+
+        &.active {
+            text-decoration: underline;
+            text-underline-offset: 0.25rem; // 4px
+            text-decoration-thickness: 0.125rem; // 2px
+        }
+    }
+
+    // Split dropdown styling (specific to our mega menu implementation)
+    .dropdown-toggle-split {
+        padding-left: $site-theme-spacing-xs;
+        padding-right: $site-theme-spacing-xs;
+        opacity: 0.7;
+        transition: all 0.2s ease;
+
+        &:hover,
+        &[aria-expanded="true"] {
+            opacity: 1;
+            color: var(--bs-primary);
+        }
+
+        &::after {
+            transition: transform 0.2s;
+        }
+
+        &[aria-expanded="true"]::after {
+            transform: rotate(180deg);
+        }
+    }
+
+    // Dropdown menus
+    .dropdown-menu {
+        border: none;
+        border-top: 1px solid $site-theme-border-color;
+        border-radius: 0;
+        box-shadow: $site-theme-shadow-lg;
+        background-color: var(--bs-body-bg);
+        padding: $site-theme-spacing-lg;
+        margin-top: 0;
+
+        h6 {
+            text-transform: uppercase;
+            font-weight: $site-theme-font-weight-bold;
+            color: var(--bs-primary);
+            margin-bottom: $site-theme-spacing-md;
+        }
+
+        a {
+            color: var(--bs-body-color);
+            display: block;
+            padding: $site-theme-spacing-sm;
+            text-decoration: none;
+            transition: all 0.2s;
+            border-radius: $site-theme-border-radius;
+
+            &:hover {
+                color: var(--bs-primary);
+                background-color: var(--bs-tertiary-bg);
+            }
+        }
+    }
+
+    // Mega menu specific - full width centered
+    .dropdown-menu.w-100 {
+        left: 0 !important;
+        right: 0 !important;
+        transform: none !important;
+        width: 100vw;
+        margin-left: calc(-50vw + 50%);
+    }
+
+    // Position static parent for mega menu
+    .dropdown.position-static {
+        position: static !important;
+    }
+
+    // Tabbed Menu Section (Vertical Tabs in Mega Menu)
+    .site-nav-tabs {
+        display: flex;
+        flex-direction: column;
+        border-right: 1px solid var(--bs-border-color);
+        padding-right: 0;
+        margin-right: $site-theme-spacing-lg; // Spacing to content
+        height: 100%;
+
+        .nav-item {
+            margin-bottom: 0;
+        }
+
+        // Simplified Nav Link Buttons
+        .nav-link {
+            border: none;
+            border-right: 0.125rem solid transparent;
+            margin-right: -1px; // Overlap border
+            color: var(--bs-secondary-color);
+            transition: all 0.2s ease;
+
+            &:hover {
+                background-color: var(--bs-gray-100);
+                color: var(--bs-primary);
+            }
+
+            &.active {
+                background-color: transparent;
+                color: var(--bs-primary);
+                font-weight: $site-theme-font-weight-bold;
+                border-right-color: var(--bs-primary);
+
+                i {
+                    color: var(--bs-primary);
+                }
+            }
+
+            i {
+                font-size: 0.8em;
+                opacity: 0.7;
+            }
+        }
+    }
+
+    // Tab Content Persistence Fix for Mega Menu
+    .tab-content {
+        >.tab-pane {
+            display: none;
+        }
+
+        >.active {
+            display: block;
+        }
+    }
+}

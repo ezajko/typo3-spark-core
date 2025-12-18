@@ -1,0 +1,8 @@
+70 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+70 {
+    special = directory
+    special.value = {$spark_core.pids.footerMenu}
+    levels = 1
+    includeNotInMenu = 1
+    as = footerNavigation
+}

@@ -1,0 +1,19 @@
+<f:if condition="{breadcrumbs}">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <f:for each="{breadcrumbs}" as="item" iteration="iterator">
+                <li class="breadcrumb-item {f:if(condition: item.current, then: 'active')}"
+                    aria-current="{f:if(condition: item.current, then: 'page')}">
+                    <f:if condition="{item.current}">
+                        <f:then>
+                            {item.title}
+                        </f:then>
+                        <f:else>
+                            <a href="{item.link}" class="text-decoration-none">{item.title}</a>
+                        </f:else>
+                    </f:if>
+                </li>
+            </f:for>
+        </ol>
+    </nav>
+</f:if>

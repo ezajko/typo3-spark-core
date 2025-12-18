@@ -1,0 +1,44 @@
+// ETF UNSA - Section Navigation (Side Menu)
+// Used in SectionLinksMenu.astro
+
+.site-nav-section {
+    // Inherits InfoWidget card styles, we add specific list behaviors
+
+    .ez-list-item {
+        padding: $site-theme-spacing-sm $site-theme-spacing-md;
+        border-bottom: 1px solid var(--bs-border-color);
+        transition: all 0.2s ease;
+        border-radius: $site-theme-border-radius;
+        margin-bottom: 0.125rem; // 2px
+
+        &:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        &:hover {
+            background-color: var(--bs-tertiary-bg);
+            color: var(--bs-primary);
+            transform: translateX(0.25rem); // 4px
+
+            .ez-list-item__title {
+                color: var(--bs-primary);
+            }
+        }
+
+        &--active {
+            background-color: var(--bs-primary);
+            color: white;
+
+            .ez-list-item__title {
+                color: white;
+            }
+
+            &:hover {
+                background-color: var(--bs-primary); // Keep solid on hover
+                color: white;
+                transform: none;
+            }
+        }
+    }
+}

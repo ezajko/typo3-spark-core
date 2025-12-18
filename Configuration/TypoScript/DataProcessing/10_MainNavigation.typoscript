@@ -1,0 +1,9 @@
+10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+10 {
+    special = directory
+    special.value = {$spark_core.pids.mainMenu}
+    levels = 6
+    includeSpacer = 1
+    includeNotInMenu = 1
+    as = mainnavigation
+}

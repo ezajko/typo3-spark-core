@@ -1,0 +1,10 @@
+# Helper to render content columns
+lib.dynamicContent = CONTENT
+lib.dynamicContent {
+    table = tt_content
+    select {
+        orderBy = sorting
+        where.data = field:colPos
+        where.intval = 1
+    }
+}

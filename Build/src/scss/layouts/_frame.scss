@@ -1,0 +1,95 @@
+// Spark Frame System
+// Inspired by bootstrap-package but optimized for Spark
+// Author: Ernedin Zajko <ezajko@root.ba>
+
+// Variables
+$frame-padding-y: 2.5rem !default;
+$frame-padding-y-sm: 1.5rem !default;
+$frame-padding-y-lg: 4rem !default;
+
+$frame-margin-y: 1.5rem !default;
+
+.frame {
+    position: relative;
+    padding-top: $frame-padding-y;
+    padding-bottom: $frame-padding-y;
+
+    // Spacing Variants (Internal Padding)
+    &.frame-size-small {
+        padding-top: $frame-padding-y-sm;
+        padding-bottom: $frame-padding-y-sm;
+    }
+
+    &.frame-size-large {
+        padding-top: $frame-padding-y-lg;
+        padding-bottom: $frame-padding-y-lg;
+    }
+
+    &.frame-size-none {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    // Margin Variants (External Spacing)
+    &.frame-space-before-none {
+        margin-top: 0;
+    }
+
+    &.frame-space-before-small {
+        margin-top: $frame-margin-y * 0.5;
+    }
+
+    &.frame-space-before-medium {
+        margin-top: $frame-margin-y;
+    }
+
+    &.frame-space-before-large {
+        margin-top: $frame-margin-y * 2;
+    }
+
+    &.frame-space-after-none {
+        margin-bottom: 0;
+    }
+
+    &.frame-space-after-small {
+        margin-bottom: $frame-margin-y * 0.5;
+    }
+
+    &.frame-space-after-medium {
+        margin-bottom: $frame-margin-y;
+    }
+
+    &.frame-space-after-large {
+        margin-bottom: $frame-margin-y * 2;
+    }
+}
+
+// Backgrounds
+// These should integrate with our theme
+.frame-background-primary {
+    background-color: var(--bs-primary);
+    color: var(--bs-white);
+    --bs-heading-color: var(--bs-white);
+}
+
+.frame-background-secondary {
+    background-color: var(--bs-secondary);
+    color: var(--bs-white);
+    --bs-heading-color: var(--bs-white);
+}
+
+.frame-background-light {
+    background-color: var(--bs-light);
+    color: var(--bs-body-color);
+}
+
+.frame-background-dark {
+    background-color: var(--bs-dark);
+    color: var(--bs-white);
+    --bs-heading-color: var(--bs-white);
+}
+
+.frame-background-grey {
+    background-color: var(--bs-gray-100);
+    color: var(--bs-body-color);
+}

@@ -1,0 +1,60 @@
+// ETF UNSA - Table Overrides
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-striped-bg: rgba(var(--site-theme-color-rgb), 0.05);
+    --bs-table-active-bg: rgba(var(--site-theme-color-rgb), 0.1);
+    --bs-table-hover-bg: rgba(var(--site-theme-color-rgb), 0.075);
+
+    // Ensure no rounded corners even if wrapper has them
+    border-radius: 0 !important;
+
+    // Header Styling
+    thead {
+        th {
+            font-family: var(--bs-font-sans-serif);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.025em;
+            border-bottom-width: 2px;
+            border-bottom-color: var(--site-theme-color);
+            vertical-align: bottom;
+            background-color: var(--bs-table-bg);
+            color: var(--body-color);
+        }
+    }
+
+    // Cell Styling
+    tbody {
+
+        td,
+        th {
+            vertical-align: middle;
+            border-bottom-color: var(--bs-border-color);
+        }
+    }
+
+    // High Contrast Support
+    [data-site-theme="high-contrast"] & {
+        --bs-table-striped-bg: #000;
+        --bs-table-bg: #fff;
+        --bs-table-color: #000;
+
+        thead th {
+            border-bottom-color: #000;
+            background-color: #000;
+            color: #fff; // Inverse header for high contrast
+        }
+    }
+}
+
+// Caption styling
+.table-caption {
+    caption-side: bottom;
+    color: var(--site-theme-text-muted);
+    font-size: 0.875rem;
+    padding-top: 0.5rem;
+}

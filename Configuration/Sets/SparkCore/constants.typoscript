@@ -1,0 +1,16 @@
+spark_core {
+    pids {
+        # cat=spark_core/pids; type=int+; label=Slim Menu Root Page ID
+        slimMenu = 11
+        # cat=spark_core/pids; type=int+; label=Main Menu Root Page ID
+        mainMenu = 21
+        # cat=spark_core/pids; type=int+; label=Footer Menu Root Page ID
+        footerMenu = 30
+    }
+}
+
+styles.templates {
+    templateRootPath = EXT:spark_core/Resources/Private/Extensions/fluid_styled_content/Templates/
+    partialRootPath = EXT:spark_core/Resources/Private/Extensions/fluid_styled_content/Partials/
+    layoutRootPath = EXT:spark_core/Resources/Private/Extensions/fluid_styled_content/Layouts/
+}

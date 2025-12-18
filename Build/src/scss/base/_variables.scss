@@ -1,0 +1,53 @@
+// ETF UNSA Design System - Base Variables
+// Author: Ernedin Zajko <ezajko@root.ba>
+// License: GPL-2.0-or-later
+// Inspired by Bootstrap Italia
+
+// ======================
+// Spacing System (Custom)
+// Keeping specific aliases if they differ from standard BS steps often,
+// but for now relying on Bootstrap spacers (rem based) is preferred directly in code.
+// ======================
+$site-theme-spacing-base: 1rem;
+$site-theme-spacing-xs: 0.25rem;
+$site-theme-spacing-sm: 0.5rem;
+$site-theme-spacing-md: 1rem;
+$site-theme-spacing-lg: 1.5rem;
+$site-theme-spacing-xl: 2rem;
+$site-theme-spacing-xxl: 3rem;
+
+// ======================
+// Typography
+// ======================
+
+// Font Families - IBM Plex with system fallbacks
+$site-theme-font-family-sans: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+$site-theme-font-family-serif: 'IBM Plex Serif', 'Georgia', 'Times New Roman', serif;
+$site-theme-font-family-mono: 'IBM Plex Mono', 'Courier New', monospace;
+
+// Default font (sans-serif)
+$site-theme-font-family-base: $site-theme-font-family-sans;
+
+$site-theme-font-size-base: 1rem;
+$site-theme-font-size-sm: 0.875rem;
+$site-theme-font-size-lg: 1.125rem;
+$site-theme-font-size-xl: 1.25rem;
+
+$site-theme-font-weight-light: 300;
+$site-theme-font-weight-normal: 400;
+$site-theme-font-weight-semibold: 600;
+$site-theme-font-weight-bold: 700;
+$site-theme-font-weight-medium: 500;
+
+$site-theme-line-height-base: 1.5;
+$site-theme-line-height-tight: 1.25;
+$site-theme-line-height-loose: 1.75;
+
+
+// ======================
+// Border Radius
+// ======================
+$site-theme-border-radius-sm: 0;
+$site-theme-border-radius: 0;
+$site-theme-border-radius-lg: 0;
+$site-theme-border-radius-xl: 0;

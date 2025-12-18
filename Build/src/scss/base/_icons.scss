@@ -1,0 +1,30 @@
+// ETF UNSA - Custom Icons System
+// Uses CSS Masking to allow icons to inherit text color (currentColor)
+
+.site-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    background-color: currentColor;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+}
+
+// Icon Definitions
+// Usage: .site-icon-unsa-logo
+// Define variables or maps for icons here if we had inline SVGs, 
+// or use file urls if assets are handled by Vite.
+// For standalone build, it's best to embed small SVGs as data URIs.
+
+// Example:
+// $icon-etf: url('data:image/svg+xml;utf8,<svg ...>');
+
+// .site-icon-etf {
+//   -webkit-mask-image: $icon-etf;
+//   mask-image: $icon-etf;
+// }

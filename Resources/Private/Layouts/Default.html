@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="{f:format.raw(value: data.sys_language_uid)}">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{data.title}</title>
+
+    <!-- Meta/Assets Sections -->
+    <f:render section="HeaderAssets" optional="true" />
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <div class="site-wrapper">
+        <a class="skip-link visually-hidden-focusable" href="#main-content">Skip to main content</a>
+
+        <!-- Header -->
+        <f:render partial="Global/Header" arguments="{_all}" />
+
+        <!-- Main Content Slot -->
+        <f:render section="Main" />
+
+        <!-- Footer -->
+        <f:render partial="Global/Footer" arguments="{_all}" />
+
+        <!-- JS Assets -->
+        <f:render section="FooterAssets" optional="true" />
+</body>
+
+</html>

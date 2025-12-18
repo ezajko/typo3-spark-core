@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en" datatype="plaintext" original="messages" date="2025-12-17T09:20:00Z" product-name="spark_core">
+        <header/>
+        <body>
+            <!-- Identity -->
+            <trans-unit id="site.configuration.tab.identity">
+                <source>Identity</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.institutionName">
+                <source>Institution Name</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.parentInstitutionName">
+                <source>Parent Institution Name</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.address">
+                <source>Address</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.city">
+                <source>City</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.copyrightText">
+                <source>Copyright Text</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.footerText">
+                <source>Footer Text (Institution Description)</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.email">
+                <source>Email</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.phone">
+                <source>Phone</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.fax">
+                <source>Fax</source>
+            </trans-unit>
+
+            <!-- Logos -->
+            <trans-unit id="site.configuration.tab.logos">
+                <source>Logos</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.logoMain">
+                <source>Main Logo (Child Institution)</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.logoParent">
+                <source>Parent Logo (Parent Institution)</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.logoMobile">
+                <source>Mobile Logo</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.logoSmall">
+                <source>Small Logo (Slim Header)</source>
+            </trans-unit>
+
+            <!-- PIDS -->
+            <trans-unit id="site.configuration.tab.pids">
+                <source>Page IDs / Links</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.palette.pids_localized">
+                <source>Page IDs / Links (Localized)</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.pidCorruption">
+                <source>Report Corruption Link</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.pidPrivacy">
+                <source>Privacy Policy Link</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.pidTerms">
+                <source>Terms of Use Link</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.pidAccessibility">
+                <source>Accessibility Statement Link</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.web">
+                <source>Web Address</source>
+            </trans-unit>
+
+            <!-- Social Media -->
+            <trans-unit id="site.configuration.tab.social">
+                <source>Social Media</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.socialFacebook">
+                <source>Facebook URL</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.socialInstagram">
+                <source>Instagram URL</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.socialX">
+                <source>X (Twitter) URL</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.socialLinkedin">
+                <source>LinkedIn URL</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.socialYoutube">
+                <source>YouTube URL</source>
+            </trans-unit>
+            
+            <!-- Palettes -->
+            <trans-unit id="site.configuration.palette.identity_localized">
+                <source>Localized Identity Fields</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.palette.logos_localized">
+                <source>Localized Logos</source>
+            </trans-unit>
+            <trans-unit id="site.configuration.palette.social_localized">
+                <source>Localized Social Media</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

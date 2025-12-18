@@ -1,0 +1,134 @@
+// Custom Bootstrap Card Overrides
+// Restoring "Classic" ez-card feel with native classes
+
+.card {
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    border-width: 0; // Default to no border as per modern style
+    box-shadow: var(--ez-shadow-sm, 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075));
+
+    &:hover {
+        transform: translateY(-5px); // The "lifting" effect
+        box-shadow: var(--ez-shadow, 0 0.5rem 1rem rgba(0, 0, 0, 0.15));
+        z-index: 1; // Ensure it stays on top nicely
+    }
+
+    .card-header {
+        background-color: var(--bs-primary);
+        color: white;
+        border-bottom: none;
+
+        // Ensure headings inside inherit white
+        .card-title,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: white;
+        }
+    }
+
+    .card-footer {
+        background-color: var(--bs-tertiary-bg); // Semantic variable
+        color: var(--bs-secondary); // Darker text for contrast
+        border-top: none;
+
+        // Link styling in footer
+        a {
+            color: var(--bs-secondary); // Match text color
+            text-decoration: none;
+            font-weight: 500;
+
+            &:hover {
+                text-decoration: underline;
+                color: var(--bs-primary); // Brand highlight on hover
+            }
+        }
+    }
+
+    // Default title color for card body properties
+    // Force direct links inside titles to inherit brand color
+    .card-title,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--bs-primary);
+
+        a {
+            color: inherit;
+            text-decoration: none;
+
+            &:hover {
+                color: var(--ez-primary-dark);
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+// --- Theme Overrides ---
+
+// High Contrast Theme
+[data-site-theme="high-contrast"] {
+    .card {
+        border: 2px solid currentColor !important; // Force border visibility
+        box-shadow: none !important; // Remove shadows
+        background-color: white;
+        color: black;
+
+        &:hover {
+            transform: none !important; // Disable motion
+            background-color: black; // Invert on hover for clear indication
+            color: white;
+
+            .card-title,
+            .card-text,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: white !important;
+            }
+
+            // Ensure links inside card invert properly or stay visible
+            a {
+                color: yellow !important;
+                text-decoration: underline;
+            }
+        }
+
+        .card-footer,
+        .card-header {
+            border-bottom: 1px solid currentColor; // Restore separator
+            border-top: 1px solid currentColor;
+            border-color: currentColor;
+            background-color: transparent;
+            color: currentColor;
+
+            // Fix color for titles ensuring they use currentColor instead of white
+            .card-title,
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                color: currentColor !important;
+            }
+        }
+
+        .card-header {
+            border-top: none; // Only bottom needed
+        }
+
+        .card-footer {
+            border-bottom: none; // Only top needed
+        }
+    }
+}

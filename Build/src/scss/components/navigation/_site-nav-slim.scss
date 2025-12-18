@@ -1,0 +1,79 @@
+// ETF UNSA - Slim Navigation (Top Bar)
+// Renamed from _ez-nav-utility.scss
+
+.site-nav-slim {
+    // Shared styles for top utility bars (like .site-header-slim-wrapper)
+    background-color: $site-theme-footer-bg; // #000
+    color: white;
+    min-height: 3rem; // 48px
+    padding: 0.75rem 0; // 12px
+    font-size: 1rem;
+    position: relative;
+    z-index: 1030; // Above sticky header (1020)
+
+    a {
+        color: white;
+        opacity: 0.9;
+        transition: opacity 0.2s;
+        text-decoration: none;
+
+        &:hover {
+            opacity: 1;
+            text-decoration: none;
+        }
+
+        // High Contrast Override:
+        // Even though Global HC forces theme color (mostly black/yellow),
+        // Slim Header is ALWAYS black, so links must be white/yellow.
+        [data-site-theme="high-contrast"] & {
+            color: #FFFFFF !important;
+            text-decoration: underline !important;
+
+            // In Dark Mode HC, Yellow is fine too, but White pops on Black.
+            // Let's stick to White to respect the "always dark header" logic, 
+            // or Yellow if we want it to match the HC Dark theme.
+            // Given the user said "black bg", white or yellow works.
+            // White is safest for "Light HC on Black Header".
+        }
+
+        [data-site-theme="high-contrast"][data-bs-theme="dark"] & {
+            color: #FFD700 !important; // Yellow for Dark HC
+        }
+    }
+
+    .dropdown-menu {
+        margin-top: $site-theme-spacing-sm;
+        border-radius: 0;
+        border: 1px solid #333;
+        font-size: 0.85rem;
+        background-color: #000;
+    }
+
+    .dropdown-item {
+        padding: $site-theme-spacing-sm $site-theme-spacing-md;
+        color: white;
+
+        &:hover,
+        &:focus {
+            background-color: #333;
+            color: white;
+        }
+    }
+
+    // Right side items container
+    &__right {
+        gap: $site-theme-spacing-sm;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    // Search box integration
+    .search-box {
+
+        input,
+        .btn {
+            border-radius: 0;
+        }
+    }
+}

@@ -1,0 +1,58 @@
+// ETF UNSA - Pagination
+// Extends Bootstrap .pagination
+
+.site-pagination {
+    // Custom wrapper if needed, but we mainly style Bootstrap classes
+
+    .pagination {
+        margin-bottom: 0;
+        // The gap property is typically applied to the container (pagination), not individual items.
+        // The instruction's `gap` values are placed inside `.page-item .page-link`, which is unusual for `gap`.
+        // Assuming the intent was to change the `gap` on `.pagination` and add `margin` to `.page-item`.
+        // The instruction also adds two `gap` properties, which would result in the last one taking precedence.
+        // For now, I will apply the `gap` change to the `.pagination` selector as it was originally.
+        // And add the `margin` to `.page-item` as specified.
+        gap: 0.3125rem;
+    }
+
+    .page-item {
+        margin: 0 0.125rem; // 2px
+
+        .page-link {
+            border: 1px solid var(--bs-border-color);
+            color: var(--bs-body-color);
+            border-radius: 0;
+            min-width: 2.5rem;
+            text-align: center;
+            transition: all 0.2s ease;
+            margin: 0;
+
+            &:hover {
+                background-color: var(--bs-tertiary-bg);
+                color: var(--bs-primary);
+                border-color: var(--bs-border-color);
+            }
+
+            &:focus {
+                box-shadow: 0 0 0 0.25rem rgba(var(--bs-primary-rgb), 0.25);
+            }
+        }
+
+        &.active {
+            .page-link {
+                background-color: var(--bs-primary);
+                border-color: var(--bs-primary);
+                color: white;
+            }
+        }
+
+        &.disabled {
+            .page-link {
+                color: var(--bs-secondary-color);
+                background-color: transparent;
+                border-color: var(--bs-border-color);
+                opacity: 0.6;
+            }
+        }
+    }
+}

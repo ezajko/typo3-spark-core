@@ -1,0 +1,66 @@
+<div class="site-nav-main site-header-navbar-wrapper">
+    <nav class="navbar navbar-expand-lg" aria-label="Navigazione principale">
+        <div class="container">
+            <div class="collapse navbar-collapse d-none d-lg-block" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+
+                    <f:for each="{mainnavigation}" as="item">
+                        <!-- Calculate Depth -->
+                        <f:variable name="menuDepth" value="1" />
+                        <f:if condition="{item.children}">
+                            <f:variable name="menuDepth" value="2" />
+                            <f:for each="{item.children}" as="l2">
+                                <f:if condition="{l2.children}">
+                                    <f:if condition="{menuDepth} < 3">
+                                        <f:variable name="menuDepth" value="3" />
+                                    </f:if>
+                                    <f:for each="{l2.children}" as="l3">
+                                        <f:if condition="{l3.children}">
+                                            <f:variable name="menuDepth" value="4" />
+                                        </f:if>
+                                    </f:for>
+                                </f:if>
+                            </f:for>
+                        </f:if>
+
+                        <f:switch expression="{menuDepth}">
+                            <f:case value="4">
+                                <!-- Level 4: Mega Menu Tabs (Vertical Tabs -> Groups -> Links) -->
+                                <f:render partial="Header/Navbar/MegaMenuTabs" arguments="{item: item}" />
+                            </f:case>
+                            <f:case value="3">
+                                <!-- Level 3: Mega Menu Columns (Columns -> Links) -->
+                                <f:render partial="Header/Navbar/MegaMenu" arguments="{item: item}" />
+                            </f:case>
+                            <f:case value="2">
+                                <!-- Level 2: Simple Dropdown -->
+                                <f:render partial="Header/Navbar/Dropdown" arguments="{item: item}" />
+                            </f:case>
+                            <f:defaultCase>
+                                <!-- Level 1: Direct Link -->
+                                <li class="nav-item">
+                                    <a class="nav-link {f:if(condition: item.active, then: 'active')}"
+                                        href="{item.link}">{item.title}</a>
+                                </li>
+                            </f:defaultCase>
+                        </f:switch>
+                    </f:for>
+
+                    <!-- Search Mockup -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-search"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end p-3" style="min-width: 300px;">
+                            <form class="d-flex" role="search">
+                                <input type="search" class="form-control me-2" placeholder="Pretraga..." />
+                                <button class="btn btn-primary" type="submit">Traži</button>
+                            </form>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

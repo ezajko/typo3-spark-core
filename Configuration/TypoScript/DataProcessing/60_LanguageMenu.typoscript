@@ -1,0 +1,10 @@
+60 = TYPO3\CMS\Frontend\DataProcessing\LanguageMenuProcessor
+60 {
+    #special = language
+    #special.value = 1,0
+    #addQueryString = 1
+    #addQueryString.exclude = L,id,cHash,no_cache
+    #addQueryString.method = GET
+    languages = auto
+    as = languageMenu
+}

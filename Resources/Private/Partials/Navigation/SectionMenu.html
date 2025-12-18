@@ -1,0 +1,23 @@
+<f:if condition="{sectionMenu}">
+    <div class="card mb-4 site-nav-section">
+        <div class="card-header bg-primary text-white d-flex align-items-center">
+            <i class="bi bi-link-45deg me-2"></i>
+            <h5 class="card-title mb-0 text-white fs-6 fw-bold">
+                <f:if condition="{data.pid} == 0">
+                    <f:then>Brzi linkovi</f:then>
+                    <f:else>{data.pid -> f:cObject(typoscriptObjectPath: 'lib.pageTitle')}</f:else>
+                </f:if>
+            </h5>
+        </div>
+        <div class="card-body">
+            <div class="list-group list-group-flush">
+                <f:for each="{sectionMenu}" as="item">
+                    <a href="{item.link}"
+                        class="list-group-item list-group-item-action {f:if(condition: item.current, then: 'active')} d-flex align-items-center">
+                        {item.title}
+                    </a>
+                </f:for>
+            </div>
+        </div>
+    </div>
+</f:if>

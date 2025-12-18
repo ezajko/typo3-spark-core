@@ -1,0 +1,9 @@
+40 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+40 {
+    entryLevel = 1
+    levels = 2
+    expandAll = 0
+    includeSpacer = 1
+    titleField = nav_title // title
+    as = sectionMenu
+}

@@ -1,0 +1,52 @@
+<f:layout name="Default" />
+<f:section name="Main">
+    <!-- Banner / Hero (Optional for Default) -->
+    <f:if condition="{heroContent}">
+        <div class="page-banner">
+            {heroContent -> f:format.raw()}
+        </div>
+    </f:if>
+
+    <!-- Breadcrumbs Section -->
+    <f:if condition="{breadcrumbs}">
+        <div class="site-breadcrumbs">
+            <div class="container">
+                <f:render partial="Global/Breadcrumbs" arguments="{_all}" />
+            </div>
+        </div>
+    </f:if>
+
+    <main id="main-content" class="main-content">
+        <div class="container">
+            <!-- Content Before Grid -->
+            <f:if condition="{contentBefore}">
+                <div class="page-content-before">
+                    <div class="row">
+                        <div class="col-12">
+                            {contentBefore -> f:format.raw()}
+                        </div>
+                    </div>
+                </div>
+            </f:if>
+
+            <div class="page-content">
+                <div class="row">
+                    <div class="col-12">
+                        {mainContent -> f:format.raw()}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content After Grid -->
+            <f:if condition="{contentAfter}">
+                <div class="page-content-after">
+                    <div class="row">
+                        <div class="col-12">
+                            {contentAfter -> f:format.raw()}
+                        </div>
+                    </div>
+                </div>
+            </f:if>
+        </div>
+    </main>
+</f:section>

@@ -1,0 +1,45 @@
+<div class="card border-0 bg-light">
+    <div class="card-body p-2">
+        <h5 class="card-title p-2 mb-0">
+            <f:if condition="{data.pid} == 0">
+                <f:then>{data.title}</f:then>
+                <f:else>{data.pid -> f:cObject(typoscriptObjectPath: 'lib.pageTitle')}</f:else>
+            </f:if>
+        </h5>
+
+        <f:if condition="{submenu}">
+            <ul class="nav flex-column site-nav-tree">
+                <f:for each="{submenu}" as="item">
+                    <f:render section="MenuItem" arguments="{item: item}" />
+                </f:for>
+            </ul>
+        </f:if>
+    </div>
+</div>
+
+<f:section name="MenuItem">
+    <li class="nav-item">
+        <f:if condition="{item.children}">
+            <f:then>
+                <a class="nav-link {f:if(condition: item.active, then: 'active')}" href="#menu-{item.data.uid}"
+                    data-bs-toggle="collapse"
+                    aria-expanded="{f:if(condition: item.active, then: 'true', else: 'false')}">
+                    {item.title}
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+                <div class="collapse {f:if(condition: item.active, then: 'show')}" id="menu-{item.data.uid}">
+                    <ul class="nav flex-column">
+                        <f:for each="{item.children}" as="child">
+                            <f:render section="MenuItem" arguments="{item: child}" />
+                        </f:for>
+                    </ul>
+                </div>
+            </f:then>
+            <f:else>
+                <a class="nav-link {f:if(condition: item.active, then: 'active')}" href="{item.link}">
+                    {item.title}
+                </a>
+            </f:else>
+        </f:if>
+    </li>
+</f:section>

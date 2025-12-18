@@ -1,0 +1,169 @@
+<footer class="site-footer">
+    <div class="container pt-5 pb-4">
+        <div class="row">
+            <!-- 1. Identity / About (3 cols) -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="site-footer-logos mb-3 d-flex align-items-center gap-3">
+                    <!-- Parent Icon/Logo -->
+                    <div class="site-footer-logo-icon"
+                        title="{site.configuration.parentInstitutionName -> f:or(alternative: 'Univerzitet u Sarajevu')}">
+                        <f:if condition="{site.configuration.logoParent}">
+                            <f:then>
+                                <f:image src="{site.configuration.logoParent}"
+                                    alt="{site.configuration.parentInstitutionName}" maxHeight="32" class="d-block" />
+                            </f:then>
+                            <f:else>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bi bi-building" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd"
+                                        d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z">
+                                    </path>
+                                    <path
+                                        d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z">
+                                    </path>
+                                </svg>
+                            </f:else>
+                        </f:if>
+                    </div>
+                    <!-- Child/Main Icon/Logo -->
+                    <div class="site-footer-logo-icon"
+                        title="{site.configuration.institutionName -> f:or(alternative: 'Elektrotehnički fakultet')}">
+                        <f:if condition="{site.configuration.logoMain}">
+                            <f:then>
+                                <f:image src="{site.configuration.logoMain}" alt="{site.configuration.institutionName}"
+                                    maxHeight="32" class="d-block" />
+                            </f:then>
+                            <f:else>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
+                                    class="bi bi-lightning-charge" viewBox="0 0 16 16">
+                                    <path
+                                        d="M11.251.068a.5.5 0 0 1 .227.58L9.677 6.5H13a.5.5 0 0 1 .364.843l-8 8.5a.5.5 0 0 1-.842-.49L6.323 9.5H3a.5.5 0 0 1-.364-.843l8-8.5a.5.5 0 0 1 .615-.09zM4.157 8.5H7a.5.5 0 0 1 .478.647L6.11 13.59l5.732-6.09H9a.5.5 0 0 1-.478-.647L9.89 2.41 4.157 8.5z">
+                                    </path>
+                                </svg>
+                            </f:else>
+                        </f:if>
+                    </div>
+                </div>
+                <div class="site-footer-brand-text">
+                    <div class="small text-uppercase text-white fw-bold mb-1">{site.configuration.parentInstitutionName
+                        -> f:or(alternative: 'Univerzitet u Sarajevu')}</div>
+                    <h5>{site.configuration.institutionName -> f:or(alternative: 'Spark Design System')}</h5>
+                </div>
+                <p>
+                    {site.configuration.footerText -> f:or(alternative: 'Elektrotehnički fakultet Univerziteta u
+                    Sarajevu je vodeća obrazovna i naučno-istraživačka institucija u oblasti elektrotehnike, računarstva
+                    i telekomunikacija.')}
+                </p>
+                <div class="site-footer-social mt-4">
+                    <f:if condition="{site.configuration.socialFacebook}">
+                        <a href="{site.configuration.socialFacebook}" aria-label="Facebook"><i
+                                class="bi bi-facebook"></i></a>
+                    </f:if>
+                    <f:if condition="{site.configuration.socialX}">
+                        <a href="{site.configuration.socialX}" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+                    </f:if>
+                    <f:if condition="{site.configuration.socialInstagram}">
+                        <a href="{site.configuration.socialInstagram}" aria-label="Instagram"><i
+                                class="bi bi-instagram"></i></a>
+                    </f:if>
+                    <f:if condition="{site.configuration.socialLinkedin}">
+                        <a href="{site.configuration.socialLinkedin}" aria-label="LinkedIn"><i
+                                class="bi bi-linkedin"></i></a>
+                    </f:if>
+                    <f:if condition="{site.configuration.socialYoutube}">
+                        <a href="{site.configuration.socialYoutube}" aria-label="YouTube"><i
+                                class="bi bi-youtube"></i></a>
+                    </f:if>
+                </div>
+            </div>
+
+            <!-- 2. Contact Info (3 cols) -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5>
+                    <f:translate key="footer.contact" extensionName="spark_core" />
+                </h5>
+                <p class="mb-2">
+                    <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+                    {site.configuration.address -> f:or(alternative: 'Zmaja od Bosne bb')}, {site.configuration.city ->
+                    f:or(alternative: 'Sarajevo')}
+                </p>
+                <p class="mb-2">
+                    <i class="bi bi-telephone-fill me-2 text-primary"></i>
+                    {site.configuration.phone -> f:or(alternative: '+387 33 250 700')}
+                </p>
+                <f:if condition="{site.configuration.fax}">
+                    <p class="mb-2">
+                        <i class="bi bi-printer-fill me-2 text-primary"></i>
+                        {site.configuration.fax}
+                    </p>
+                </f:if>
+                <p class="mb-2">
+                    <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                    {site.configuration.email -> f:or(alternative: 'info@etf.unsa.ba')}
+                </p>
+                <f:if condition="{site.configuration.web}">
+                    <p class="mb-2">
+                        <i class="bi bi-globe me-2 text-primary"></i>
+                        <f:link.external uri="{site.configuration.web}" target="_blank">{site.configuration.web}
+                        </f:link.external>
+                    </p>
+                </f:if>
+            </div>
+
+            <!-- 3. Quick Links (3 cols) -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5>
+                    <f:translate key="footer.quick_links" extensionName="spark_core" />
+                </h5>
+                <f:if condition="{footerNavigation}">
+                    <ul class="list-unstyled">
+                        <f:for each="{footerNavigation}" as="item">
+                            <li class="mb-2"><a href="{item.link}">{item.title}</a></li>
+                        </f:for>
+                    </ul>
+                </f:if>
+            </div>
+
+            <!-- 4. Legal / PIDS (3 cols) -->
+            <div class="col-lg-3 col-md-6 mb-4">
+                <h5>
+                    <f:translate key="footer.links" extensionName="spark_core" />
+                </h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <f:link.typolink parameter="{site.configuration.pidCorruption -> f:or(alternative: '#')}">
+                            <f:translate key="footer.pid_corruption" extensionName="spark_core" />
+                        </f:link.typolink>
+                    </li>
+                    <li class="mb-2">
+                        <f:link.typolink parameter="{site.configuration.pidPrivacy -> f:or(alternative: '#')}">
+                            <f:translate key="footer.pid_privacy" extensionName="spark_core" />
+                        </f:link.typolink>
+                    </li>
+                    <li class="mb-2">
+                        <f:link.typolink parameter="{site.configuration.pidAccessibility -> f:or(alternative: '#')}">
+                            <f:translate key="footer.pid_accessibility" extensionName="spark_core" />
+                        </f:link.typolink>
+                    </li>
+                    <li class="mb-2">
+                        <f:link.typolink parameter="{site.configuration.pidTerms -> f:or(alternative: '#')}">
+                            <f:translate key="footer.pid_terms" extensionName="spark_core" />
+                        </f:link.typolink>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="site-footer-bottom">
+        <div class="container">
+            <div class="text-center">
+                <p class="mb-0">&copy; <f:format.date format="Y">now</f:format.date> {site.configuration.copyrightText
+                    -> f:or(alternative: 'ETF UNSA')}.
+                    <f:translate key="footer.copyright_rights" extensionName="spark_core" />
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
