@@ -1,0 +1,32 @@
+# Frame Classes (Backgrounds)
+TCEFORM.tt_content.frame_class {
+    removeItems = ruler-before, ruler-after, indent, indent-left, indent-right, none
+    addItems {
+        primary = Primary Background
+        secondary = Secondary Background
+        light = Light Background
+        dark = Dark Background
+        grey = Grey Background
+    }
+}
+
+# Space Before/After Classes
+TCEFORM.tt_content.space_before_class {
+    removeItems = extra-small, extra-large
+    addItems {
+        none = None
+        small = Small
+        medium = Medium
+        large = Large
+    }
+}
+
+TCEFORM.tt_content.space_after_class {
+    removeItems = extra-small, extra-large
+    addItems {
+        none = None
+        small = Small
+        medium = Medium
+        large = Large
+    }
+}

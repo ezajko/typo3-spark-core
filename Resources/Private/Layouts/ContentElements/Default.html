@@ -2,13 +2,14 @@
 <f:variable name="frameClass">{f:if(condition: data.frame_class, then: 'frame-background-{data.frame_class}', else: 'frame-background-none')}</f:variable>
 <f:variable name="containerClass">
     <f:switch expression="{data.frame_layout}">
-        <f:case value="1">container</f:case>
-        <f:case value="2">container-sm</f:case>
-        <f:case value="3">container-md</f:case>
-        <f:case value="4">container-lg</f:case>
-        <f:case value="5">container-xl</f:case>
-        <f:case value="6">container-xxl</f:case>
-        <f:case value="7">container-fluid</f:case>
+        <f:case value="default">container</f:case>
+        <f:case value="sm">container-sm</f:case>
+        <f:case value="md">container-md</f:case>
+        <f:case value="lg">container-lg</f:case>
+        <f:case value="xl">container-xl</f:case>
+        <f:case value="xxl">container-xxl</f:case>
+        <f:case value="fluid">container-fluid</f:case>
+        <f:case value="none"></f:case>
         <f:case default="true">container</f:case>
     </f:switch>
 </f:variable>

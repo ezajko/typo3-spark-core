@@ -1,1 +1,2 @@
 @import 'EXT:spark_core/Configuration/PageTS/BackendLayouts.tsconfig'
+@import 'EXT:spark_core/Configuration/PageTS/Frames.tsconfig'
