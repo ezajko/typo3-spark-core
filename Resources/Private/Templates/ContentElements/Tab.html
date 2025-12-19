@@ -2,24 +2,23 @@
 <f:layout name="Default" />
 <f:section name="Main">
     <div class="tabs {f:if(condition: '{data.layout} == 100', then: 'tabs-vertical')}" id="tab-{data.uid}">
-        <f:debug title="Tab Children">{children_200}</f:debug>
         <!-- Tab Headers -->
         <div class="tab-header" role="tablist">
-            <f:for each="{children_200}" as="child" iteration="i">
-                <button class="nav-link {f:if(condition: i.isFirst, then: 'active')}" id="tab-btn-{child.data.uid}"
-                    data-bs-toggle="tab" data-bs-target="#tab-pane-{child.data.uid}" type="button" role="tab"
-                    aria-controls="tab-pane-{child.data.uid}"
+            <f:for each="{tabItems}" as="item" iteration="i">
+                <button class="nav-link {f:if(condition: i.isFirst, then: 'active')}" id="tab-btn-{data.uid}-{i.cycle}"
+                    data-bs-toggle="tab" data-bs-target="#tab-pane-{data.uid}-{i.cycle}" type="button" role="tab"
+                    aria-controls="tab-pane-{data.uid}-{i.cycle}"
                     aria-selected="{f:if(condition: i.isFirst, then: 'true', else: 'false')}">
-                    {child.data.header}
+                    {item.header}
                 </button>
             </f:for>
         </div>
 
         <!-- Tab Content -->
         <div class="tab-content" id="tab-content-{data.uid}">
-            <f:for each="{children_200}" as="child" iteration="i">
-                <div class="tab-pane fade {f:if(condition: i.isFirst, then: 'show active')}"
-                    id="tab-pane-{child.data.uid}" role="tabpanel" aria-labelledby="tab-btn-{child.data.uid}">
+            <f:for each="{children_200}" as="child" iteration="k">
+                <div class="tab-pane fade {f:if(condition: k.isFirst, then: 'show active')}"
+                    id="tab-pane-{data.uid}-{k.cycle}" role="tabpanel" aria-labelledby="tab-btn-{data.uid}-{k.cycle}">
                     <f:format.raw>{child.renderedContent}</f:format.raw>
                 </div>
             </f:for>

@@ -3,6 +3,18 @@ tt_content.tab {
     templateName = Tab
     dataProcessing {
         10 = B13\Container\DataProcessing\ContainerProcessor
+        
+        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        20 {
+            table = tt_content
+            pidInList.field = pid
+            where = tx_container_parent = ###uid### AND colPos = 200
+            markers {
+                uid.field = uid
+            }
+            orderBy = sorting
+            as = tabItems
+        }
     }
 }
 
