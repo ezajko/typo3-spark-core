@@ -3,13 +3,13 @@
 <f:section name="Main">
     <!-- Nav Tabs -->
     <ul class="nav nav-tabs" id="tab-{data.uid}" role="tablist">
-        <f:for each="{tabItems}" as="item" iteration="i">
+        <f:for each="{children_200}" as="child" iteration="i">
             <li class="nav-item" role="presentation">
-                <button class="nav-link {f:if(condition: i.isFirst, then: 'active')}" id="tab-btn-{item.uid}"
-                    data-bs-toggle="tab" data-bs-target="#tab-pane-{item.uid}" type="button" role="tab"
-                    aria-controls="tab-pane-{item.uid}"
+                <button class="nav-link {f:if(condition: i.isFirst, then: 'active')}" id="tab-btn-{child.data.uid}"
+                    data-bs-toggle="tab" data-bs-target="#tab-pane-{child.data.uid}" type="button" role="tab"
+                    aria-controls="tab-pane-{child.data.uid}"
                     aria-selected="{f:if(condition: i.isFirst, then: 'true', else: 'false')}">
-                    {item.header}
+                    {child.data.header}
                 </button>
             </li>
         </f:for>
