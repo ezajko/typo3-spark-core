@@ -35,6 +35,41 @@ tt_content.container_2_columns_left {
     }
 }
 
+tt_content.container_2_columns_left {
+    templateName = Grid2ColLeft
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202
+            as = children
+        }
+    }
+}
+
+tt_content.container_2_columns_25_75 < lib.contentElement
+tt_content.container_2_columns_25_75 {
+    templateName = Grid2Col2575
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202
+            as = children
+        }
+    }
+}
+
+tt_content.container_2_columns_75_25 < lib.contentElement
+tt_content.container_2_columns_75_25 {
+    templateName = Grid2Col7525
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202
+            as = children
+        }
+    }
+}
+
 # 3 Columns
 tt_content.container_3_columns < lib.contentElement
 tt_content.container_3_columns {

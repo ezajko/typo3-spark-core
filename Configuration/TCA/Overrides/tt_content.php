@@ -419,6 +419,42 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
             ->setIcon('content-container-columns-2')
     );
 
+    // 2 Columns (25/75)
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'container_2_columns_25_75',
+                '2 Columns (25% / 75%)',
+                '25% / 75%',
+                [
+                    [
+                        ['name' => 'Left', 'colPos' => 201, 'colspan' => 1],
+                        ['name' => 'Right', 'colPos' => 202, 'colspan' => 3],
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-container-columns-2')
+    );
+
+    // 2 Columns (75/25)
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'container_2_columns_75_25',
+                '2 Columns (75% / 25%)',
+                '75% / 25%',
+                [
+                    [
+                        ['name' => 'Left', 'colPos' => 201, 'colspan' => 3],
+                        ['name' => 'Right', 'colPos' => 202, 'colspan' => 1],
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-container-columns-2')
+    );
+
     // 3 Columns (33/33/33)
     $containerRegistry->configureContainer(
         (
