@@ -3,9 +3,5 @@ tt_content.card_group {
     templateName = CardGroup
     dataProcessing {
         10 = B13\Container\DataProcessing\ContainerProcessor
-        10 {
-            colPos = 200
-            as = children
-        }
     }
 }
