@@ -1,0 +1,28 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:variable name="heightClass" value="" />
+    <f:if condition="{data.tx_spark_height} != 'auto'">
+        <f:variable name="heightClass" value="hero-{data.tx_spark_height}" />
+    </f:if>
+
+    <f:variable name="style" value="" />
+    <f:if condition="{files.0}">
+        <f:variable name="style" value="background-image: url('{files.0.publicUrl}');" />
+    </f:if>
+
+    <section id="c{data.uid}" class="hero {heightClass}" style="{style}">
+        <f:if condition="{data.tx_spark_overlay}">
+            <div class="hero-overlay"></div>
+        </f:if>
+
+        <div class="hero-content container">
+            <f:render partial="Header/All" arguments="{_all}" />
+            <f:format.html>{data.bodytext}</f:format.html>
+        </div>
+    </section>
+
+</f:section>
+
+</html>

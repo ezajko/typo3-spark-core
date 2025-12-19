@@ -1,0 +1,47 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:variable name="variantClass" value="cta-{data.tx_spark_variant}" />
+    <f:variable name="alignClass"
+        value="{f:if(condition: '{data.tx_spark_alignment} == \'center\'', then: 'cta-center')}" />
+    <f:variable name="heightClass"
+        value="{f:if(condition: '{data.tx_spark_height} != \'auto\'', then: 'cta-{data.tx_spark_height}')}" />
+    <f:variable name="btnClass"
+        value="{f:if(condition: '{data.tx_spark_variant} == \'primary\'', then: 'btn-outline-light', else: 'btn-primary')}" />
+
+    <div class="cta {variantClass} {alignClass} {heightClass}">
+        <div class="container cta-content">
+            <div
+                class="row align-items-center {f:if(condition: '{data.tx_spark_alignment} == \'center\'', then: 'justify-content-center text-center')}">
+                <div
+                    class="{f:if(condition: '{data.tx_spark_alignment} == \'center\'', then: 'col-lg-10', else: 'col-lg-8 mb-4 mb-lg-0')}">
+                    <h2 class="cta-title h3">
+                        <f:if condition="{data.tx_spark_icon}">
+                            <i class="bi {data.tx_spark_icon} me-2"></i>
+                        </f:if>
+                        {data.header}
+                    </h2>
+                    <f:if condition="{data.bodytext}">
+                        <div class="cta-description mb-0">
+                            <f:format.html>{data.bodytext}</f:format.html>
+                        </div>
+                    </f:if>
+                </div>
+                <f:if condition="{data.header_link}">
+                    <div
+                        class="{f:if(condition: '{data.tx_spark_alignment} == \'center\'', then: 'col-lg-10 mt-4', else: 'col-lg-4 text-lg-end')}">
+                        <f:link.typolink parameter="{data.header_link}" class="btn {btnClass} btn-lg px-4">
+                            {f:if(condition: data.tx_spark_button_text, then: data.tx_spark_button_text, else: 'Learn
+                            more')}
+                            <i class="bi bi-chevron-right ms-2 small"></i>
+                        </f:link.typolink>
+                    </div>
+                </f:if>
+            </div>
+        </div>
+    </div>
+
+</f:section>
+
+</html>
