@@ -338,6 +338,31 @@ $GLOBALS['TCA']['tt_content']['types']['card'] = [
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumns);
 
 // Update Palette: Headers
+$GLOBALS['TCA']['tt_content']['palettes']['headers']['showitem'] = '
+    header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
+    --linebreak--,
+    subheader;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:subheader_formlabel,
+';
+
+// Register Card Group Container
+if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
+    \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\B13\Container\Tca\Registry::class)->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'card_group', // CType
+                'Card Group', // Label
+                'Groups cards together with equal height and spacing.', // Description
+                [
+                    [
+                        ['name' => 'Cards', 'colPos' => 200, 'allowed' => ['CType' => 'card']]
+                    ]
+                ] // Grid Configuration
+            )
+        )
+            ->setIcon('content-container-columns-3') // Icon
+    );
+}
+
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'tt_content',
     'headers',

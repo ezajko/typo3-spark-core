@@ -9,6 +9,7 @@
 @import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/CTA.typoscript'
 @import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/Hero.typoscript'
 @import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/Card.typoscript'
+@import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/CardGroup.typoscript'
 
 lib.contentElement {
     templateRootPaths {
