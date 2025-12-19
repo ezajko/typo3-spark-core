@@ -1,60 +1,125 @@
 # Base Grid Element
 lib.gridElement < lib.contentElement
-lib.gridElement {
-    dataProcessing {
-        10 = B13\Container\DataProcessing\ContainerProcessor
-    }
-}
 
 # 2 Columns
 tt_content.container_2_columns < lib.gridElement
 tt_content.container_2_columns {
     templateName = Grid2Col
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202
+            as = children
+        }
+    }
 }
 
 tt_content.container_2_columns_right < lib.gridElement
 tt_content.container_2_columns_right {
     templateName = Grid2ColRight
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202
+            as = children
+        }
+    }
 }
 
 tt_content.container_2_columns_left < lib.gridElement
 tt_content.container_2_columns_left {
     templateName = Grid2ColLeft
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202
+            as = children
+        }
+    }
 }
 
 tt_content.container_2_columns_25_75 < lib.gridElement
 tt_content.container_2_columns_25_75 {
     templateName = Grid2Col2575
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202
+            as = children
+        }
+    }
 }
 
 tt_content.container_2_columns_75_25 < lib.gridElement
 tt_content.container_2_columns_75_25 {
     templateName = Grid2Col7525
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202
+            as = children
+        }
+    }
 }
 
 # 3 Columns
 tt_content.container_3_columns < lib.gridElement
 tt_content.container_3_columns {
     templateName = Grid3Col
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202,203
+            as = children
+        }
+    }
 }
 
 tt_content.container_3_columns_left < lib.gridElement
 tt_content.container_3_columns_left {
     templateName = Grid3ColLeft
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202,203
+            as = children
+        }
+    }
 }
 
 tt_content.container_3_columns_right < lib.gridElement
 tt_content.container_3_columns_right {
     templateName = Grid3ColRight
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202,203
+            as = children
+        }
+    }
 }
 
 tt_content.container_3_columns_middle < lib.gridElement
 tt_content.container_3_columns_middle {
     templateName = Grid3ColMiddle
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202,203
+            as = children
+        }
+    }
 }
 
 # 4 Columns
 tt_content.container_4_columns < lib.gridElement
 tt_content.container_4_columns {
     templateName = Grid4Col
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        10 {
+            colPos = 201,202,203,204
+            as = children
+        }
+    }
 }
