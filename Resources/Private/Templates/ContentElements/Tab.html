@@ -2,6 +2,7 @@
 <f:layout name="Default" />
 <f:section name="Main">
     <div class="tabs {f:if(condition: '{data.layout} == 100', then: 'tabs-vertical')}" id="tab-{data.uid}">
+        <f:debug title="Tab Children">{children_200}</f:debug>
         <!-- Tab Headers -->
         <div class="tab-header" role="tablist">
             <f:for each="{children_200}" as="child" iteration="i">
