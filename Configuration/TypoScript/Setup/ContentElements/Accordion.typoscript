@@ -1,0 +1,15 @@
+tt_content.accordion < lib.contentElement
+tt_content.accordion {
+    templateName = Accordion
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+    }
+}
+
+tt_content.accordion_item < lib.contentElement
+tt_content.accordion_item {
+    templateName = AccordionItem
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+    }
+}

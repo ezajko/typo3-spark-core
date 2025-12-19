@@ -550,6 +550,74 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
         )
             ->setIcon('content-container-columns-4')
     );
+
+    // Accordion
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'accordion',
+                'Accordion',
+                'Accordion Group',
+                [
+                    [
+                        ['name' => 'Accordion Items', 'colPos' => 200, 'allowed' => ['CType' => 'accordion_item']]
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-bootstrappackage-accordion')
+    );
+
+    // Accordion Item
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'accordion_item',
+                'Accordion Item',
+                'Single Accordion Panel',
+                [
+                    [
+                        ['name' => 'Content', 'colPos' => 201]
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-bootstrappackage-accordion-item')
+    );
+
+    // Tabs
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'tab',
+                'Tabs',
+                'Tab Group',
+                [
+                    [
+                        ['name' => 'Tab Items', 'colPos' => 200, 'allowed' => ['CType' => 'tab_item']]
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-bootstrappackage-tab')
+    );
+
+    // Tab Item
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'tab_item',
+                'Tab Item',
+                'Single Tab Panel',
+                [
+                    [
+                        ['name' => 'Content', 'colPos' => 201]
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-bootstrappackage-tab-item')
+    );
 }
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(

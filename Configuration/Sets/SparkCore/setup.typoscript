@@ -29,6 +29,8 @@ lib.contentElement {
 @import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/Card.typoscript'
 @import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/CardGroup.typoscript'
 @import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/Grid.typoscript'
+@import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/Accordion.typoscript'
+@import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/Tab.typoscript'
 
 @import 'EXT:spark_core/Configuration/TypoScript/Setup/Page.typoscript'
 
