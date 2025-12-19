@@ -93,6 +93,22 @@ $temporaryColumns = [
             ],
         ],
     ],
+    'tx_spark_card_header' => [
+        'exclude' => true,
+        'label' => 'Card Header',
+        'config' => [
+            'type' => 'input',
+            'eval' => 'trim',
+        ],
+    ],
+    'tx_spark_card_footer' => [
+        'exclude' => true,
+        'label' => 'Card Footer',
+        'config' => [
+            'type' => 'input',
+            'eval' => 'trim',
+        ],
+    ],
 ];
 
 // Content Element: List Group
@@ -112,7 +128,9 @@ $GLOBALS['TCA']['tt_content']['types']['listgroup'] = [
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
             --palette--;;general,
             --palette--;;headers,
+            tx_spark_card_header,
             tx_spark_items,
+            tx_spark_card_footer,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
             --palette--;;frames,
             --palette--;;appearanceLinks,

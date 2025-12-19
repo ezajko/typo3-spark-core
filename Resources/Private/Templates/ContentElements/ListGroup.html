@@ -5,12 +5,36 @@
 </f:section>
 <f:section name="Main">
     <f:if condition="{items}">
-        <div class="list-group">
-            <f:for each="{items}" as="item">
-                <f:render partial="ListGroup/Item/{item.data.item_type -> f:format.case(mode: 'capital')}"
-                    arguments="{item: item}" />
-            </f:for>
-        </div>
+        <f:variable name="isCard" value="{data.tx_spark_card_header} || {data.tx_spark_card_footer}" />
+
+        <f:if condition="{isCard}">
+            <f:then>
+                <div class="card">
+                    <f:if condition="{data.tx_spark_card_header}">
+                        <div class="card-header">{data.tx_spark_card_header}</div>
+                    </f:if>
+
+                    <div class="list-group list-group-flush">
+                        <f:for each="{items}" as="item">
+                            <f:render partial="ListGroup/Item/{item.data.item_type -> f:format.case(mode: 'capital')}"
+                                arguments="{item: item}" />
+                        </f:for>
+                    </div>
+
+                    <f:if condition="{data.tx_spark_card_footer}">
+                        <div class="card-footer">{data.tx_spark_card_footer}</div>
+                    </f:if>
+                </div>
+            </f:then>
+            <f:else>
+                <div class="list-group">
+                    <f:for each="{items}" as="item">
+                        <f:render partial="ListGroup/Item/{item.data.item_type -> f:format.case(mode: 'capital')}"
+                            arguments="{item: item}" />
+                    </f:for>
+                </div>
+            </f:else>
+        </f:if>
     </f:if>
 </f:section>
 
