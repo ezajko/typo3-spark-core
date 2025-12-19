@@ -1,0 +1,27 @@
+tt_content.carousel < lib.contentElement
+tt_content.carousel {
+    templateName = Carousel
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+        
+        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        20 {
+            table = tt_content
+            pidInList.field = pid
+            where = tx_container_parent = ###uid### AND colPos = 200
+            markers {
+                uid.field = uid
+            }
+            orderBy = sorting
+            as = carouselItems
+        }
+    }
+}
+
+tt_content.carousel_item < lib.contentElement
+tt_content.carousel_item {
+    templateName = CarouselItem
+    dataProcessing {
+        10 = B13\Container\DataProcessing\ContainerProcessor
+    }
+}

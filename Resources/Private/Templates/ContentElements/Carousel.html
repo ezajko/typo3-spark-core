@@ -1,0 +1,43 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+    <div id="carousel-{data.uid}" class="carousel slide" data-bs-ride="carousel">
+
+        <!-- Indicators -->
+        <f:if condition="{carouselItems -> f:count()} > 1">
+            <div class="carousel-indicators">
+                <f:for each="{carouselItems}" as="item" iteration="i">
+                    <button type="button" data-bs-target="#carousel-{data.uid}" data-bs-slide-to="{i.index}"
+                        class="{f:if(condition: i.isFirst, then: 'active')}"
+                        aria-current="{f:if(condition: i.isFirst, then: 'true', else: 'false')}"
+                        aria-label="Slide {i.cycle}"></button>
+                </f:for>
+            </div>
+        </f:if>
+
+        <!-- Slides -->
+        <div class="carousel-inner">
+            <f:for each="{children_200}" as="child" iteration="k">
+                <div class="carousel-item {f:if(condition: k.isFirst, then: 'active')}">
+                    <f:format.raw>{child.renderedContent}</f:format.raw>
+                </div>
+            </f:for>
+        </div>
+
+        <!-- Controls -->
+        <f:if condition="{carouselItems -> f:count()} > 1">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-{data.uid}"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel-{data.uid}"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </f:if>
+    </div>
+</f:section>
+
+</html>

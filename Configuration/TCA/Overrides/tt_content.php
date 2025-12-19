@@ -619,6 +619,40 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
             ->setIcon('content-bootstrappackage-tab-item')
     );
 
+    // Carousel
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'carousel',
+                'Carousel',
+                'Carousel Wrapper',
+                [
+                    [
+                        ['name' => 'Carousel Items', 'colPos' => 200, 'allowed' => ['CType' => 'carousel_item']]
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-bootstrappackage-carousel')
+    );
+
+    // Carousel Item
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'carousel_item',
+                'Carousel Item',
+                'Single Slide',
+                [
+                    [
+                        ['name' => 'Content', 'colPos' => 201]
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-bootstrappackage-carousel-item')
+    );
+
     // Override showitem to ensure Header is visible and labeled appropriately
     $GLOBALS['TCA']['tt_content']['types']['accordion_item']['showitem'] = '
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
@@ -633,6 +667,15 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
             header;Tab Label,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --palette--;;hidden,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
+    ';
+
+    $GLOBALS['TCA']['tt_content']['types']['carousel_item']['showitem'] = '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
+            header;Slide Title (Internal),
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
             --palette--;;hidden,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,

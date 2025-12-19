@@ -31,6 +31,7 @@ lib.contentElement {
 @import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/Grid.typoscript'
 @import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/Accordion.typoscript'
 @import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/Tab.typoscript'
+@import 'EXT:spark_core/Configuration/TypoScript/Setup/ContentElements/Carousel.typoscript'
 
 @import 'EXT:spark_core/Configuration/TypoScript/Setup/Page.typoscript'
 
