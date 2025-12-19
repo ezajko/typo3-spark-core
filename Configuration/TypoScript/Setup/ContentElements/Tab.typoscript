@@ -8,7 +8,7 @@ tt_content.tab {
         20 {
             table = tt_content
             pidInList.field = pid
-            where = tx_container_parent = ###uid### AND colPos = 200
+            where.dataWrap = tx_container_parent = {data:uid} AND colPos = 200
             orderBy = sorting
             as = tabItems
         }
