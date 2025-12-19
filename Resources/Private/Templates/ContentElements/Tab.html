@@ -1,15 +1,16 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Main">
+
     <div class="tabs {f:if(condition: '{data.layout} == 100', then: 'tabs-vertical')}" id="tab-{data.uid}">
         <!-- Tab Headers -->
         <div class="tab-header" role="tablist">
-            <f:for each="{tabItems}" as="item" iteration="i">
+            <f:for each="{tabItems}" as="tab" iteration="i">
                 <button class="nav-link {f:if(condition: i.isFirst, then: 'active')}" id="tab-btn-{data.uid}-{i.cycle}"
                     data-bs-toggle="tab" data-bs-target="#tab-pane-{data.uid}-{i.cycle}" type="button" role="tab"
                     aria-controls="tab-pane-{data.uid}-{i.cycle}"
                     aria-selected="{f:if(condition: i.isFirst, then: 'true', else: 'false')}">
-                    {item.header}
+                    {tab.data.header}
                 </button>
             </f:for>
         </div>
