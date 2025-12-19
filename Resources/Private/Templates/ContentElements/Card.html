@@ -1,0 +1,73 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+
+    <f:if condition="{data.tx_spark_orientation} == 'horizontal'">
+        <f:then>
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <f:if condition="{files.0}">
+                        <div class="col-md-4">
+                            <f:image image="{files.0}" class="img-fluid rounded-start h-100 object-fit-cover" />
+                        </div>
+                    </f:if>
+                    <div class="{f:if(condition: files.0, then: 'col-md-8', else: 'col-12')}">
+                        <f:render section="CardContent" arguments="{_all}" />
+                    </div>
+                </div>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="card h-100">
+                <f:if condition="{files.0}">
+                    <f:image image="{files.0}" class="card-img-top" />
+                </f:if>
+                <f:render section="CardContent" arguments="{_all}" />
+            </div>
+        </f:else>
+    </f:if>
+
+</f:section>
+
+<f:section name="CardContent">
+    <f:if condition="{data.tx_spark_card_header}">
+        <div class="card-header">
+            {data.tx_spark_card_header}
+        </div>
+    </f:if>
+    <div class="card-body">
+        <f:if condition="{data.header}">
+            <h5 class="card-title">
+                <f:if condition="{data.tx_spark_icon}">
+                    <i class="{data.tx_spark_icon} me-2 text-primary"></i>
+                </f:if>
+                {data.header}
+            </h5>
+        </f:if>
+        <f:if condition="{data.subheader}">
+            <h6 class="card-subtitle mb-2 text-muted">{data.subheader}</h6>
+        </f:if>
+        <f:if condition="{data.bodytext}">
+            <div class="card-text">
+                <f:format.html>{data.bodytext}</f:format.html>
+            </div>
+        </f:if>
+    </div>
+
+    <f:if condition="{items}">
+        <div class="list-group list-group-flush">
+            <f:for each="{items}" as="item">
+                <f:render partial="ListGroup/Item/{item.data.item_type -> f:format.case(mode: 'capital')}"
+                    arguments="{item: item}" />
+            </f:for>
+        </div>
+    </f:if>
+
+    <f:if condition="{data.tx_spark_card_footer}">
+        <div class="card-footer">
+            {data.tx_spark_card_footer}
+        </div>
+    </f:if>
+</f:section>
+
+</html>

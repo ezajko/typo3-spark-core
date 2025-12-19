@@ -179,6 +179,19 @@ $temporaryColumns = [
             'renderType' => 'checkboxToggle',
         ],
     ],
+    'tx_spark_orientation' => [
+        'exclude' => true,
+        'label' => 'Orientation',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['label' => 'Vertical (Default)', 'value' => 'vertical'],
+                ['label' => 'Horizontal', 'value' => 'horizontal'],
+            ],
+            'default' => 'vertical',
+        ],
+    ],
 ];
 
 // Content Element: List Group
@@ -213,6 +226,18 @@ $temporaryColumns = [
         'label' => 'Hero Banner',
         'value' => 'hero',
         'icon' => 'content-image', 
+        'group' => 'common',
+    ]
+);
+
+// Content Element: Card
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'Card',
+        'value' => 'card',
+        'icon' => 'content-textpic', 
         'group' => 'common',
     ]
 );
@@ -272,6 +297,31 @@ $GLOBALS['TCA']['tt_content']['types']['hero'] = [
             image,
             tx_spark_height,
             tx_spark_overlay,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+            --palette--;;frames,
+            --palette--;;appearanceLinks,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+            --palette--;;language,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --palette--;;hidden,
+            --palette--;;access,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+            rowDescription,
+    ',
+];
+
+$GLOBALS['TCA']['tt_content']['types']['card'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            tx_spark_card_header,
+            tx_spark_orientation,
+            image,
+            tx_spark_icon,
+            bodytext;Body Text,
+            tx_spark_items,
+            tx_spark_card_footer,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
             --palette--;;frames,
             --palette--;;appearanceLinks,

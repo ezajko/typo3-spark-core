@@ -1,0 +1,29 @@
+tt_content.card =< lib.contentElement
+tt_content.card {
+    templateName = Card
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = image
+        }
+        20 = TYPO3\CMS\Frontend\DataProcessing\DatabaseQueryProcessor
+        20 {
+            table = tx_spark_listitem
+            pidInList.field = pid
+            where = tt_content=###uid### AND deleted=0 AND hidden=0
+            orderBy = sorting
+            as = items
+            dataProcessing {
+                10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                10 {
+                    references.fieldName = image
+                }
+                20 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+                20 {
+                    references.fieldName = file_reference
+                    as = files
+                }
+            }
+        }
+    }
+}
