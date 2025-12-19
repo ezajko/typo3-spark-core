@@ -346,20 +346,173 @@ $GLOBALS['TCA']['tt_content']['palettes']['headers']['showitem'] = '
 
 // Register Card Group Container
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
-    \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\B13\Container\Tca\Registry::class)->configureContainer(
+    $containerRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\B13\Container\Tca\Registry::class);
+
+    // Card Group
+    $containerRegistry->configureContainer(
         (
             new \B13\Container\Tca\ContainerConfiguration(
-                'card_group', // CType
-                'Card Group', // Label
-                'Groups cards together with equal height and spacing.', // Description
+                'card_group',
+                'Card Group',
+                'Groups cards together with equal height and spacing.',
                 [
                     [
                         ['name' => 'Cards', 'colPos' => 200, 'allowed' => ['CType' => 'card']]
                     ]
-                ] // Grid Configuration
+                ]
             )
         )
-            ->setIcon('content-container-columns-3') // Icon
+            ->setIcon('content-container-columns-3')
+    );
+
+    // 2 Columns (50/50)
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'container_2_columns',
+                '2 Columns',
+                '50% / 50%',
+                [
+                    [
+                        ['name' => 'Left', 'colPos' => 201],
+                        ['name' => 'Right', 'colPos' => 202],
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-container-columns-2')
+    );
+
+    // 2 Columns Right (33/66)
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'container_2_columns_right',
+                '2 Columns Right',
+                '33% / 66%',
+                [
+                    [
+                        ['name' => 'Left', 'colPos' => 201, 'colspan' => 1],
+                        ['name' => 'Right', 'colPos' => 202, 'colspan' => 2],
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-container-columns-2')
+    );
+
+    // 2 Columns Left (66/33)
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'container_2_columns_left',
+                '2 Columns Left',
+                '66% / 33%',
+                [
+                    [
+                        ['name' => 'Left', 'colPos' => 201, 'colspan' => 2],
+                        ['name' => 'Right', 'colPos' => 202, 'colspan' => 1],
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-container-columns-2')
+    );
+
+    // 3 Columns (33/33/33)
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'container_3_columns',
+                '3 Columns',
+                '33% / 33% / 33%',
+                [
+                    [
+                        ['name' => 'Left', 'colPos' => 201],
+                        ['name' => 'Middle', 'colPos' => 202],
+                        ['name' => 'Right', 'colPos' => 203],
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-container-columns-3')
+    );
+
+    // 3 Columns Left (50/25/25)
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'container_3_columns_left',
+                '3 Columns Left',
+                '50% / 25% / 25%',
+                [
+                    [
+                        ['name' => 'Left', 'colPos' => 201, 'colspan' => 2],
+                        ['name' => 'Middle', 'colPos' => 202, 'colspan' => 1],
+                        ['name' => 'Right', 'colPos' => 203, 'colspan' => 1],
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-container-columns-3')
+    );
+
+    // 3 Columns Right (25/25/50)
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'container_3_columns_right',
+                '3 Columns Right',
+                '25% / 25% / 50%',
+                [
+                    [
+                        ['name' => 'Left', 'colPos' => 201, 'colspan' => 1],
+                        ['name' => 'Middle', 'colPos' => 202, 'colspan' => 1],
+                        ['name' => 'Right', 'colPos' => 203, 'colspan' => 2],
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-container-columns-3')
+    );
+
+    // 3 Columns Middle (25/50/25)
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'container_3_columns_middle',
+                '3 Columns Middle',
+                '25% / 50% / 25%',
+                [
+                    [
+                        ['name' => 'Left', 'colPos' => 201, 'colspan' => 1],
+                        ['name' => 'Middle', 'colPos' => 202, 'colspan' => 2],
+                        ['name' => 'Right', 'colPos' => 203, 'colspan' => 1],
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-container-columns-3')
+    );
+
+    // 4 Columns (25/25/25/25)
+    $containerRegistry->configureContainer(
+        (
+            new \B13\Container\Tca\ContainerConfiguration(
+                'container_4_columns',
+                '4 Columns',
+                '25% / 25% / 25% / 25%',
+                [
+                    [
+                        ['name' => 'Left', 'colPos' => 201],
+                        ['name' => 'Middle Left', 'colPos' => 202],
+                        ['name' => 'Middle Right', 'colPos' => 203],
+                        ['name' => 'Right', 'colPos' => 204],
+                    ]
+                ]
+            )
+        )
+            ->setIcon('content-container-columns-4')
     );
 }
 
