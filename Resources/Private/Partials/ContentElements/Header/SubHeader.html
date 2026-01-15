@@ -8,9 +8,23 @@
     </f:switch>
 </f:variable>
 
+<f:variable name="hasLink" value="{data.tx_spark_subheader_link_url}" />
+
 <f:if condition="{data.subheader}">
-    <div class="subheader {positionClass} {data.subheader_class}">
-        {data.subheader}
+    <div
+        class="subheader-section {f:if(condition: hasLink, then: 'd-flex justify-content-between align-items-center mt-2')}">
+        <div
+            class="subheader {f:if(condition: hasLink, then: 'flex-grow-1', else: '{positionClass} {data.subheader_class}')} {data.subheader_class}">
+            {data.subheader}
+        </div>
+
+        <f:if condition="{hasLink} && {data.tx_spark_subheader_link_text}">
+            <div class="ms-3 text-nowrap">
+                <f:link.typolink parameter="{data.tx_spark_subheader_link_url}" class="btn btn-link btn-sm p-0">
+                    {data.tx_spark_subheader_link_text}
+                </f:link.typolink>
+            </div>
+        </f:if>
     </div>
 </f:if>
 

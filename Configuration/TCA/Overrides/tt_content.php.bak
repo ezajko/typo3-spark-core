@@ -224,110 +224,6 @@ $temporaryColumns = [
             'allowedTypes' => ['page', 'url', 'file', 'email', 'folder'],
         ],
     ],
-    'tx_spark_gutter_x' => [
-        'exclude' => true,
-        'label' => 'Horizontal Gutter (Gap X)',
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                ['label' => 'Default (Based on Bootstrap)', 'value' => ''],
-                ['label' => 'None (gx-0)', 'value' => 'gx-0'],
-                ['label' => 'Extra Small (gx-1)', 'value' => 'gx-1'],
-                ['label' => 'Small (gx-2)', 'value' => 'gx-2'],
-                ['label' => 'Medium (gx-3)', 'value' => 'gx-3'],
-                ['label' => 'Large (gx-4)', 'value' => 'gx-4'],
-                ['label' => 'Extra Large (gx-5)', 'value' => 'gx-5'],
-            ],
-            'default' => '',
-        ],
-    ],
-    'tx_spark_gutter_y' => [
-        'exclude' => true,
-        'label' => 'Vertical Gutter (Gap Y)',
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                ['label' => 'Default (Based on Bootstrap)', 'value' => ''],
-                ['label' => 'None (gy-0)', 'value' => 'gy-0'],
-                ['label' => 'Extra Small (gy-1)', 'value' => 'gy-1'],
-                ['label' => 'Small (gy-2)', 'value' => 'gy-2'],
-                ['label' => 'Medium (gy-3)', 'value' => 'gy-3'],
-                ['label' => 'Large (gy-4)', 'value' => 'gy-4'],
-                ['label' => 'Extra Large (gy-5)', 'value' => 'gy-5'],
-            ],
-            'default' => '',
-        ],
-    ],
-    'tx_spark_valign' => [
-        'exclude' => true,
-        'label' => 'Vertical Alignment of Columns',
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                ['label' => 'Stretch (Default)', 'value' => ''],
-                ['label' => 'Top (align-items-start)', 'value' => 'align-items-start'],
-                ['label' => 'Center (align-items-center)', 'value' => 'align-items-center'],
-                ['label' => 'Bottom (align-items-end)', 'value' => 'align-items-end'],
-            ],
-            'default' => '',
-        ],
-    ],
-    'tx_spark_padding_y' => [
-        'exclude' => true,
-        'label' => 'Inner Padding (Vertical)',
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                ['label' => 'None', 'value' => ''],
-                ['label' => 'Extra Small (py-1)', 'value' => 'py-1'],
-                ['label' => 'Small (py-2)', 'value' => 'py-2'],
-                ['label' => 'Medium (py-3)', 'value' => 'py-3'],
-                ['label' => 'Large (py-4)', 'value' => 'py-4'],
-                ['label' => 'Extra Large (py-5)', 'value' => 'py-5'],
-                ['label' => 'Section Padding (py-5+)', 'value' => 'py-5'],
-            ],
-            'default' => '',
-        ],
-    ],
-    'tx_spark_padding_x' => [
-        'exclude' => true,
-        'label' => 'Inner Padding Horizontal (px)',
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                ['label' => 'None', 'value' => ''],
-                ['label' => 'Extra Small (px-1)', 'value' => 'px-1'],
-                ['label' => 'Small (px-2)', 'value' => 'px-2'],
-                ['label' => 'Medium (px-3)', 'value' => 'px-3'],
-                ['label' => 'Large (px-4)', 'value' => 'px-4'],
-                ['label' => 'Extra Large (px-5)', 'value' => 'px-5'],
-            ],
-            'default' => '',
-        ],
-    ],
-    'tx_spark_columns' => [
-        'exclude' => true,
-        'label' => 'Columns per Row (Grid Layout)',
-        'config' => [
-            'type' => 'select',
-            'renderType' => 'selectSingle',
-            'items' => [
-                ['label' => 'Default (Card Group - Attached)', 'value' => ''],
-                ['label' => '1 Column', 'value' => '1'],
-                ['label' => '2 Columns', 'value' => '2'],
-                ['label' => '3 Columns', 'value' => '3'],
-                ['label' => '4 Columns', 'value' => '4'],
-                ['label' => '5 Columns', 'value' => '5'],
-                ['label' => '6 Columns', 'value' => '6'],
-            ],
-            'default' => '',
-        ],
-    ],
 ];
 
 // Content Element: List Group
@@ -473,52 +369,20 @@ $GLOBALS['TCA']['tt_content']['types']['card'] = [
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumns);
 
-    // Update Palette: Headers
-    $GLOBALS['TCA']['tt_content']['palettes']['headers']['showitem'] = '
-        header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
-        --linebreak--,
-        tx_spark_header_link_text, tx_spark_header_link_url,
-        --linebreak--,
-        header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel,
-        header_position;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_position_formlabel,
-        header_class,
-        --linebreak--,
-        subheader;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:subheader_formlabel,
-        --linebreak--,
-        tx_spark_subheader_link_text, tx_spark_subheader_link_url,
-        --linebreak--,
-        subheader_class,
-        --linebreak--,
-        date;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:date_formlabel,
-        header_link;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel,
-    ';
-
-    // Palette: Container Grid Settings
-    $GLOBALS['TCA']['tt_content']['palettes']['spark_grid_settings']['showitem'] = '
-        tx_spark_gutter_x, tx_spark_gutter_y,
-        --linebreak--,
-        tx_spark_valign, tx_spark_padding_y
-    ';
-
-    // Standard Container ShowItem Configuration (with Headers and Grid Settings)
-    $containerShowItem = '
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
-            --palette--;;headers,
-        --div--;LLL:EXT:b13/container/Resources/Private/Language/locallang.xlf:container.colPos,
-            --palette--;;container_columns,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
-            --palette--;;frames,
-            --palette--;Grid Settings;spark_grid_settings,
-            --palette--;;appearanceLinks,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
-            --palette--;;language,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
-            --palette--;;hidden,
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
-        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
-            rowDescription,
-    ';
+// Update Palette: Headers
+$GLOBALS['TCA']['tt_content']['palettes']['headers']['showitem'] = '
+    header;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_formlabel,
+    tx_spark_header_link_text, tx_spark_header_link_url,
+    --linebreak--,
+    subheader;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:subheader_formlabel,
+    tx_spark_subheader_link_text, tx_spark_subheader_link_url,
+    --linebreak--,
+    header_layout;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_layout_formlabel,
+    header_position;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_position_formlabel,
+    date;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:date_formlabel,
+    --linebreak--,
+    header_link;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:header_link_formlabel,
+';
 
 // Register Card Group Container
 if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
@@ -874,16 +738,7 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.access;access,
     ';
 
-    // Palette: Container Grid Settings
-    $GLOBALS['TCA']['tt_content']['palettes']['spark_grid_settings']['showitem'] = '
-        tx_spark_gutter_x, tx_spark_gutter_y,
-        --linebreak--,
-        tx_spark_padding_x, tx_spark_padding_y,
-        --linebreak--,
-        tx_spark_valign, tx_spark_columns
-    ';
-
-    // Standard Container ShowItem Configuration (with Headers and Grid Settings)
+    // Standard Container ShowItem Configuration (with Headers)
     $containerShowItem = '
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:palette.general;general,
@@ -892,7 +747,6 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
             --palette--;;container_columns,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
             --palette--;;frames,
-            --palette--;Grid Settings;spark_grid_settings,
             --palette--;;appearanceLinks,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
             --palette--;;language,

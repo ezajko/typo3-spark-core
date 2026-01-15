@@ -10,6 +10,9 @@ tt_content.card {
         20 {
             table = tx_spark_listitem
             pidInList.field = pid
+            markers {
+                uid.field = uid
+            }
             where = tt_content=###uid### AND deleted=0 AND hidden=0
             orderBy = sorting
             as = items

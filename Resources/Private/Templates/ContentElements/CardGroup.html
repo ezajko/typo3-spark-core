@@ -1,12 +1,27 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:render partial="Header/All" arguments="{_all}" />
 <f:layout name="Default" />
 <f:section name="Main">
 
-    <div class="card-group">
-        <f:for each="{children_200}" as="child">
-            <f:format.raw>{child.renderedContent}</f:format.raw>
-        </f:for>
-    </div>
+    <f:if condition="{data.tx_spark_columns}">
+        <f:then>
+            <div
+                class="row row-cols-1 row-cols-md-{data.tx_spark_columns} {data.tx_spark_gutter_x} {data.tx_spark_gutter_y} {data.tx_spark_valign} {data.tx_spark_padding_x} {data.tx_spark_padding_y}">
+                <f:for each="{children_200}" as="child">
+                    <div class="col">
+                        <f:format.raw>{child.renderedContent}</f:format.raw>
+                    </div>
+                </f:for>
+            </div>
+        </f:then>
+        <f:else>
+            <div class="card-group {data.tx_spark_valign} {data.tx_spark_padding_x} {data.tx_spark_padding_y}">
+                <f:for each="{children_200}" as="child">
+                    <f:format.raw>{child.renderedContent}</f:format.raw>
+                </f:for>
+            </div>
+        </f:else>
+    </f:if>
 
 </f:section>
 

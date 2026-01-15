@@ -6,6 +6,12 @@ lib.gridElement {
     }
 }
 
+# 1 Column
+tt_content.container_1_column < lib.gridElement
+tt_content.container_1_column {
+    templateName = Grid1Col
+}
+
 # 2 Columns
 tt_content.container_2_columns < lib.gridElement
 tt_content.container_2_columns {

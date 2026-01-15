@@ -1,0 +1,22 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:render partial="Header/All" arguments="{_all}" />
+<f:layout name="Default" />
+<f:section name="Main">
+    <div class="row {data.tx_spark_gutter_x} {data.tx_spark_gutter_y} {data.tx_spark_valign}">
+        <div class="col-12 user-content {data.tx_spark_padding_x} {data.tx_spark_padding_y}">
+            <f:for each="{children.201}" as="row">
+                <f:render section="Content" arguments="{_all}" />
+            </f:for>
+        </div>
+    </div>
+</f:section>
+
+<f:section name="Content">
+    <f:for each="{row.columns}" as="column">
+        <f:for each="{column.content}" as="element">
+            <f:cObject typoscriptObjectPath="tt_content" data="{element.data}" table="tt_content" />
+        </f:for>
+    </f:for>
+</f:section>
+
+</html>
