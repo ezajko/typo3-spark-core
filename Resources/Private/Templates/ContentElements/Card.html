@@ -1,28 +1,48 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 <f:section name="Main">
-
-    <f:if condition="{data.tx_spark_orientation} == 'horizontal'">
-        <f:then>
-            <div class="card mb-3">
-                <div class="row g-0">
-                    <f:if condition="{files.0}">
-                        <div class="col-md-4">
-                            <f:image image="{files.0}" class="img-fluid rounded-start h-100 object-fit-cover" />
-                        </div>
-                    </f:if>
-                    <div class="{f:if(condition: files.0, then: 'col-md-8', else: 'col-12')}">
-                        <f:render section="CardContent" arguments="{_all}" />
+    <f:variable name="mediaContent">
+        <f:if condition="{files.0}">
+            <f:then>
+                <f:image image="{files.0}"
+                    class="{f:if(condition: '{data.tx_spark_media_position} != top', then: 'img-fluid h-100 object-fit-cover w-100', else: 'card-img-top')}" />
+            </f:then>
+            <f:else>
+                <f:if condition="{data.tx_spark_icon}">
+                    <div class="{f:if(condition: '{data.tx_spark_media_position} != top', then: 'h-100 w-100', else: 'w-100')} bg-light d-flex align-items-center justify-content-center p-4"
+                        style="min-height: 200px;">
+                        <i class="{data.tx_spark_icon} text-secondary" style="font-size: 4rem;"></i>
                     </div>
-                </div>
+                </f:if>
+            </f:else>
+        </f:if>
+    </f:variable>
+
+    <f:if condition="{data.tx_spark_media_position} == 'top'">
+        <f:then>
+            <!-- Vertical (Top) -->
+            <div class="card h-100">
+                <f:if condition="{mediaContent}">
+                    <f:format.raw>{mediaContent}</f:format.raw>
+                </f:if>
+                <f:render section="CardContent" arguments="{_all}" />
             </div>
         </f:then>
         <f:else>
-            <div class="card h-100">
-                <f:if condition="{files.0}">
-                    <f:image image="{files.0}" class="card-img-top" />
-                </f:if>
-                <f:render section="CardContent" arguments="{_all}" />
+            <!-- Horizontal (Left/Right) -->
+            <div class="card mb-3 h-100">
+                <div class="row g-0 h-100">
+                    <f:if condition="{mediaContent}">
+                        <div
+                            class="col-md-4 {f:if(condition: '{data.tx_spark_media_position} == right', then: 'order-md-2')}">
+                            <f:format.raw>{mediaContent}</f:format.raw>
+                        </div>
+                    </f:if>
+                    <div
+                        class="{f:if(condition: mediaContent, then: 'col-md-8', else: 'col-12')} d-flex flex-column {f:if(condition: '{data.tx_spark_media_position} == right', then: 'order-md-1')}">
+                        <f:render section="CardContent" arguments="{_all}" />
+                    </div>
+                </div>
             </div>
         </f:else>
     </f:if>
@@ -35,20 +55,40 @@
             {data.tx_spark_card_header}
         </div>
     </f:if>
-    <div class="card-body">
+    <div class="card-body d-flex flex-column">
+        <!-- Badge (Subheader) -->
+        <f:if condition="{data.subheader}">
+            <div class="mb-2">
+                <span class="badge bg-light text-primary border">{data.subheader}</span>
+            </div>
+        </f:if>
+
+        <!-- Title -->
         <f:if condition="{data.header}">
-            <h5 class="card-title">
-                <f:if condition="{data.tx_spark_icon}">
-                    <i class="{data.tx_spark_icon} me-2 text-primary"></i>
+            <h5 class="card-title {f:if(condition: data.bodytext, then: 'mb-2', else: 'mb-0')}">
+                <f:if condition="{data.tx_spark_header_link_url}">
+                    <f:then>
+                        <f:link.typolink parameter="{data.tx_spark_header_link_url}"
+                            class="text-decoration-none text-dark stretched-link">
+                            <f:if condition="{data.tx_spark_icon} && {files.0}">
+                                <!-- Show small icon only if image is present (Big Icon mode unused) AND icon is set -->
+                                <i class="{data.tx_spark_icon} me-2 text-primary"></i>
+                            </f:if>
+                            {data.header}
+                        </f:link.typolink>
+                    </f:then>
+                    <f:else>
+                        <f:if condition="{data.tx_spark_icon} && {files.0}">
+                            <i class="{data.tx_spark_icon} me-2 text-primary"></i>
+                        </f:if>
+                        {data.header}
+                    </f:else>
                 </f:if>
-                {data.header}
             </h5>
         </f:if>
-        <f:if condition="{data.subheader}">
-            <h6 class="card-subtitle mb-2 text-muted">{data.subheader}</h6>
-        </f:if>
+
         <f:if condition="{data.bodytext}">
-            <div class="card-text">
+            <div class="card-text text-muted small flex-grow-1">
                 <f:format.html>{data.bodytext}</f:format.html>
             </div>
         </f:if>
@@ -63,9 +103,26 @@
         </div>
     </f:if>
 
-    <f:if condition="{data.tx_spark_card_footer}">
+    <f:if condition="{data.tx_spark_card_footer} || {data.tx_spark_header_link_url}">
         <div class="card-footer">
-            {data.tx_spark_card_footer}
+            <f:if condition="{data.tx_spark_card_footer}">
+                <f:then>
+                    {data.tx_spark_card_footer}
+                </f:then>
+                <f:else>
+                    <f:if condition="{data.tx_spark_header_link_url}">
+                        <div class="d-flex justify-content-end align-items-center">
+                            <span class="btn btn-sm btn-link text-decoration-none p-0">
+                                <f:if condition="{data.tx_spark_header_link_text}">
+                                    <f:then>{data.tx_spark_header_link_text}</f:then>
+                                    <f:else>Detalji</f:else>
+                                </f:if>
+                                <i class="bi bi-arrow-right ms-1"></i>
+                            </span>
+                        </div>
+                    </f:if>
+                </f:else>
+            </f:if>
         </div>
     </f:if>
 </f:section>

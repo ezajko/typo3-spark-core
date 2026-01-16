@@ -15,16 +15,66 @@
     </f:switch>
 </f:variable>
 
-<section id="c{data.uid}"
-    class="frame {frameClass} frame-space-before-{data.space_before_class -> f:or(alternative: 'none')} frame-space-after-{data.space_after_class -> f:or(alternative: 'none')}">
-    <div class="{containerClass}">
+<f:if condition="{data.frame_class} != 'off'">
+    <f:then>
+        <section id="c{data.uid}"
+            class="frame {frameClass} frame-space-before-{data.space_before_class -> f:or(alternative: 'none')} frame-space-after-{data.space_after_class -> f:or(alternative: 'none')}">
+    </f:then>
+</f:if>
+
+<f:if condition="{data.frame_layout} != 'off'">
+    <f:then>
+        <div class="{containerClass}">
+    </f:then>
+</f:if>
+
+<f:switch expression="{data.tx_spark_frame_inner}">
+    <f:case value="off">
+        <f:render section="Header" optional="true" />
+        <f:render section="Main" optional="true" />
+        <f:render section="Footer" optional="true" />
+    </f:case>
+    <f:case value="row">
+        <div class="row">
+            <f:render section="Header" optional="true" />
+            <f:render section="Main" optional="true" />
+            <f:render section="Footer" optional="true" />
+        </div>
+    </f:case>
+    <f:case value="d-flex justify-content-center">
+        <div class="d-flex justify-content-center">
+            <f:render section="Header" optional="true" />
+            <f:render section="Main" optional="true" />
+            <f:render section="Footer" optional="true" />
+        </div>
+    </f:case>
+    <f:case value="h-100">
+        <div class="h-100">
+            <f:render section="Header" optional="true" />
+            <f:render section="Main" optional="true" />
+            <f:render section="Footer" optional="true" />
+        </div>
+    </f:case>
+    <f:defaultCase>
         <div class="frame-inner">
             <f:render section="Header" optional="true" />
             <f:render section="Main" optional="true" />
             <f:render section="Footer" optional="true" />
         </div>
-    </div>
-</section>
+    </f:defaultCase>
+</f:switch>
+
+<f:if condition="{data.frame_layout} != 'off'">
+    <f:then>
+        </div>
+    </f:then>
+</f:if>
+
+<f:if condition="{data.frame_class} != 'off'">
+    <f:then>
+        </section>
+    </f:then>
+</f:if>
 
 <f:if condition="{data.tx_spark_debug}">
     <f:debug title="Frame Debug: {data.header} (uid: {data.uid})">{_all}</f:debug>

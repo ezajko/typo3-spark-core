@@ -19,6 +19,23 @@ $temporaryColumns = [
                 ['label' => 'Extra Extra Large (container-xxl)', 'value' => 'xxl'],
                 ['label' => 'Full Width (container-fluid)', 'value' => 'fluid'],
                 ['label' => 'No Container', 'value' => 'none'],
+                ['label' => 'Disabled (No Wrapper)', 'value' => 'off'],
+            ],
+            'default' => 'default',
+        ],
+    ],
+    'tx_spark_frame_inner' => [
+        'exclude' => true,
+        'label' => 'Inner Layout',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['label' => 'Default', 'value' => 'default'],
+                ['label' => 'Disabled (No Wrapper)', 'value' => 'off'],
+                ['label' => 'Row', 'value' => 'row'],
+                ['label' => 'Flex Center', 'value' => 'd-flex justify-content-center'],
+                ['label' => 'Height 100%', 'value' => 'h-100'],
             ],
             'default' => 'default',
         ],
@@ -190,6 +207,20 @@ $temporaryColumns = [
                 ['label' => 'Horizontal', 'value' => 'horizontal'],
             ],
             'default' => 'vertical',
+        ],
+    ],
+    'tx_spark_media_position' => [
+        'exclude' => true,
+        'label' => 'Media Position',
+        'config' => [
+            'type' => 'select',
+            'renderType' => 'selectSingle',
+            'items' => [
+                ['label' => 'Top (Default)', 'value' => 'top'],
+                ['label' => 'Left', 'value' => 'left'],
+                ['label' => 'Right', 'value' => 'right'],
+            ],
+            'default' => 'top',
         ],
     ],
     'tx_spark_header_link_text' => [
@@ -452,10 +483,10 @@ $GLOBALS['TCA']['tt_content']['types']['card'] = [
             --palette--;;general,
             --palette--;;headers,
             tx_spark_card_header,
-            tx_spark_orientation,
+            tx_spark_media_position,
             image,
             tx_spark_icon,
-            bodytext;Body Text,
+            bodytext;Body Text;richtext:rte_transform[mode=ts_css],
             tx_spark_items,
             tx_spark_card_footer,
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
@@ -469,6 +500,14 @@ $GLOBALS['TCA']['tt_content']['types']['card'] = [
         --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
             rowDescription,
     ',
+    'columnsOverrides' => [
+        'bodytext' => [
+            'config' => [
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
+            ],
+        ],
+    ],
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumns);
@@ -941,10 +980,20 @@ if (\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('container')) {
     'after:subheader'
 );
 
+// Update Frame Class (Section)
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'frame_class',
+    [
+        'label' => 'Disabled (No Section)',
+        'value' => 'off',
+    ]
+);
+
 // Update Palette: Frames
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addFieldsToPalette(
     'tt_content',
     'frames',
-    'frame_layout, --linebreak--, tx_spark_debug',
+    'frame_layout, tx_spark_frame_inner, --linebreak--, tx_spark_debug',
     'after:frame_class'
 );
