@@ -10,36 +10,37 @@
 
 <f:variable name="hasLink" value="{data.tx_spark_header_link_url}" />
 
-<div class="{f:if(condition: hasLink, then: 'd-flex justify-content-between align-items-end')}">
+<div
+    class="{f:if(condition: hasLink, then: 'd-flex justify-content-between align-items-center mb-3 border-bottom pb-3')}">
     <div class="{f:if(condition: hasLink, then: 'flex-grow-1')}">
         <f:switch expression="{data.header_layout}">
             <f:case value="1">
-                <h1 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0')}">
+                <h1 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0', else: 'mb-3')}">
                     <f:render section="HeaderContent" arguments="{_all}" />
                 </h1>
             </f:case>
             <f:case value="2">
-                <h2 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0')}">
+                <h2 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0', else: 'mb-3')}">
                     <f:render section="HeaderContent" arguments="{_all}" />
                 </h2>
             </f:case>
             <f:case value="3">
-                <h3 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0')}">
+                <h3 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0', else: 'mb-3')}">
                     <f:render section="HeaderContent" arguments="{_all}" />
                 </h3>
             </f:case>
             <f:case value="4">
-                <h4 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0')}">
+                <h4 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0', else: 'mb-3')}">
                     <f:render section="HeaderContent" arguments="{_all}" />
                 </h4>
             </f:case>
             <f:case value="5">
-                <h5 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0')}">
+                <h5 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0', else: 'mb-3')}">
                     <f:render section="HeaderContent" arguments="{_all}" />
                 </h5>
             </f:case>
             <f:case value="6">
-                <h6 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0')}">
+                <h6 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0', else: 'mb-3')}">
                     <f:render section="HeaderContent" arguments="{_all}" />
                 </h6>
             </f:case>
@@ -47,7 +48,7 @@
                 <f:comment>Hidden</f:comment>
             </f:case>
             <f:defaultCase>
-                <h2 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0')}">
+                <h2 class="{positionClass} {data.header_class} {f:if(condition: hasLink, then: 'mb-0', else: 'mb-3')}">
                     <f:render section="HeaderContent" arguments="{_all}" />
                 </h2>
             </f:defaultCase>
@@ -58,6 +59,7 @@
         <div class="ms-3 text-nowrap pb-1">
             <f:link.typolink parameter="{data.tx_spark_header_link_url}" class="btn btn-outline-primary btn-sm">
                 {data.tx_spark_header_link_text}
+                <i class="bi bi-arrow-right ms-1"></i>
             </f:link.typolink>
         </div>
     </f:if>

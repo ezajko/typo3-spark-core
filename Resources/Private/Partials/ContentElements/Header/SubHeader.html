@@ -12,7 +12,7 @@
 
 <f:if condition="{data.subheader}">
     <div
-        class="subheader-section {f:if(condition: hasLink, then: 'd-flex justify-content-between align-items-center mt-2')}">
+        class="subheader-section mb-4 {f:if(condition: hasLink, then: 'd-flex justify-content-between align-items-center mt-2')}">
         <div
             class="subheader {f:if(condition: hasLink, then: 'flex-grow-1', else: '{positionClass} {data.subheader_class}')} {data.subheader_class}">
             {data.subheader}
@@ -22,6 +22,7 @@
             <div class="ms-3 text-nowrap">
                 <f:link.typolink parameter="{data.tx_spark_subheader_link_url}" class="btn btn-link btn-sm p-0">
                     {data.tx_spark_subheader_link_text}
+                    <i class="bi bi-arrow-right ms-1"></i>
                 </f:link.typolink>
             </div>
         </f:if>
