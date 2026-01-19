@@ -348,7 +348,8 @@ $temporaryColumns = [
             'type' => 'select',
             'renderType' => 'selectSingle',
             'items' => [
-                ['label' => 'Default (Card Group - Attached)', 'value' => ''],
+                ['label' => 'Grid: Automatic (Default)', 'value' => ''],
+                ['label' => 'Card Group (Attached)', 'value' => 99],
                 ['label' => '1 Column', 'value' => '1'],
                 ['label' => '2 Columns', 'value' => '2'],
                 ['label' => '3 Columns', 'value' => '3'],
@@ -405,6 +406,54 @@ $temporaryColumns = [
         'label' => 'Card',
         'value' => 'card',
         'icon' => 'content-textpic', 
+        'group' => 'common',
+    ]
+);
+
+// Content Element: Gallery (Manual)
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'Gallery (Manual)',
+        'value' => 'spark_gallery',
+        'icon' => 'content-image',
+        'group' => 'common',
+    ]
+);
+
+// Content Element: Gallery (Collection)
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'Gallery (Collection)',
+        'value' => 'spark_gallery_collection',
+        'icon' => 'content-image',
+        'group' => 'common',
+    ]
+);
+
+// Content Element: File (Single)
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'File (Download Card)',
+        'value' => 'spark_file',
+        'icon' => 'content-special-uploads',
+        'group' => 'common',
+    ]
+);
+
+// Content Element: File Collection (List)
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+    'tt_content',
+    'CType',
+    [
+        'label' => 'File Collection (List)',
+        'value' => 'spark_file_collection',
+        'icon' => 'content-special-uploads',
         'group' => 'common',
     ]
 );
@@ -508,6 +557,128 @@ $GLOBALS['TCA']['tt_content']['types']['card'] = [
             ],
         ],
     ],
+];
+
+// Spark Gallery (Manual)
+$GLOBALS['TCA']['tt_content']['types']['spark_gallery'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            --palette--;;mediaAdjustments,
+            assets,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+            --palette--;;frames,
+            --palette--;Grid Settings;spark_grid_settings,
+            --palette--;;appearanceLinks,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+            --palette--;;language,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --palette--;;hidden,
+            --palette--;;access,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+            rowDescription,
+    ',
+    'columnsOverrides' => [
+        'assets' => [
+            'config' => [
+                'minitems' => 1,
+                'maxitems' => 99,
+                'filter' => [
+                    0 => [
+                        'parameters' => [
+                            'allowedFileExtensions' => 'jpg,jpeg,png,svg,gif,webp',
+                        ],
+                    ],
+                ],
+            ],
+        ],
+    ],
+];
+
+// Spark Gallery (Collection)
+$GLOBALS['TCA']['tt_content']['types']['spark_gallery_collection'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            file_collections,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+            --palette--;;frames,
+            --palette--;Grid Settings;spark_grid_settings,
+            --palette--;;appearanceLinks,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+            --palette--;;language,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --palette--;;hidden,
+            --palette--;;access,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+            rowDescription,
+    ',
+    'columnsOverrides' => [
+        'file_collections' => [
+            'config' => [
+                'minitems' => 1,
+                'maxitems' => 5,
+            ],
+        ],
+    ],
+];
+
+// Spark File (Single)
+$GLOBALS['TCA']['tt_content']['types']['spark_file'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            assets,
+            bodytext;Description,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+            --palette--;;frames,
+            --palette--;;appearanceLinks,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+            --palette--;;language,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --palette--;;hidden,
+            --palette--;;access,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+            rowDescription,
+    ',
+    'columnsOverrides' => [
+        'assets' => [
+            'label' => 'File (Download)',
+            'config' => [
+                'minitems' => 1,
+                'maxitems' => 1,
+            ],
+        ],
+        'bodytext' => [
+            'config' => [
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'simple',
+            ],
+        ],
+    ],
+];
+
+// Spark File Collection (List)
+$GLOBALS['TCA']['tt_content']['types']['spark_file_collection'] = [
+    'showitem' => '
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
+            --palette--;;general,
+            --palette--;;headers,
+            file_collections,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:appearance,
+            --palette--;;frames,
+            --palette--;;appearanceLinks,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:language,
+            --palette--;;language,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:access,
+            --palette--;;hidden,
+            --palette--;;access,
+        --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:notes,
+            rowDescription,
+    ',
 ];
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTCAcolumns('tt_content', $temporaryColumns);

@@ -1,0 +1,35 @@
+// ETF UNSA - Lightbox (GLightbox) Overrides
+// Author: Ernedin Zajko
+// License: GPL-2.0-or-later
+
+/*
+ * GLightbox Overrides
+ * Ensure the lightbox sits on top of all other elements and matches design tokens.
+ */
+
+// Import basic GLightbox styles (assume imported via site.scss or global styles)
+
+.glightbox-container {
+    z-index: 1060 !important; // Bootstrap Modal is 1055, Offcanvas 1045
+
+    // Customize overlay background if needed
+    .goverlay {
+        background: rgba(0, 0, 0, 0.9);
+    }
+
+    // Customize close button
+    .gclose {
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    // Caption styling
+    .gslide-desc {
+        font-family: var(--bs-font-sans-serif);
+        background: rgba(0, 0, 0, 0.8) !important;
+        color: #fff;
+    }
+}

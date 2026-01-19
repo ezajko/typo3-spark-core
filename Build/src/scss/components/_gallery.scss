@@ -1,0 +1,72 @@
+// ETF UNSA - Gallery Component
+// Author: Ernedin Zajko
+// License: GPL-2.0-or-later
+
+/*
+ * .gallery
+ * Custom Grid Layout for Image Galleries
+ * Usage: <div class="gallery gallery-{cols}">...</div>
+ */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(var(--gallery-cols, 1), 1fr);
+    gap: $spacer; // 1rem default
+    margin-bottom: $spacer;
+
+    // Items
+    .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: var(--bs-border-radius);
+
+        // Ratio handling if not using aspect-ratio util
+        display: flex;
+        flex-direction: column;
+
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        // Hover Effect
+        &:hover {
+            img {
+                transform: scale(1.05);
+            }
+        }
+    }
+
+    // Variations (Columns)
+    &.gallery-2 {
+        --gallery-cols: 2;
+    }
+
+    &.gallery-3 {
+        --gallery-cols: 3;
+    }
+
+    &.gallery-4 {
+        --gallery-cols: 4;
+    }
+
+    &.gallery-5 {
+        --gallery-cols: 5;
+    }
+
+    &.gallery-6 {
+        --gallery-cols: 6;
+    }
+
+    // Responsive Fallbacks (Mobile is always 1 or 2)
+    @include media-breakpoint-down(md) {
+        --gallery-cols: 2 !important;
+    }
+
+    @include media-breakpoint-down(sm) {
+        --gallery-cols: 1 !important;
+    }
+}

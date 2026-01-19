@@ -13,6 +13,7 @@
         "@fontsource/ibm-plex-serif": "^5.2.7",
         "bootstrap": "^5.3.8",
         "bootstrap-icons": "^1.11.0",
+        "glightbox": "^3.3.1",
         "sass": "^1.69.0"
     },
     "devDependencies": {

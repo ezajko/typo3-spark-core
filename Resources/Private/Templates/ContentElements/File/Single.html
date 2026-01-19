@@ -1,0 +1,53 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Header">
+    <f:render partial="Header/All" arguments="{_all}" />
+</f:section>
+<f:section name="Main">
+    <f:if condition="{files}">
+        <f:for each="{files}" as="file" iteration="i">
+            <f:if condition="{i.isFirst}">
+                <div class="list-group list-group-file shadow-sm">
+                    <a href="{file.originalFile.publicUrl}" class="list-group-item list-group-item-action" download>
+                        <div class="file-icon">
+                            <f:if condition="{file.extension} == 'pdf'">
+                                <f:then><i class="bi bi-file-earmark-pdf"></i></f:then>
+                                <f:else>
+                                    <f:if condition="{file.extension} == 'doc' || {file.extension} == 'docx'">
+                                        <f:then><i class="bi bi-file-earmark-word"></i></f:then>
+                                        <f:else>
+                                            <f:if condition="{file.extension} == 'xls' || {file.extension} == 'xlsx'">
+                                                <f:then><i class="bi bi-file-earmark-excel"></i></f:then>
+                                                <f:else><i class="bi bi-file-earmark"></i></f:else>
+                                            </f:if>
+                                        </f:else>
+                                    </f:if>
+                                </f:else>
+                            </f:if>
+                        </div>
+                        <div class="file-content">
+                            <span class="file-title">{f:if(condition: file.title, then: file.title, else:
+                                file.originalFile.name)}</span>
+                            <span class="file-meta">
+                                {file.extension -> f:format.case(mode: 'upper')},
+                                <f:format.bytes value="{file.originalFile.size}" />
+                                &bull; <f:format.date format="d.m.Y.">{file.originalFile.creationDate}</f:format.date>
+                            </span>
+                        </div>
+                        <div class="file-action">
+                            <i class="bi bi-download"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <f:if condition="{data.bodytext}">
+                    <div class="mt-3">
+                        <f:format.html>{data.bodytext}</f:format.html>
+                    </div>
+                </f:if>
+            </f:if>
+        </f:for>
+    </f:if>
+</f:section>
+
+</html>

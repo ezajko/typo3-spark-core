@@ -1,0 +1,52 @@
+imports:
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+editor:
+    config:
+        # Generic CSS for styling inside RTE
+        # contentsCss: "EXT:spark_core/Resources/Public/Css/rte.css" 
+
+        stylesSet:
+            - { name: "Lead", element: "p", attributes: { 'class': 'lead' } }
+            - { name: "Small", element: "small" }
+            - { name: "Text Primary", element: "span", attributes: { 'class': 'text-primary' } }
+            - { name: "Text Secondary", element: "span", attributes: { 'class': 'text-secondary' } }
+            - { name: "Text Muted", element: "span", attributes: { 'class': 'text-muted' } }
+            
+            - { name: "Button Primary", element: "a", attributes: { 'class': 'btn btn-primary' } }
+            - { name: "Button Secondary", element: "a", attributes: { 'class': 'btn btn-secondary' } }
+            - { name: "Button Outline Primary", element: "a", attributes: { 'class': 'btn btn-outline-primary' } }
+            
+            - { name: "Table Striped", element: "table", attributes: { 'class': 'table table-striped' } }
+            - { name: "Table Bordered", element: "table", attributes: { 'class': 'table table-bordered' } }
+
+        format_tags: "p;h1;h2;h3;h4;h5;pre"
+
+        justifyClasses:
+            - text-start
+            - text-center
+            - text-end
+            - text-justify
+
+        toolbarGroups:
+            - { name: styles, groups: [ format, styles ] }
+            - { name: basicstyles, groups: [ basicstyles ] }
+            - { name: paragraph, groups: [ list, indent, blocks, align ] }
+            - "/"
+            - { name: links, groups: [ links ] }
+            - { name: clipboard, groups: [ clipboard, cleanup, undo ] }
+            - { name: editing, groups: [ spellchecker ] }
+            - { name: insert, groups: [ insert ] }
+            - { name: tools, groups: [ table, specialchar ] }
+            - { name: document, groups: [ mode ] }
+
+        removePlugins:
+            - image
+            - exportpdf
+
+        removeButtons:
+            - Anchor
+            - Underline
+            - Strike

@@ -1,0 +1,32 @@
+imports:
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Processing.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Base.yaml" }
+    - { resource: "EXT:rte_ckeditor/Configuration/RTE/Editor/Plugins.yaml" }
+
+editor:
+    config:
+        stylesSet: []
+
+        format_tags: "p"
+
+        toolbarGroups:
+            - { name: basicstyles, groups: [ basicstyles ] }
+            - { name: paragraph, groups: [ list ] }
+            - { name: links, groups: [ links ] }
+            - { name: clipboard, groups: [ clipboard, undo ] }
+            - { name: tools, groups: [ specialchar ] }
+
+        removePlugins:
+            - image
+            - table
+            - codemirror
+            - exportpdf
+
+        removeButtons:
+            - Anchor
+            - Underline
+            - Strike
+            - Subscript
+            - Superscript
+            - Styles
+            - Format

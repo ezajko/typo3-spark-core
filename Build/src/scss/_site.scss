@@ -20,8 +20,10 @@
 @import 'base/bootstrap-overrides'; // CSS Variables & Runtime overrides
 @import "bootstrap/scss/bootstrap"; // Import all Bootstrap styles
 @import "bootstrap-icons/font/bootstrap-icons.css";
+@import "glightbox/dist/css/glightbox.min.css"; // GLightbox Core
 
 @import 'base/mixins'; // Custom mixins
+@import 'base/lightbox'; // GLightbox Overrides
 
 // 3. Base Styles
 @import 'base/global';
@@ -56,6 +58,8 @@
 
 // 6. Custom/Extended Components (New)
 @import 'overrides/components/timeline';
+@import 'components/gallery'; // New Gallery Component
+@import 'components/file-list'; // New File List Component
 
 // 7. Feedback & Utilities Overrides
 @import 'overrides/components/progress';

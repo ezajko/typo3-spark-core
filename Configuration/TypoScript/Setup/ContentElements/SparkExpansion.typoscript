@@ -1,0 +1,52 @@
+# Gallery (Manual)
+tt_content.spark_gallery =< lib.contentElement
+tt_content.spark_gallery {
+    templateName = Gallery/Manual
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\GalleryProcessor
+        10 {
+            filesProcessedDataKey = gallery
+            mediaOrientation.field = imageorient
+            numberOfColumns.field = imagecols
+        }
+    }
+}
+
+# Gallery (Collection)
+tt_content.spark_gallery_collection =< lib.contentElement
+tt_content.spark_gallery_collection {
+    templateName = Gallery/Collection
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = file_collections
+            as = files
+        }
+    }
+}
+
+# File (Single)
+tt_content.spark_file =< lib.contentElement
+tt_content.spark_file {
+    templateName = File/Single
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = assets
+            as = files
+        }
+    }
+}
+
+# File Collection (List)
+tt_content.spark_file_collection =< lib.contentElement
+tt_content.spark_file_collection {
+    templateName = File/Collection
+    dataProcessing {
+        10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+        10 {
+            references.fieldName = file_collections
+            as = files
+        }
+    }
+}

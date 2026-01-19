@@ -1,0 +1,21 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Header">
+    <f:render partial="Header/All" arguments="{_all}" />
+</f:section>
+<f:section name="Main">
+    <f:if condition="{files}">
+        <div class="gallery gallery-4">
+            <f:for each="{files}" as="file">
+                <div class="gallery-item">
+                    <a href="{file.originalFile.publicUrl}" class="glightbox" data-gallery="gallery-{data.uid}"
+                        data-description="{file.description}">
+                        <f:media file="{file}" class="img-fluid" alt="{file.alternative}" />
+                    </a>
+                </div>
+            </f:for>
+        </div>
+    </f:if>
+</f:section>
+
+</html>
