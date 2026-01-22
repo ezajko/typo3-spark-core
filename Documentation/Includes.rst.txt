@@ -1,0 +1,5 @@
+.. _includes:
+
+.. |author| replace:: Ernedin Zajko
+.. |extension_key| replace:: spark_core
+.. |extension_name| replace:: Spark Core
