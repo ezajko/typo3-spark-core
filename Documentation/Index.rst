@@ -10,7 +10,7 @@ Spark Core
     spark_core
 
 :Package name:
-    etf-unsa/spark-core
+    rootba/typo3-spark-core
 
 :Version:
     1.0.0
@@ -19,7 +19,7 @@ Spark Core
     en
 
 :Author:
-    Ernedin Zajko & ETF Sarajevo
+    Ernedin Zajko
 
 :License:
     This extension documentation is published under the
@@ -27,7 +27,7 @@ Spark Core
 
     The extension itself is licensed under the GPL-2.0-or-later.
 
-**Spark Core** is the central extension for the ETF Spark TYPO3 distribution. 
+**Spark Core** is the central extension for the Spark TYPO3 distribution. 
 It provides base configurations, site packages, and integration with the Spark Design System.
 
 .. toctree::

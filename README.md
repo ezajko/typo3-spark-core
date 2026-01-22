@@ -1,6 +1,6 @@
 # Spark Core Extension
 
-Core functionality and configuration for the ETF Spark TYPO3 distribution.
+Core functionality and configuration for the Spark TYPO3 distribution.
 
 ## Features
 
@@ -13,7 +13,7 @@ Core functionality and configuration for the ETF Spark TYPO3 distribution.
 
 ## Installation
 
-This extension is part of the ETF Spark distribution and is typically installed via Composer.
+This extension is part of the Spark distribution and is typically installed via Composer.
 
 ```bash
 composer req rootba/typo3-spark-core
