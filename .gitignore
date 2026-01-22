@@ -1,0 +1,10 @@
+# Build dependencies
+Build/node_modules/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
