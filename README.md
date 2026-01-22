@@ -16,7 +16,7 @@ Core functionality and configuration for the ETF Spark TYPO3 distribution.
 This extension is part of the ETF Spark distribution and is typically installed via Composer.
 
 ```bash
-composer req etf-unsa/spark-core
+composer req rootba/typo3-spark-core
 ```
 
 ## Configuration
