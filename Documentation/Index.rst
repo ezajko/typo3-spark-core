@@ -34,6 +34,7 @@ It provides base configurations, site packages, and integration with the Spark D
    :maxdepth: 2
    :titlesonly:
 
-   Installation/Index
-   Configuration/Index
-   Development/Index
+   Installation
+   Configuration
+   ContentElements
+   Development
