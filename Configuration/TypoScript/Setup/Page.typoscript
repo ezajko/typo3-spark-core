@@ -48,7 +48,8 @@ page {
             10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             10 {
                 special = directory
-                special.value = {$spark_core.pids.mainMenu}
+                special.value.data = site:pidMainMenu
+                special.value.ifEmpty = {$spark_core.pids.mainMenu}
                 levels = 6
                 includeSpacer = 1
                 includeNotInMenu = 1
@@ -86,7 +87,8 @@ page {
             50 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             50 {
                 special = directory
-                special.value = 11
+                special.value.data = site:pidSlimMenu
+                special.value.ifEmpty = {$spark_core.pids.slimMenu}
                 levels = 3
                 includeNotInMenu = 1
                 as = slimnavigation
@@ -106,7 +108,8 @@ page {
             70 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
             70 {
                 special = directory
-                special.value = {$spark_core.pids.footerMenu}
+                special.value.data = site:pidFooterMenu
+                special.value.ifEmpty = {$spark_core.pids.footerMenu}
                 levels = 1
                 includeNotInMenu = 1
                 as = footerNavigation

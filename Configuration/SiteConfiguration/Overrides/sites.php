@@ -137,7 +137,7 @@ defined('TYPO3') || die();
         'config' => $socialConfig,
     ];
 
-    // PIDS
+    // PIDS (Links)
     $pidConfig = [
         'type' => 'link',
         'allowedTypes' => ['page', 'url'],
@@ -161,6 +161,25 @@ defined('TYPO3') || die();
         'config' => $pidConfig,
     ];
 
+    // PIDS (Storage / Menus - Integers)
+    $menuPidConfig = [
+        'type' => 'number',
+        'default' => 0,
+    ];
+
+    $GLOBALS['SiteConfiguration']['site']['columns']['pidMainMenu'] = [
+        'label' => 'Main Menu Root Page', // TODO: Add to locallang
+        'config' => $menuPidConfig,
+    ];
+    $GLOBALS['SiteConfiguration']['site']['columns']['pidFooterMenu'] = [
+        'label' => 'Footer Menu Root Page',
+        'config' => $menuPidConfig,
+    ];
+    $GLOBALS['SiteConfiguration']['site']['columns']['pidSlimMenu'] = [
+        'label' => 'Slim Menu Root Page',
+        'config' => $menuPidConfig,
+    ];
+
     // -----------------------------------------------------------------------------------------------------------------
     // PALETTES & TABS (SITE)
     // -----------------------------------------------------------------------------------------------------------------
@@ -172,7 +191,7 @@ defined('TYPO3') || die();
         'showitem' => 'logoParent, --linebreak--, logoMain, --linebreak--, logoMobile, --linebreak--, logoSmall',
     ];
     $GLOBALS['SiteConfiguration']['site']['palettes']['sparkPids'] = [
-        'showitem' => 'pidCorruption, pidPrivacy, pidTerms, pidAccessibility',
+        'showitem' => 'pidMainMenu, pidFooterMenu, pidSlimMenu, --linebreak--, pidCorruption, pidPrivacy, pidTerms, pidAccessibility',
     ];
     $GLOBALS['SiteConfiguration']['site']['palettes']['sparkSocial'] = [
         'showitem' => 'socialFacebook, socialInstagram, socialX, socialLinkedin, socialYoutube',
@@ -215,6 +234,9 @@ defined('TYPO3') || die();
         'pidPrivacy',
         'pidTerms',
         'pidAccessibility',
+        'pidMainMenu',
+        'pidFooterMenu',
+        'pidSlimMenu',
         'socialFacebook',
         'socialInstagram',
         'socialX',
@@ -245,7 +267,7 @@ defined('TYPO3') || die();
 
     $GLOBALS['SiteConfiguration']['site_language']['palettes']['sparkPidsLocalized'] = [
         'label' => $ll . 'site.configuration.palette.pids_localized',
-        'showitem' => 'pidCorruption, pidPrivacy, pidTerms, pidAccessibility',
+        'showitem' => 'pidMainMenu, pidFooterMenu, pidSlimMenu, --linebreak--, pidCorruption, pidPrivacy, pidTerms, pidAccessibility',
     ];
 
     $GLOBALS['SiteConfiguration']['site_language']['palettes']['sparkSocialLocalized'] = [

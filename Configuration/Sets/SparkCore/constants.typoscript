@@ -1,8 +1,9 @@
 spark_core {
     pids {
-        slimMenu = {$settings.spark_core.pids.slimMenu}
-        mainMenu = {$settings.spark_core.pids.mainMenu}
-        footerMenu = {$settings.spark_core.pids.footerMenu}
+        # Defaults if not using Site Configuration (fallback)
+        slimMenu = 11
+        mainMenu = 21
+        footerMenu = 30
     }
 }
 
