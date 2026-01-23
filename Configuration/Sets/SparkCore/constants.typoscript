@@ -1,11 +1,8 @@
 spark_core {
     pids {
-        # cat=spark_core/pids; type=int+; label=Slim Menu Root Page ID
-        slimMenu = 11
-        # cat=spark_core/pids; type=int+; label=Main Menu Root Page ID
-        mainMenu = 21
-        # cat=spark_core/pids; type=int+; label=Footer Menu Root Page ID
-        footerMenu = 30
+        slimMenu = {$settings.spark_core.pids.slimMenu}
+        mainMenu = {$settings.spark_core.pids.mainMenu}
+        footerMenu = {$settings.spark_core.pids.footerMenu}
     }
 }
 

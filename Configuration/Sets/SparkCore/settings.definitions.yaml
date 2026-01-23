@@ -1,0 +1,25 @@
+categories:
+  - name: pids
+    label: 'Menu PIDs'
+
+definitions:
+  spark_core.pids.mainMenu:
+    category: pids
+    label: 'Main Menu Root Page'
+    description: 'UID of the page containing the Main Menu creation.'
+    type: integer
+    default: 21
+
+  spark_core.pids.footerMenu:
+    category: pids
+    label: 'Footer Menu Root Page'
+    description: 'UID of the page containing the Footer Menu.'
+    type: integer
+    default: 30
+
+  spark_core.pids.slimMenu:
+    category: pids
+    label: 'Slim Menu Root Page'
+    description: 'UID of the Top/Slim Menu.'
+    type: integer
+    default: 11
